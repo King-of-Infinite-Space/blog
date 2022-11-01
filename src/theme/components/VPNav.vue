@@ -12,16 +12,28 @@ provide('close-screen', closeScreen)
 </script>
 
 <template>
-  <header class="VPNav" :class="{ 'no-sidebar' : !hasSidebar }">
+  <header class="VPNav" :class="{ 'no-sidebar': !hasSidebar }">
     <VPNavBar :is-screen-open="isScreenOpen" @toggle-screen="toggleScreen">
-      <template #nav-bar-title-before><slot name="nav-bar-title-before" /></template>
-      <template #nav-bar-title-after><slot name="nav-bar-title-after" /></template>
-      <template #nav-bar-content-before><slot name="nav-bar-content-before" /></template>
-      <template #nav-bar-content-after><slot name="nav-bar-content-after" /></template>
+      <template #nav-bar-title-before>
+        <slot name="nav-bar-title-before" />
+      </template>
+      <template #nav-bar-title-after>
+        <slot name="nav-bar-title-after" />
+      </template>
+      <template #nav-bar-content-before>
+        <slot name="nav-bar-content-before" />
+      </template>
+      <template #nav-bar-content-after>
+        <slot name="nav-bar-content-after" />
+      </template>
     </VPNavBar>
     <VPNavScreen :open="isScreenOpen">
-      <template #nav-screen-content-before><slot name="nav-screen-content-before" /></template>
-      <template #nav-screen-content-after><slot name="nav-screen-content-after" /></template>
+      <template #nav-screen-content-before>
+        <slot name="nav-screen-content-before" />
+      </template>
+      <template #nav-screen-content-after>
+        <slot name="nav-screen-content-after" />
+      </template>
     </VPNavScreen>
   </header>
 </template>
@@ -37,9 +49,6 @@ provide('close-screen', closeScreen)
 }
 
 @media (min-width: 960px) {
-  .VPNav {
-    position: fixed;
-  }
 
   .VPNav.no-sidebar {
     -webkit-backdrop-filter: saturate(50%) blur(8px);

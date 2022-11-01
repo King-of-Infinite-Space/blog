@@ -13,13 +13,7 @@ const { site } = useData()
 
 <style scoped>
 .VPNavBarAppearance {
-  display: none;
-}
-
-@media (min-width: 1280px) {
-  .VPNavBarAppearance {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
 }
 </style>

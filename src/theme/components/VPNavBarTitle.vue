@@ -20,6 +20,9 @@ const { hasSidebar } = useSidebar()
 </template>
 
 <style scoped>
+@import url('https://use.typekit.net/obb3blh.css');
+
+/* Satisfy font from adobe */
 .VPNavBarTitle {
   flex-shrink: 0;
   border-bottom: 1px solid transparent;
@@ -39,10 +42,11 @@ const { hasSidebar } = useSidebar()
   align-items: center;
   width: 100%;
   height: var(--vp-nav-height);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--vp-c-text-1);
   transition: opacity 0.25s;
+  font-family: satisfy, cursive;
 }
 
 .title:hover {

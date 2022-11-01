@@ -1,27 +1,25 @@
 <script lang="ts" setup>
 import { useData } from 'vitepress'
+import type { DefaultTheme } from 'vitepress/theme'
 import VPSocialLinks from './VPSocialLinks.vue'
 
-const { theme } = useData()
+const { theme, frontmatter } = useData()
+
+const socialLinks: DefaultTheme.SocialLink[] = [
+  {
+    icon: 'github',
+    link: frontmatter.value.url
+  }
+]
 </script>
 
 <template>
-  <VPSocialLinks
-    v-if="theme.socialLinks"
-    class="VPNavBarSocialLinks"
-    :links="theme.socialLinks"
-  />
+  <VPSocialLinks v-if="socialLinks" class="VPNavBarSocialLinks" :links="socialLinks" />
 </template>
 
 <style scoped>
 .VPNavBarSocialLinks {
-  display: none;
-}
-
-@media (min-width: 1280px) {
-  .VPNavBarSocialLinks {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
 }
 </style>

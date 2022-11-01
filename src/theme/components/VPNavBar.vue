@@ -5,8 +5,6 @@ import VPNavBarMenu from './VPNavBarMenu.vue'
 import VPNavBarTranslations from './VPNavBarTranslations.vue'
 import VPNavBarAppearance from './VPNavBarAppearance.vue'
 import VPNavBarSocialLinks from './VPNavBarSocialLinks.vue'
-import VPNavBarExtra from './VPNavBarExtra.vue'
-import VPNavBarHamburger from './VPNavBarHamburger.vue'
 
 defineProps<{
   isScreenOpen: boolean
@@ -35,11 +33,9 @@ const { hasSidebar } = useSidebar()
         <slot name="nav-bar-content-before" />
         <VPNavBarMenu class="menu" />
         <VPNavBarTranslations class="translations" />
-        <VPNavBarAppearance class="appearance" />
         <VPNavBarSocialLinks class="social-links" />
-        <VPNavBarExtra class="extra" />
+        <VPNavBarAppearance class="appearance" />
         <slot name="nav-bar-content-after" />
-        <VPNavBarHamburger class="hamburger" :active="isScreenOpen" @click="$emit('toggle-screen')" />
       </div>
     </div>
   </div>
@@ -49,7 +45,7 @@ const { hasSidebar } = useSidebar()
 .VPNavBar {
   position: relative;
   border-bottom: 1px solid var(--vp-c-divider-light);
-  padding: 0 8px 0 24px;
+  padding: 0 24px;
   height: var(--vp-nav-height-mobile);
   transition: border-color 0.5s, background-color 0.5s;
   pointer-events: none;
@@ -113,7 +109,7 @@ const { hasSidebar } = useSidebar()
 .menu+.appearance::before,
 .menu+.social-links::before,
 .translations+.appearance::before,
-.appearance+.social-links::before {
+.social-links+.appearance::before {
   margin-right: 8px;
   margin-left: 8px;
   width: 1px;
@@ -127,11 +123,7 @@ const { hasSidebar } = useSidebar()
   margin-right: 16px;
 }
 
-.appearance+.social-links::before {
-  margin-left: 16px;
-}
-
-.social-links {
-  margin-right: -8px;
+.social-links+.appearance::before {
+  margin-right: 16px;
 }
 </style>
