@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { useSidebar } from '../composables/sidebar.js'
 import VPNavBarTitle from './VPNavBarTitle.vue'
-import VPNavBarSearch from './VPNavBarSearch.vue'
 import VPNavBarMenu from './VPNavBarMenu.vue'
 import VPNavBarTranslations from './VPNavBarTranslations.vue'
 import VPNavBarAppearance from './VPNavBarAppearance.vue'
@@ -21,27 +20,26 @@ const { hasSidebar } = useSidebar()
 </script>
 
 <template>
-  <div class="VPNavBar" :class="{ 'has-sidebar' : hasSidebar }">
+  <div class="VPNavBar" :class="{ 'has-sidebar': hasSidebar }">
     <div class="container">
       <VPNavBarTitle>
-        <template #nav-bar-title-before><slot name="nav-bar-title-before" /></template>
-        <template #nav-bar-title-after><slot name="nav-bar-title-after" /></template>
+        <template #nav-bar-title-before>
+          <slot name="nav-bar-title-before" />
+        </template>
+        <template #nav-bar-title-after>
+          <slot name="nav-bar-title-after" />
+        </template>
       </VPNavBarTitle>
 
       <div class="content">
         <slot name="nav-bar-content-before" />
-        <VPNavBarSearch class="search" />
         <VPNavBarMenu class="menu" />
         <VPNavBarTranslations class="translations" />
         <VPNavBarAppearance class="appearance" />
         <VPNavBarSocialLinks class="social-links" />
         <VPNavBarExtra class="extra" />
         <slot name="nav-bar-content-after" />
-        <VPNavBarHamburger
-          class="hamburger"
-          :active="isScreenOpen"
-          @click="$emit('toggle-screen')"
-        />
+        <VPNavBarHamburger class="hamburger" :active="isScreenOpen" @click="$emit('toggle-screen')" />
       </div>
     </div>
   </div>
@@ -111,11 +109,11 @@ const { hasSidebar } = useSidebar()
   flex-grow: 1;
 }
 
-.menu + .translations::before,
-.menu + .appearance::before,
-.menu + .social-links::before,
-.translations + .appearance::before,
-.appearance + .social-links::before {
+.menu+.translations::before,
+.menu+.appearance::before,
+.menu+.social-links::before,
+.translations+.appearance::before,
+.appearance+.social-links::before {
   margin-right: 8px;
   margin-left: 8px;
   width: 1px;
@@ -124,12 +122,12 @@ const { hasSidebar } = useSidebar()
   content: "";
 }
 
-.menu + .appearance::before,
-.translations + .appearance::before {
+.menu+.appearance::before,
+.translations+.appearance::before {
   margin-right: 16px;
 }
 
-.appearance + .social-links::before {
+.appearance+.social-links::before {
   margin-left: 16px;
 }
 
