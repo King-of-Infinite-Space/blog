@@ -1,5 +1,8 @@
 {
 	"devDependencies": {
+		"@vueuse/core": "^9.4.0",
+		"body-scroll-lock": "4.0.0-beta.0",
+		"stylus": "^0.59.0",
 		"vitepress": "1.0.0-alpha.26",
 		"vue": "^3.2.41"
 	},
@@ -7,5 +10,5 @@
 		"dev": "vitepress dev posts",
 		"build": "vitepress build posts",
 		"serve": "vitepress serve posts"
-	  }
+	}
 }
