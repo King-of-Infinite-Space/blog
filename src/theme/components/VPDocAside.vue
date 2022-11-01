@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { useData } from 'vitepress'
-import VPDocAsideOutline from './VPDocAsideOutline.vue'
-import VPDocAsideCarbonAds from './VPDocAsideCarbonAds.vue'
+import { useData } from "vitepress"
+import VPDocAsideOutline from "./VPDocAsideOutline.vue"
 
 const { theme } = useData()
 </script>
@@ -16,10 +15,6 @@ const { theme } = useData()
 
     <div class="spacer" />
 
-    <slot name="aside-ads-before" />
-    <VPDocAsideCarbonAds v-if="theme.carbonAds" />
-    <slot name="aside-ads-after" />
-
     <slot name="aside-bottom" />
   </div>
 </template>
@@ -33,14 +28,5 @@ const { theme } = useData()
 
 .spacer {
   flex-grow: 1;
-}
-
-.VPDocAside :deep(.spacer + .VPDocAsideSponsors),
-.VPDocAside :deep(.spacer + .VPDocAsideCarbonAds) {
-  margin-top: 24px;
-}
-
-.VPDocAside :deep(.VPDocAsideSponsors + .VPDocAsideCarbonAds) {
-  margin-top: 16px;
 }
 </style>
