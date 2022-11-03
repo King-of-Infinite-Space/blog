@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import type { DefaultTheme } from 'vitepress/theme'
-import { useData } from 'vitepress'
-import { isActive } from '../support/utils.js'
-import VPLink from './VPLink.vue'
+import type { DefaultTheme } from "vitepress/theme"
+import { useData } from "vitepress"
+import { isActive } from "../support/utils.js"
+import VPLink from "./VPLink.vue"
 
 defineProps<{
   item: DefaultTheme.NavItemWithLink
@@ -19,7 +19,7 @@ const { page } = useData()
         page.relativePath,
         item.activeMatch || item.link,
         !!item.activeMatch
-      )
+      ),
     }"
     :href="item.link"
     :noIcon="true"
@@ -39,14 +39,14 @@ const { page } = useData()
   color: var(--vp-c-text-1);
   transition: color 0.25s;
 }
-
+/* 
 .VPNavBarMenuLink.active {
   color: var(--vp-c-brand);
 }
 
 .VPNavBarMenuLink:hover {
   color: var(--vp-c-brand);
-}
+} */
 
 @media (min-width: 1280px) {
   .VPNavBarMenuLink {

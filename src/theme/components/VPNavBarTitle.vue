@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useData } from 'vitepress'
-import { useSidebar } from '../composables/sidebar.js'
-import VPImage from './VPImage.vue'
+import { useData } from "vitepress"
+import { useSidebar } from "../composables/sidebar.js"
+import VPImage from "./VPImage.vue"
 
 const { site, theme } = useData()
 const { hasSidebar } = useSidebar()
@@ -13,15 +13,15 @@ const { hasSidebar } = useSidebar()
       <slot name="nav-bar-title-before" />
       <VPImage class="logo" :image="theme.logo" />
       <template v-if="theme.siteTitle">{{ theme.siteTitle }}</template>
-      <template v-else-if="theme.siteTitle === undefined">{{ site.title }}</template>
+      <template v-else-if="theme.siteTitle === undefined">{{
+        site.title
+      }}</template>
       <slot name="nav-bar-title-after" />
     </a>
   </div>
 </template>
 
 <style scoped>
-@import url('https://use.typekit.net/obb3blh.css');
-
 /* Satisfy font from adobe */
 .VPNavBarTitle {
   flex-shrink: 0;
@@ -46,7 +46,7 @@ const { hasSidebar } = useSidebar()
   font-weight: 600;
   color: var(--vp-c-text-1);
   transition: opacity 0.25s;
-  font-family: satisfy, cursive;
+  font-family: var(--font-banner);
 }
 
 .title:hover {

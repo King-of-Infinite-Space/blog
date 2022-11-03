@@ -1,9 +1,11 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { useFlyout } from '../composables/flyout.js'
-import VPIconChevronDown from './icons/VPIconChevronDown.vue'
-import VPIconMoreHorizontal from './icons/VPIconMoreHorizontal.vue'
-import VPMenu from './VPMenu.vue'
+import { ref } from "vue"
+import { useData } from "vitepress"
+import { useFlyout } from "../composables/flyout.js"
+import VPIconChevronDown from "./icons/VPIconChevronDown.vue"
+import VPIconChevronUp from "./icons/VPIconChevronUp.vue"
+import VPIconMoreHorizontal from "./icons/VPIconMoreHorizontal.vue"
+import VPMenu from "./VPMenu.vue"
 
 defineProps<{
   icon?: any
@@ -20,6 +22,9 @@ useFlyout({ el, onBlur })
 function onBlur() {
   open.value = false
 }
+
+const { frontmatter } = useData()
+const isHome = frontmatter.value.layout === "home"
 </script>
 
 <template>
@@ -40,7 +45,8 @@ function onBlur() {
       <span v-if="button || icon" class="text">
         <component v-if="icon" :is="icon" class="option-icon" />
         {{ button }}
-        <VPIconChevronDown class="text-icon" />
+        <VPIconChevronDown v-if="!isHome" class="text-icon" />
+        <VPIconChevronUp v-if="isHome" class="text-icon" />
       </span>
 
       <VPIconMoreHorizontal v-else class="icon" />
@@ -60,7 +66,7 @@ function onBlur() {
 }
 
 .VPFlyout:hover {
-  color: var(--vp-c-brand);
+  /* color: var(--vp-c-brand); */
   transition: color 0.25s;
 }
 

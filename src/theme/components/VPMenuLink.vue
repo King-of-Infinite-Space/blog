@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import { useData } from 'vitepress'
-import { isActive } from '../support/utils.js'
-import VPLink from './VPLink.vue'
+import { useData } from "vitepress"
+import { isActive } from "../support/utils.js"
+import VPLink from "./VPLink.vue"
+import VPIconEdit from "./icons/VPIconEdit.vue"
 
 defineProps<{
   item: any
@@ -12,10 +13,15 @@ const { page } = useData()
 
 <template>
   <div class="VPMenuLink">
-    <VPLink 
-      :class="{ active: isActive(page.relativePath, item.activeMatch || item.link) }"
+    <VPLink
+      class="link"
+      :class="{
+        active: isActive(page.relativePath, item.activeMatch || item.link),
+        hasLink: item.link,
+      }"
       :href="item.link"
     >
+      <VPIconEdit v-if="item.type === 'edit'" class="text-icon" />
       {{ item.text }}
     </VPLink>
   </div>
@@ -29,7 +35,8 @@ const { page } = useData()
 }
 
 .link {
-  display: block;
+  display: flex;
+  align-items: center;
   border-radius: 6px;
   padding: 0 12px;
   line-height: 32px;
@@ -40,16 +47,23 @@ const { page } = useData()
   transition: background-color 0.25s, color 0.25s;
 }
 
-.link:hover {
-  color: var(--vp-c-brand);
+.link.hasLink:hover {
+  /* color: var(--vp-c-brand); */
   background-color: var(--vp-c-bg-mute);
 }
 
-.dark .link:hover {
+.dark .link.hasLink:hover {
   background-color: var(--vp-c-bg-soft);
 }
 
 .link.active {
   color: var(--vp-c-brand);
+}
+
+.text-icon {
+  margin-right: 0.3em;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
 }
 </style>
