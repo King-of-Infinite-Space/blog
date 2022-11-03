@@ -13,9 +13,10 @@ const pageName = computed(() =>
   route.path.replace(/[./]+/g, "_").replace(/_html$/, "")
 )
 
-const { frontmatter } = useData()
-const discussionNumber = frontmatter.value.url.split("/").pop()
-
+const { theme, frontmatter } = useData()
+const discussionNumber =
+  frontmatter.value.number ?? frontmatter.value.url.split("/").pop()
+const { repo, repoId } = theme.value.giscusOptions
 const onContentUpdated = ref()
 provide("onContentUpdated", onContentUpdated)
 </script>
@@ -56,6 +57,9 @@ provide("onContentUpdated", onContentUpdated)
       <div class="content">
         <slot name="doc-before" />
         <main class="main">
+          <div class="title vp-doc">
+            <h1>{{ frontmatter.title }}</h1>
+          </div>
           <Content
             class="vp-doc"
             :class="pageName"
@@ -67,12 +71,13 @@ provide("onContentUpdated", onContentUpdated)
         <slot name="doc-after" />
       </div>
       <Giscus
-        id="comments-giscus"
-        repo="King-of-Infinite-Space/thoughts"
-        repoId="MDEwOlJlcG9zaXRvcnkxMzkwMTY3MjU="
+        id="giscus"
+        :repo="repo"
+        :repoId="repoId"
         mapping="number"
         :term="discussionNumber"
         inputPosition="top"
+        theme="preferred_color_scheme"
       />
     </div>
   </div>
@@ -80,6 +85,14 @@ provide("onContentUpdated", onContentUpdated)
 
 <style scoped>
 @import url("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css");
+
+.title {
+  margin-bottom: 2.5rem;
+}
+.title h1 {
+  text-align: center;
+  font-weight: normal;
+}
 
 .VPDoc {
   padding: 32px 24px;
@@ -95,7 +108,7 @@ provide("onContentUpdated", onContentUpdated)
 }
 
 .VPDoc .content,
-.VPDoc #comments-giscus {
+.VPDoc #giscus {
   max-width: 752px;
   padding-bottom: 64px;
 }
