@@ -1,19 +1,19 @@
 {
 	"devDependencies": {
-		"@giscus/vue": "^2.2.0",
 		"@typescript-eslint/eslint-plugin": "^5.42.0",
 		"@typescript-eslint/parser": "^5.42.0",
-		"@vueuse/core": "^9.4.0",
-		"body-scroll-lock": "4.0.0-beta.0",
 		"eslint": "^8.26.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-vue": "^9.7.0",
+		"prettier": "^2.7.1",
+		"typescript": "^4.8.4"
+	},
+	"dependencies": {
+		"@giscus/vue": "^2.2.0",
 		"markdown-it-footnote": "^3.0.3",
 		"markdown-it-katex": "^2.0.3",
-		"prettier": "^2.7.1",
 		"stylus": "^0.59.0",
-		"typescript": "^4.8.4",
 		"vitepress": "1.0.0-alpha.26",
 		"vue": "^3.2.41"
 	},
