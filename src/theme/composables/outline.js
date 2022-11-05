@@ -1,6 +1,20 @@
 import { onMounted, onUnmounted, onUpdated } from "vue"
-import { useAside } from "./aside.js"
 import { throttleAndDebounce } from "../support/utils.js"
+
+function matchMediaQuery(query) {
+  let mql = window.matchMedia(query)
+  return mql.matches
+}
+
+function useAside() {
+  const is960 = matchMediaQuery("(min-width: 960px)")
+  const is1280 = matchMediaQuery("(min-width: 1280px)")
+  const isAsideEnabled = is1280 || is960
+  return {
+    isAsideEnabled,
+  }
+}
+
 // magic number to avoid repeated retrieval
 const PAGE_OFFSET = 71
 export function getHeaders(pageOutline) {
@@ -73,7 +87,7 @@ export function useActiveAnchor(container, marker) {
     window.removeEventListener("scroll", onScroll)
   })
   function setActiveLink() {
-    if (!isAsideEnabled.value) {
+    if (!isAsideEnabled) {
       return
     }
     const links = [].slice.call(

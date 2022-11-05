@@ -1,6 +1,6 @@
 import { ref } from "vue"
 import { withBase, useData } from "vitepress"
-import { EXTERNAL_URL_RE } from "../../shared.js"
+export const EXTERNAL_URL_RE = /^[a-z]+:/i;
 export const HASH_RE = /#.*$/
 export const EXT_RE = /(index)?\.(md|html)$/
 const inBrowser = typeof window !== "undefined"
