@@ -52,7 +52,7 @@ const isHome = frontmatter.value.layout === "home"
       <VPIconMoreHorizontal v-else class="icon" />
     </button>
 
-    <div class="menu">
+    <div class="menu" :class="{ isHome: isHome }">
       <VPMenu :items="items">
         <slot />
       </VPMenu>
@@ -154,9 +154,18 @@ const isHome = frontmatter.value.layout === "home"
   transition: opacity 0.25s, visibility 0.25s, transform 0.25s;
 }
 
+.menu.isHome {
+  top: unset;
+  bottom: calc(var(--vp-nav-height-mobile) / 2 + 20px);
+}
+
 @media (min-width: 960px) {
   .menu {
     top: calc(var(--vp-nav-height-desktop) / 2 + 20px);
+  }
+  .menu.isHome {
+    top: unset;
+    bottom: calc(var(--vp-nav-height-desktop) / 2 + 20px);
   }
 }
 </style>

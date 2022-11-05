@@ -7,17 +7,12 @@ import VPNavBarAppearance from "./VPNavBarAppearance.vue"
 import VPNavBarSocialLinks from "./VPNavBarSocialLinks.vue"
 
 const { frontmatter } = useData()
-
-const middleText = frontmatter.value.createdAt?.split("T")[0] || ""
 </script>
 
 <template>
-  <div
-    class="VPNavBar"
-    :class="{ 'bottom-nav': frontmatter.layout === 'home' }"
-  >
+  <div class="VPNavBar" :class="{ isHome: frontmatter.layout === 'home' }">
     <div class="container">
-      <VPNavBarTitle class="content-left">
+      <VPNavBarTitle class="content-left navBarTitle">
         <template #nav-bar-title-before>
           <slot name="nav-bar-title-before" />
         </template>
@@ -47,9 +42,13 @@ const middleText = frontmatter.value.createdAt?.split("T")[0] || ""
   transition: border-color 0.5s, background-color 0.5s;
   pointer-events: none;
 }
-.VPNavBar.bottom-nav {
+.VPNavBar.isHome {
   border-bottom: none;
   border-top: 1px solid var(--vp-c-divider-light);
+}
+
+.isHome .navBarTitle {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -62,6 +61,9 @@ const middleText = frontmatter.value.createdAt?.split("T")[0] || ""
   .VPNavBar {
     height: var(--vp-nav-height-desktop);
     border-bottom: 0;
+  }
+  .VPNavBar.isHome {
+    border-top: 0;
   }
 
   .VPNavBar.has-sidebar .content-right {

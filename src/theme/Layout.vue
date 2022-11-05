@@ -21,10 +21,15 @@ useCloseSidebarOnEscape(isSidebarOpen, closeSidebar)
 provide("close-sidebar", closeSidebar)
 
 const { frontmatter } = useData()
+const isHome = frontmatter.value.layout === "home"
 </script>
 
 <template>
-  <div v-if="frontmatter.layout !== false" class="Layout">
+  <div
+    v-if="frontmatter.layout !== false"
+    class="Layout"
+    :class="{ isHome: isHome }"
+  >
     <slot name="layout-top" />
     <VPSkipLink />
     <VPNav>
@@ -70,5 +75,9 @@ const { frontmatter } = useData()
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.Layout.isHome {
+  flex-direction: column-reverse;
 }
 </style>
