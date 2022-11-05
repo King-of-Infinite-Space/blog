@@ -3,6 +3,7 @@ import { useRoute, useData } from "vitepress"
 import { useSidebar } from "../composables/sidebar.js"
 import VPPage from "./VPPage.vue"
 import VPDoc from "./VPDoc.vue"
+import MyHome from "../components_custom/MyHome.vue"
 import { inject } from "vue"
 
 const route = useRoute()
@@ -22,6 +23,8 @@ const NotFound = inject("NotFound")
     }"
   >
     <NotFound v-if="route.component === NotFound" />
+
+    <MyHome v-else-if="frontmatter.layout === 'home'" />
 
     <VPPage v-else-if="frontmatter.layout === 'page'" />
 
