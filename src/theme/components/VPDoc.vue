@@ -14,8 +14,9 @@ const pageName = computed(() =>
 )
 
 const { theme, frontmatter } = useData()
-const discussionNumber =
-  frontmatter.value.number ?? frontmatter.value.url.split("/").pop()
+const discussionNumber = computed(
+  () => frontmatter.value.number ?? frontmatter.value.url.split("/").pop()
+)
 const { repo, repoId } = theme.value.giscusOptions
 const onContentUpdated = ref()
 provide("onContentUpdated", onContentUpdated)
@@ -71,6 +72,7 @@ provide("onContentUpdated", onContentUpdated)
         <slot name="doc-after" />
       </div>
       <Giscus
+        host="https://giscus.app"
         id="giscus"
         :repo="repo"
         :repoId="repoId"

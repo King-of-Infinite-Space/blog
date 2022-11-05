@@ -21,14 +21,13 @@ useCloseSidebarOnEscape(isSidebarOpen, closeSidebar)
 provide("close-sidebar", closeSidebar)
 
 const { frontmatter } = useData()
-const isHome = frontmatter.value.layout === "home"
 </script>
 
 <template>
   <div
     v-if="frontmatter.layout !== false"
     class="Layout"
-    :class="{ isHome: isHome }"
+    :class="{ isHome: frontmatter.layout === 'home' }"
   >
     <slot name="layout-top" />
     <VPSkipLink />

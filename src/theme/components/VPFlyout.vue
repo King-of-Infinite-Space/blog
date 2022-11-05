@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from "vue"
+import { ref, computed } from "vue"
 import { useData } from "vitepress"
 import { useFlyout } from "../composables/flyout.js"
 import VPIconChevronDown from "./icons/VPIconChevronDown.vue"
@@ -24,7 +24,7 @@ function onBlur() {
 }
 
 const { frontmatter } = useData()
-const isHome = frontmatter.value.layout === "home"
+const isHome = computed(() => frontmatter.value.layout === "home")
 </script>
 
 <template>

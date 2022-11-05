@@ -1,31 +1,34 @@
 <script setup>
+import { computed } from "vue"
 import { useData } from "vitepress"
 import VPNavBarMenuLink from "./VPNavBarMenuLink.vue"
 import VPNavBarMenuGroup from "./VPNavBarMenuGroup.vue"
 
 const { theme, frontmatter } = useData()
-const { layout, createdAt, lastEditedAt } = frontmatter.value
-const menuItems = []
-
-if (layout === "home") {
-  menuItems.push({ text: "Links", items: theme.value.friendLinks })
-} else {
-  if (createdAt) {
-    const info = { text: createdAt.split("T")[0] }
-    if (lastEditedAt) {
-      info.items = [
-        {
-          text: lastEditedAt.split("T")[0],
-          link: "",
-          type: "edit",
-        },
-      ]
-    } else {
-      info.link = ""
+const menuItems = computed(() => {
+  const { layout, createdAt, lastEditedAt } = frontmatter.value
+  const menuItems = []
+  if (layout === "home") {
+    menuItems.push({ text: "Links", items: theme.value.friendLinks })
+  } else {
+    if (createdAt) {
+      const info = { text: createdAt.split("T")[0] }
+      if (lastEditedAt) {
+        info.items = [
+          {
+            text: lastEditedAt.split("T")[0],
+            link: "",
+            type: "edit",
+          },
+        ]
+      } else {
+        info.link = ""
+      }
+      menuItems.push(info)
     }
-    menuItems.push(info)
   }
-}
+  return menuItems
+})
 </script>
 
 <template>

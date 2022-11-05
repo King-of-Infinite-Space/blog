@@ -1,11 +1,11 @@
 <script lang="ts" setup>
+import { computed } from "vue"
 import { useData } from "vitepress"
-import type { DefaultTheme } from "vitepress/theme"
 import VPSocialLinks from "./VPSocialLinks.vue"
 
 const { theme, frontmatter } = useData()
 
-const socialLinks: DefaultTheme.SocialLink[] =
+const socialLinks = computed(() =>
   frontmatter.value.layout === "home"
     ? theme.value.socialLinks
     : [
@@ -14,6 +14,7 @@ const socialLinks: DefaultTheme.SocialLink[] =
           link: frontmatter.value.url,
         },
       ]
+)
 </script>
 
 <template>
