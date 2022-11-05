@@ -51,6 +51,7 @@
   --vp-c-indigo-darker: #14212e;
 
   --vp-c-green: #42b883;
+  /* okhsl 160 82 65 */
   --vp-c-green-light: #42d392;
   --vp-c-green-lighter: #35eb9a;
   --vp-c-green-dark: #33a06f;
@@ -58,6 +59,24 @@
   --vp-c-green-dimm-1: rgba(66, 184, 131, 0.5);
   --vp-c-green-dimm-2: rgba(66, 184, 131, 0.25);
   --vp-c-green-dimm-3: rgba(66, 184, 131, 0.05);
+
+  --my-theme-color: hsl(234, 75%, 66%); /* okhsl 275 82 54*/
+  /* 70, 75 */
+  --my-theme-color-light: hsl(232, 81%, 70%);
+  --my-theme-color-lighter: hsl(231, 83%, 75%);
+  /* 48, 42 */
+  --my-theme-color-dark: hsl(236, 67%, 60%);
+  --my-theme-color-darker: hsl(234, 56%, 54%);
+
+  /* from vite doc */
+  /* okhsl 276 100 54 */
+  /* --vp-c-brand: #646cff; 
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-lighter: #9499ff;
+  --vp-c-brand-lightest: #bcc0ff;
+  --vp-c-brand-dark: #535bf2;
+  --vp-c-brand-darker: #454ce1;
+  --vp-c-brand-dimm: rgba(100, 108, 255, 0.08); */
 
   --vp-c-yellow: #ffc517;
   --vp-c-yellow-light: #fcd253;
@@ -106,11 +125,11 @@
 
   --vp-c-text-code: var(--vp-c-indigo-soft);
 
-  --vp-c-brand: var(--vp-c-green);
-  --vp-c-brand-light: var(--vp-c-green-light);
-  --vp-c-brand-lighter: var(--vp-c-green-lighter);
-  --vp-c-brand-dark: var(--vp-c-green-dark);
-  --vp-c-brand-darker: var(--vp-c-green-darker);
+  --vp-c-brand: var(--my-theme-color);
+  --vp-c-brand-light: var(--my-theme-color-light);
+  --vp-c-brand-lighter: var(--my-theme-color-lighter);
+  --vp-c-brand-dark: var(--my-theme-color-dark);
+  --vp-c-brand-darker: var(--my-theme-color-darker);
 
   --vp-c-sponsor: #fd1d7c;
 }
@@ -145,12 +164,12 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-  --vp-font-family-base: 'Inter var experimental', 'Inter var', 'Inter',
-    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Helvetica, Arial, 'Noto Sans', sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --vp-font-family-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco,
-    Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --vp-font-family-base: "Inter var experimental", "Inter var", "Inter",
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Helvetica, Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --vp-font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /**
