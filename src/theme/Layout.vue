@@ -2,7 +2,6 @@
 import { provide, watch } from "vue"
 import { useData, useRoute } from "vitepress"
 import { useSidebar, useCloseSidebarOnEscape } from "./composables/sidebar.js"
-import VPSkipLink from "./components/VPSkipLink.vue"
 import VPNav from "./components/VPNav.vue"
 import VPContent from "./components/VPContent.vue"
 import VPFooter from "./components/VPFooter.vue"
@@ -30,7 +29,6 @@ const { frontmatter } = useData()
     :class="{ isHome: frontmatter.layout === 'home' }"
   >
     <slot name="layout-top" />
-    <VPSkipLink />
     <VPNav>
       <template #nav-bar-title-before
         ><slot name="nav-bar-title-before"
