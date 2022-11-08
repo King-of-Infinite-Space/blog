@@ -1,0 +1,646 @@
+---
+categories:
+  - name: 博文
+    count: 45
+labels:
+  - name: 浅词拙句
+    count: 13
+  - name: 数理小径
+    count: 9
+  - name: 绿茵故事
+    count: 9
+  - name: 外置记忆
+    count: 8
+  - name: 赛博空间
+    count: 7
+  - name: 撷叶拾英
+    count: 7
+  - name: 好行小慧
+    count: 6
+  - name: EN
+    count: 5
+  - name: 说文解字
+    count: 4
+  - name: 民间科学
+    count: 2
+  - name: 民间哲学
+    count: 1
+  - name: 网上冲浪
+    count: 1
+posts:
+  - title: 人 生 几何
+    number: 198
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/198
+    createdAt: 2022-08-23T05:24:45Z
+    lastEditedAt: 2022-10-30T04:44:28Z
+    updatedAt: 2022-10-30T04:44:28Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 数理小径
+      - 民间哲学
+    countZH: 1220
+    countEN: 340
+    filename: 2208-人-生-几何
+  - title: TensorFlow on Navi10折腾记
+    number: 197
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/197
+    createdAt: 2022-08-23T02:45:26Z
+    lastEditedAt: 2022-10-30T04:44:25Z
+    updatedAt: 2022-11-06T17:51:21Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 外置记忆
+      - 赛博空间
+    countZH: 760
+    countEN: 250
+    filename: 2208-TensorFlow-on-Navi10折腾记
+  - title: 映像 / Reflections (试译)
+    number: 196
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/196
+    createdAt: 2022-07-14T02:53:12Z
+    lastEditedAt: 2022-10-30T04:44:22Z
+    updatedAt: 2022-10-30T04:44:22Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 撷叶拾英
+      - 浅词拙句
+    countZH: 470
+    countEN: 110
+    filename: 2207-映像-Reflections-(试译)
+  - title: 互为妹夫？汉语里的对称称呼
+    number: 195
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/195
+    createdAt: 2022-04-10T04:03:01Z
+    lastEditedAt: 2022-10-30T04:44:20Z
+    updatedAt: 2022-10-30T04:44:20Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 说文解字
+      - 好行小慧
+    countZH: 880
+    countEN: 0
+    filename: 2204-互为妹夫？汉语里的对称称呼
+  - title: 给原神璃月人物起名
+    number: 194
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/194
+    createdAt: 2022-02-27T03:37:43Z
+    lastEditedAt: 2022-10-30T04:44:17Z
+    updatedAt: 2022-10-30T04:44:17Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 说文解字
+      - 好行小慧
+    countZH: 1970
+    countEN: 0
+    filename: 2202-给原神璃月人物起名
+  - title: 初中生的绝句
+    number: 193
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/193
+    createdAt: 2022-01-07T17:28:19Z
+    lastEditedAt: 2022-10-30T04:44:14Z
+    updatedAt: 2022-10-30T04:44:14Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 撷叶拾英
+      - 浅词拙句
+    countZH: 120
+    countEN: 0
+    filename: 2201-初中生的绝句
+  - title: 倒行
+    number: 192
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/192
+    createdAt: 2021-12-31T16:38:29Z
+    lastEditedAt: 2022-10-30T04:44:11Z
+    updatedAt: 2022-10-30T04:44:11Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 浅词拙句
+      - 民间科学
+      - 数理小径
+    countZH: 1990
+    countEN: 0
+    filename: 2112-倒行
+  - title: Calculating the proportions of mixed nuts
+    number: 191
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/191
+    createdAt: 2021-12-28T16:05:08Z
+    lastEditedAt: 2022-10-30T04:44:08Z
+    updatedAt: 2022-10-30T04:44:08Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 数理小径
+      - EN
+    countZH: 0
+    countEN: 600
+    filename: 2112-Calculating-the-proportions-of-mixed-nuts
+  - title: 欧冠16强乌龙抽签
+    number: 190
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/190
+    createdAt: 2021-12-14T03:52:41Z
+    lastEditedAt: 2022-10-30T04:44:06Z
+    updatedAt: 2022-10-30T04:44:06Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 绿茵故事
+      - 数理小径
+    countZH: 1350
+    countEN: 0
+    filename: 2112-欧冠16强乌龙抽签
+  - title: 越洋购机记
+    number: 189
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/189
+    createdAt: 2021-11-27T02:03:26Z
+    lastEditedAt: 2022-01-01T18:06:03Z
+    updatedAt: 2022-09-23T22:18:11Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 外置记忆
+      - 赛博空间
+    countZH: 2530
+    countEN: 0
+    filename: 2111-越洋购机记
+  - title: 三国杀囤牌组合
+    number: 188
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/188
+    createdAt: 2021-11-24T21:04:11Z
+    lastEditedAt: 2022-10-30T04:44:01Z
+    updatedAt: 2022-10-30T04:44:01Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 外置记忆
+      - 好行小慧
+    countZH: 1350
+    countEN: 0
+    filename: 2111-三国杀囤牌组合
+  - title: 几句旋律
+    number: 187
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/187
+    createdAt: 2021-11-06T03:17:03Z
+    lastEditedAt: 2022-10-30T04:43:58Z
+    updatedAt: 2022-10-30T04:43:58Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 外置记忆
+    countZH: 300
+    countEN: 0
+    filename: 2111-几句旋律
+  - title: 秋日绝句
+    number: 186
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/186
+    createdAt: 2021-11-03T02:44:46Z
+    lastEditedAt: 2022-10-30T04:43:55Z
+    updatedAt: 2022-10-30T04:43:55Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 浅词拙句
+    countZH: 210
+    countEN: 0
+    filename: 2111-秋日绝句
+  - title: 好脾气的琴键
+    number: 185
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/185
+    createdAt: 2021-10-24T15:56:06Z
+    lastEditedAt: 2022-10-30T04:43:53Z
+    updatedAt: 2022-10-30T04:43:53Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 好行小慧
+      - 数理小径
+    countZH: 1660
+    countEN: 250
+    filename: 2110-好脾气的琴键
+  - title: 清明上河图
+    number: 184
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/184
+    createdAt: 2021-10-05T02:01:54Z
+    lastEditedAt: 2022-10-30T04:43:50Z
+    updatedAt: 2022-10-30T04:43:50Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 浅词拙句
+    countZH: 300
+    countEN: 0
+    filename: 2110-清明上河图
+  - title: 或许应该去公园
+    number: 183
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/183
+    createdAt: 2021-09-02T01:21:44Z
+    lastEditedAt: 2022-10-30T04:43:47Z
+    updatedAt: 2022-10-30T04:43:47Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 浅词拙句
+    countZH: 170
+    countEN: 0
+    filename: 2109-或许应该去公园
+  - title: 拍手游戏“枪版money”规则
+    number: 182
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/182
+    createdAt: 2021-08-14T03:17:15Z
+    lastEditedAt: 2022-10-30T04:43:45Z
+    updatedAt: 2022-10-30T04:43:45Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 外置记忆
+      - 好行小慧
+    countZH: 970
+    countEN: 0
+    filename: 2108-拍手游戏“枪版money”规则
+  - title: 诺坎普大逆转 (2017)
+    number: 181
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/181
+    createdAt: 2021-08-13T03:17:37Z
+    lastEditedAt: 2022-10-30T04:43:42Z
+    updatedAt: 2022-10-30T04:43:42Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 绿茵故事
+      - 外置记忆
+    countZH: 4030
+    countEN: 0
+    filename: 2108-诺坎普大逆转-(2017)
+  - title: 探索远程唤醒电脑的方法
+    number: 179
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/179
+    createdAt: 2021-07-03T20:52:32Z
+    lastEditedAt: 2022-10-30T04:43:39Z
+    updatedAt: 2022-10-30T04:43:39Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 赛博空间
+    countZH: 1640
+    countEN: 0
+    filename: 2107-探索远程唤醒电脑的方法
+  - title: 你的下一台电脑，或许是手机
+    number: 178
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/178
+    createdAt: 2021-06-27T17:58:11Z
+    lastEditedAt: 2022-10-30T04:51:15Z
+    updatedAt: 2022-10-30T04:51:15Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 赛博空间
+    countZH: 2960
+    countEN: 380
+    filename: 2106-你的下一台电脑，或许是手机
+  - title: 略谈游戏抽卡之「法」
+    number: 177
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/177
+    createdAt: 2021-05-21T03:59:19Z
+    lastEditedAt: 2022-10-30T04:43:34Z
+    updatedAt: 2022-10-30T04:43:34Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 数理小径
+    countZH: 1870
+    countEN: 0
+    filename: 2105-略谈游戏抽卡之「法」
+  - title: 皮肤vs油田
+    number: 176
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/176
+    createdAt: 2021-03-05T19:15:54Z
+    lastEditedAt: 2022-10-30T04:43:31Z
+    updatedAt: 2022-10-30T04:43:31Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 好行小慧
+      - 民间科学
+    countZH: 480
+    countEN: 0
+    filename: 2103-皮肤vs油田
+  - title: 广场上的鸽子
+    number: 175
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/175
+    createdAt: 2021-03-03T22:34:04Z
+    lastEditedAt: 2022-10-30T04:43:29Z
+    updatedAt: 2022-10-30T04:43:29Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 浅词拙句
+    countZH: 90
+    countEN: 0
+    filename: 2103-广场上的鸽子
+  - title: 仿生人会摊电子饼吗？📱
+    number: 174
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/174
+    createdAt: 2021-01-20T05:32:40Z
+    lastEditedAt: 2022-10-30T04:43:26Z
+    updatedAt: 2022-10-30T04:43:26Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 赛博空间
+    countZH: 1830
+    countEN: 0
+    filename: 2101-仿生人会摊电子饼吗？📱
+  - title: 无题
+    number: 173
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/173
+    createdAt: 2020-12-10T01:52:35Z
+    lastEditedAt: 2022-10-30T04:43:23Z
+    updatedAt: 2022-10-30T04:43:23Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 浅词拙句
+    countZH: 120
+    countEN: 0
+    filename: 2012-无题
+  - title: 《是但求其爱》歌词断句的理解
+    number: 172
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/172
+    createdAt: 2020-11-29T21:47:53Z
+    lastEditedAt: 2022-10-30T04:43:21Z
+    updatedAt: 2022-10-30T04:43:21Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 说文解字
+    countZH: 1100
+    countEN: 0
+    filename: 2011-《是但求其爱》歌词断句的理解
+  - title: "VAR: a second look"
+    number: 171
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/171
+    createdAt: 2020-10-17T21:14:30Z
+    lastEditedAt: 2022-10-30T04:43:18Z
+    updatedAt: 2022-10-30T04:43:18Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 绿茵故事
+      - 数理小径
+    countZH: 1710
+    countEN: 0
+    filename: 2010-VAR-a-second-look
+  - title: 从国语粤语声调说起
+    number: 170
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/170
+    createdAt: 2020-10-14T01:24:51Z
+    lastEditedAt: 2022-10-30T04:43:15Z
+    updatedAt: 2022-10-30T04:43:15Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 说文解字
+    countZH: 1590
+    countEN: 0
+    filename: 2010-从国语粤语声调说起
+  - title: 永遇乐 怀巴萨
+    number: 169
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/169
+    createdAt: 2020-09-28T02:35:28Z
+    lastEditedAt: 2022-10-30T04:43:13Z
+    updatedAt: 2022-10-30T04:43:13Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 浅词拙句
+    countZH: 540
+    countEN: 0
+    filename: 2009-永遇乐-怀巴萨
+  - title: 从吊射到无尾猫
+    number: 168
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/168
+    createdAt: 2020-05-20T22:07:35Z
+    lastEditedAt: null
+    updatedAt: 2022-09-23T22:15:12Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 绿茵故事
+      - 网上冲浪
+    countZH: 1180
+    countEN: 160
+    filename: 2005-从吊射到无尾猫
+  - title: iPad十周年纪念（及感想）
+    number: 167
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/167
+    createdAt: 2020-05-16T03:55:56Z
+    lastEditedAt: 2022-10-30T04:43:08Z
+    updatedAt: 2022-10-30T04:43:08Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 外置记忆
+      - 赛博空间
+    countZH: 1030
+    countEN: 0
+    filename: 2005-iPad十周年纪念（及感想）
+  - title: 英超之巅，毫厘之间
+    number: 166
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/166
+    createdAt: 2020-04-12T16:32:04Z
+    lastEditedAt: 2020-06-21T19:09:44Z
+    updatedAt: 2022-09-23T22:15:10Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 绿茵故事
+    countZH: 2940
+    countEN: 0
+    filename: 2004-英超之巅，毫厘之间
+  - title: 归去来兮辞 x Goodbye Yellow Brick Road
+    number: 165
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/165
+    createdAt: 2020-04-07T21:57:33Z
+    lastEditedAt: 2022-10-30T04:03:11Z
+    updatedAt: 2022-10-30T04:03:11Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 撷叶拾英
+      - 浅词拙句
+    countZH: 270
+    countEN: 250
+    filename: 2004-归去来兮辞-x-Goodbye-Yellow-Brick-Road
+  - title: 闲散颂 罗素/ In Praise of Idleness (by Bertrand Russel)
+    number: 164
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/164
+    createdAt: 2020-03-17T21:06:06Z
+    lastEditedAt: 2022-10-30T04:03:11Z
+    updatedAt: 2022-10-30T04:03:11Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 撷叶拾英
+    countZH: 7240
+    countEN: 0
+    filename: 2003-闲散颂-罗素-In-Praise-of-Idleness-(by-Bertrand-Russel)
+  - title: Into the Cyberverse
+    number: 163
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/163
+    createdAt: 2020-01-11T21:29:11Z
+    lastEditedAt: 2022-10-30T04:43:00Z
+    updatedAt: 2022-10-30T04:43:00Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 外置记忆
+      - 赛博空间
+    countZH: 1810
+    countEN: 240
+    filename: 2001-Into-the-Cyberverse
+  - title: California
+    number: 162
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/162
+    createdAt: 2020-01-11T16:19:58Z
+    lastEditedAt: 2022-10-30T04:03:10Z
+    updatedAt: 2022-10-30T04:03:10Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 撷叶拾英
+      - 浅词拙句
+    countZH: 690
+    countEN: 110
+    filename: 2001-California
+  - title: 利物浦奇遇记
+    number: 161
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/161
+    createdAt: 2020-01-11T01:12:07Z
+    lastEditedAt: 2022-10-30T04:42:52Z
+    updatedAt: 2022-10-30T04:42:52Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 绿茵故事
+    countZH: 2520
+    countEN: 0
+    filename: 2001-利物浦奇遇记
+  - title: For Stephen
+    number: 160
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/160
+    createdAt: 2020-01-10T04:12:36Z
+    lastEditedAt: 2022-10-30T04:03:09Z
+    updatedAt: 2022-10-30T04:03:09Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 浅词拙句
+      - EN
+    countZH: 0
+    countEN: 40
+    filename: 2001-For-Stephen
+  - title: 欧冠淘汰赛抽签模拟
+    number: 159
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/159
+    createdAt: 2019-12-14T03:00:35Z
+    lastEditedAt: 2022-10-30T04:03:09Z
+    updatedAt: 2022-10-30T04:03:09Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 绿茵故事
+      - 数理小径
+    countZH: 520
+    countEN: 0
+    filename: 1912-欧冠淘汰赛抽签模拟
+  - title: "VAR: has it gone too far?"
+    number: 158
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/158
+    createdAt: 2019-09-24T01:21:01Z
+    lastEditedAt: 2022-10-30T04:42:49Z
+    updatedAt: 2022-10-30T04:42:49Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 绿茵故事
+    countZH: 1050
+    countEN: 0
+    filename: 1909-VAR-has-it-gone-too-far
+  - title: The Character Of A Happy Life
+    number: 156
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/156
+    createdAt: 2019-08-05T08:31:07Z
+    lastEditedAt: 2022-10-30T04:03:08Z
+    updatedAt: 2022-10-30T04:03:08Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 撷叶拾英
+      - EN
+    countZH: 0
+    countEN: 170
+    filename: 1908-The-Character-Of-A-Happy-Life
+  - title: High-speed rail
+    number: 155
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/155
+    createdAt: 2019-07-30T09:11:28Z
+    lastEditedAt: 2022-10-30T04:42:46Z
+    updatedAt: 2022-10-30T04:42:46Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 浅词拙句
+      - EN
+    countZH: 0
+    countEN: 50
+    filename: 1907-High-speed-rail
+  - title: 生活中各种矩形的长宽比
+    number: 154
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/154
+    createdAt: 2019-06-15T14:11:25Z
+    lastEditedAt: 2022-10-30T04:03:08Z
+    updatedAt: 2022-10-30T04:03:08Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 数理小径
+    countZH: 200
+    countEN: 70
+    filename: 1906-生活中各种矩形的长宽比
+  - title: "Connections: Yesterday, Tomorrow and You (Script)"
+    number: 153
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/153
+    createdAt: 2018-11-05T13:43:09Z
+    lastEditedAt: 2022-10-30T04:42:44Z
+    updatedAt: 2022-10-30T04:42:44Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 撷叶拾英
+      - EN
+    countZH: 0
+    countEN: 7380
+    filename: 1811-Connections-Yesterday-Tomorrow-and-You-(Script)
+  - title: 一件深色球衣，二十年的回忆
+    number: 151
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/151
+    createdAt: 2018-08-15T07:02:58Z
+    lastEditedAt: 2022-10-30T04:42:41Z
+    updatedAt: 2022-10-30T04:42:41Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 绿茵故事
+    countZH: 1210
+    countEN: 280
+    filename: 1808-一件深色球衣，二十年的回忆
+layout: home
+title: Blog - the Universe in a Nutshell
+titleTemplate: false
+---
