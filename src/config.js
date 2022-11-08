@@ -3,6 +3,26 @@ import mdFootnote from "markdown-it-footnote"
 
 export default {
   title: "the Universe in a Nutshell",
+  lang: "zh-CN",
+  outDir: "../dist",
+  cleanUrls: "without-subfolders",
+
+  markdown: {
+    config: (md) => {
+      md.set({ breaks: true }).use(mdKatex).use(mdFootnote)
+    },
+  },
+
+  head: [
+    [
+      "link",
+      {
+        rel: "icon",
+        href: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌌</text></svg>",
+      },
+    ],
+  ],
+
   themeConfig: {
     outline: [2, 5],
     outlineTitle: "目录",
@@ -30,10 +50,5 @@ export default {
         link: "https://dothemath.ucsd.edu/",
       },
     ],
-  },
-  markdown: {
-    config: (md) => {
-      md.set({ breaks: true }).use(mdKatex).use(mdFootnote)
-    },
   },
 }
