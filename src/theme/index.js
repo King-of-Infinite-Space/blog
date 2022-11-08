@@ -1,4 +1,3 @@
-import "./styles_custom/fonts.css"
 import "./styles/vars.css"
 import "./styles/base.css"
 import "./styles/utils.css"

@@ -49,6 +49,9 @@ export default {
 
   a
     font-weight: normal
+    outline: none
+  a:hover .card-title
+      font-weight: 600
 
   .card-footer
     color var(--vp-c-text-2)
@@ -71,11 +74,9 @@ export default {
   .card-title
     font-size 16px
     line-height 2
-    font-family: var(--font-hei)
 
   .card-content
     font-size 12px
-    font-family: var(--font-hei)
     padding-bottom 5px
     padding-top 5px
     color desc-color
