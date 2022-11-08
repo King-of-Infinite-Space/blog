@@ -53,7 +53,7 @@
 
 <script lang="ts" setup>
 import { useData } from "vitepress"
-import { computed, ref } from "vue"
+import { computed, onMounted, ref } from "vue"
 import PostCard from "./PostCard.vue"
 import Category from "./Category.vue"
 import VPIconChevronLeft from "../components/icons/VPIconChevronLeft.vue"
@@ -71,9 +71,17 @@ const sumLabels = {
 let labels = [sumLabels, ...frontmatter.value.labels]
 
 let selectedLabels = ref<string[]>([])
-let selectedArticles = ref(Array.from(frontmatter.value.posts))
 let articlesPageNum = ref(1)
 const articlesPerPage = 5
+
+const selectedArticles = computed(() => {
+  if (selectedLabels.value.length == 0) {
+    return frontmatter.value.posts
+  }
+  return frontmatter.value.posts.filter((post: { labels?: string[] }) =>
+    haveSelectedLabels(post.labels)
+  )
+})
 
 const articlesMaxPage = computed(() => {
   return Math.ceil(selectedArticles.value.length / articlesPerPage)
@@ -84,6 +92,36 @@ const articlesShown = computed(() => {
   let end = articlesPageNum.value * articlesPerPage
   return selectedArticles.value.slice(start - 1, end)
 })
+
+onMounted(() => {
+  readSearchParams()
+})
+
+window.addEventListener("popstate", () => {
+  readSearchParams()
+})
+
+function readSearchParams() {
+  const searchParams = new URLSearchParams(window.location.search)
+  selectedLabels.value = searchParams.get("label")?.split(",") ?? []
+  articlesPageNum.value = parseInt(searchParams.get("page") ?? "1")
+}
+
+function updateSearchParams() {
+  const searchParams = new URLSearchParams()
+  if (selectedLabels.value.length > 0) {
+    searchParams.set("label", selectedLabels.value.join(","))
+  }
+  if (articlesPageNum.value > 1) {
+    searchParams.set("page", articlesPageNum.value.toString())
+  }
+  const paramString = searchParams.toString()
+  if (paramString.length > 0) {
+    window.history.pushState({}, "", `?${paramString}`)
+  } else {
+    window.history.pushState({}, "", window.location.pathname)
+  }
+}
 
 function toggleLabel(label: { total?: boolean; name: string; count: number }) {
   if (label.total) {
@@ -96,20 +134,12 @@ function toggleLabel(label: { total?: boolean; name: string; count: number }) {
       selectedLabels.value.push(label.name)
     }
   }
-  filterPosts()
   articlesPageNum.value = articlesMaxPage.value ? 1 : 0
+  updateSearchParams()
 }
 
 function isLabelSelected(labelName: string) {
   return selectedLabels.value.includes(labelName)
-}
-
-function filterPosts() {
-  selectedArticles.value = frontmatter.value.posts.filter(
-    (item: { labels: string[] }) => {
-      return haveSelectedLabels(item.labels)
-    }
-  )
 }
 
 function changePage(c: number, pn: number, pmax: number) {
@@ -125,15 +155,19 @@ function articlesChangePage(c: number) {
     articlesPageNum.value,
     articlesMaxPage.value
   )
+  updateSearchParams()
 }
 
-function haveSelectedLabels(postLabels: string[]) {
-  for (const label of selectedLabels.value) {
-    if (!postLabels.includes(label)) {
-      return false
+function haveSelectedLabels(postLabels: string[] | undefined) {
+  if (postLabels) {
+    for (const label of selectedLabels.value) {
+      if (!postLabels.includes(label)) {
+        return false
+      }
     }
+    return true
   }
-  return true
+  return false
 }
 
 function fmtDate(dateStr: string) {
