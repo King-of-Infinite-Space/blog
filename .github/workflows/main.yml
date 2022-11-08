@@ -1,0 +1,33 @@
+name: update blog
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch-posts:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: "~1.25"
+
+      - uses: actions/checkout@v3
+        with:
+          repository: "king-of-infinite-space/gh-discussions-export"
+          path: "toolRepo"
+
+      - uses: actions/checkout@v3
+        with:
+          path: "blogRepo"
+          # current repo
+
+      - name: fetch posts and commit changes
+        run: |
+          cd blogRepo
+          cp -f src/toolConfig.js ../toolRepo/scripts/config.js
+          deno run --allow-net --allow-env --allow-read --allow-write ../toolRepo/scripts/fetchPosts.js
+          mv -f output/*.md posts/
+          mv -f output/feed.* static/
+          ../toolRepo/scripts/commit.bash
