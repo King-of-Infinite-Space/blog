@@ -6,6 +6,7 @@ export default {
   lang: "zh-CN",
   outDir: "../dist",
   cleanUrls: "without-subfolders",
+  ignoreDeadLinks: true,
 
   markdown: {
     config: (md) => {
