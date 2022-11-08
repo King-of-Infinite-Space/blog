@@ -56,10 +56,6 @@ const { page } = useData()
   background-color: var(--vp-c-bg-soft);
 }
 
-.link.active {
-  color: var(--vp-c-brand);
-}
-
 .text-icon {
   margin-right: 0.3em;
   width: 1em;

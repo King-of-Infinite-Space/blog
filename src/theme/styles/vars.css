@@ -67,6 +67,10 @@
   /* 48, 42 */
   --my-theme-color-dark: hsl(236, 67%, 60%);
   --my-theme-color-darker: hsl(234, 56%, 54%);
+  --my-gray-40: #5e5e5e;
+  --my-gray-50: #777777;
+  --my-gray-60: #919191;
+  --my-border-color: var(--my-gray-60);
 
   /* from vite doc */
   /* okhsl 276 100 54 */

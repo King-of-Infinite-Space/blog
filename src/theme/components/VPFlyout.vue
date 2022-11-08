@@ -31,6 +31,7 @@ const isHome = computed(() => frontmatter.value.layout === "home")
   <div
     class="VPFlyout"
     ref="el"
+    :class="{ isHome: isHome }"
     @mouseenter="open = true"
     @mouseleave="open = false"
   >
@@ -52,7 +53,7 @@ const isHome = computed(() => frontmatter.value.layout === "home")
       <VPIconMoreHorizontal v-else class="icon" />
     </button>
 
-    <div class="menu" :class="{ isHome: isHome }">
+    <div class="menu">
       <VPMenu :items="items">
         <slot />
       </VPMenu>
@@ -66,7 +67,6 @@ const isHome = computed(() => frontmatter.value.layout === "home")
 }
 
 .VPFlyout:hover {
-  /* color: var(--vp-c-brand); */
   transition: color 0.25s;
 }
 
@@ -76,14 +76,6 @@ const isHome = computed(() => frontmatter.value.layout === "home")
 
 .VPFlyout:hover .icon {
   fill: var(--vp-c-text-2);
-}
-
-.VPFlyout.active .text {
-  color: var(--vp-c-brand);
-}
-
-.VPFlyout.active:hover .text {
-  color: var(--vp-c-brand-dark);
 }
 
 .VPFlyout:hover .menu,
@@ -124,6 +116,19 @@ const isHome = computed(() => frontmatter.value.layout === "home")
   }
 }
 
+.isHome .text,
+.isHome .button {
+  color: var(--vp-c-text-2);
+}
+
+.VPFlyout.isHome:hover .text {
+  color: var(--vp-c-text-1);
+}
+
+.VPFlyout.isHome:hover .icon {
+  fill: var(--vp-c-text-1);
+}
+
 .option-icon {
   margin-right: 0px;
   width: 16px;
@@ -154,7 +159,7 @@ const isHome = computed(() => frontmatter.value.layout === "home")
   transition: opacity 0.25s, visibility 0.25s, transform 0.25s;
 }
 
-.menu.isHome {
+.isHome .menu {
   top: unset;
   bottom: calc(var(--vp-nav-height-mobile) / 2 + 20px);
 }
@@ -163,7 +168,7 @@ const isHome = computed(() => frontmatter.value.layout === "home")
   .menu {
     top: calc(var(--vp-nav-height-desktop) / 2 + 20px);
   }
-  .menu.isHome {
+  .isHome .menu {
     top: unset;
     bottom: calc(var(--vp-nav-height-desktop) / 2 + 20px);
   }

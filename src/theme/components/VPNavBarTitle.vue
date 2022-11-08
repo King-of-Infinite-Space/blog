@@ -44,7 +44,7 @@ const { hasSidebar } = useSidebar()
   height: var(--vp-nav-height);
   font-size: 18px;
   font-weight: 600;
-  color: var(--vp-c-text-1);
+  color: var(--my-gray-50);
   transition: opacity 0.25s;
   font-family: var(--font-banner);
 }
