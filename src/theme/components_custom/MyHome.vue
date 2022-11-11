@@ -95,10 +95,10 @@ const articlesShown = computed(() => {
 
 onMounted(() => {
   readSearchParams()
-})
 
-window.addEventListener("popstate", () => {
-  readSearchParams()
+  window.addEventListener("popstate", () => {
+    readSearchParams()
+  })
 })
 
 function readSearchParams() {

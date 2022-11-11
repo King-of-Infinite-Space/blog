@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { onMounted, onUnmounted, onUpdated } from "vue"
 import { throttleAndDebounce } from "../support/utils.js"
 
@@ -10,9 +11,7 @@ function useAside() {
   const is960 = matchMediaQuery("(min-width: 960px)")
   const is1280 = matchMediaQuery("(min-width: 1280px)")
   const isAsideEnabled = is1280 || is960
-  return {
-    isAsideEnabled,
-  }
+  return isAsideEnabled
 }
 
 // magic number to avoid repeated retrieval
@@ -72,10 +71,11 @@ function addToParent(currIndex, headers, levelsRange) {
   return true
 }
 export function useActiveAnchor(container, marker) {
-  const { isAsideEnabled } = useAside()
+  let isAsideEnabled = true
   const onScroll = throttleAndDebounce(setActiveLink, 100)
   let prevActiveLink = null
   onMounted(() => {
+    isAsideEnabled = useAside()
     requestAnimationFrame(setActiveLink)
     window.addEventListener("scroll", onScroll)
   })
