@@ -13,7 +13,7 @@ const pageName = computed(() =>
   route.path.replace(/[./]+/g, "_").replace(/_html$/, "")
 )
 
-const { theme, frontmatter } = useData()
+const { theme, frontmatter, isDark } = useData()
 const discussionNumber = computed(
   () => frontmatter.value.number ?? frontmatter.value.url.split("/").pop()
 )
@@ -79,7 +79,7 @@ provide("onContentUpdated", onContentUpdated)
         mapping="number"
         :term="discussionNumber"
         inputPosition="top"
-        theme="preferred_color_scheme"
+        :theme="isDark ? 'dark' : 'light'"
       />
     </div>
   </div>
