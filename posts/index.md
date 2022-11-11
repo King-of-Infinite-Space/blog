@@ -33,7 +33,7 @@ posts:
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/198
     createdAt: 2022-08-23T05:24:45Z
     lastEditedAt: 2022-10-30T04:44:28Z
-    updatedAt: 2022-10-30T04:44:28Z
+    updatedAt: 2022-11-10T19:32:18Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
@@ -213,8 +213,8 @@ posts:
     number: 185
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/185
     createdAt: 2021-10-24T15:56:06Z
-    lastEditedAt: 2022-10-30T04:43:53Z
-    updatedAt: 2022-10-30T04:43:53Z
+    lastEditedAt: 2022-11-11T03:06:46Z
+    updatedAt: 2022-11-11T03:06:46Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
@@ -454,8 +454,8 @@ posts:
     number: 166
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/166
     createdAt: 2020-04-12T16:32:04Z
-    lastEditedAt: 2020-06-21T19:09:44Z
-    updatedAt: 2022-09-23T22:15:10Z
+    lastEditedAt: 2022-11-11T03:08:22Z
+    updatedAt: 2022-11-11T03:08:22Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
