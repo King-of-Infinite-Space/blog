@@ -1,7 +1,7 @@
 ---
 categories:
   - name: 博文
-    count: 45
+    count: 46
 labels:
   - name: 浅词拙句
     count: 13
@@ -9,16 +9,16 @@ labels:
     count: 9
   - name: 绿茵故事
     count: 9
+  - name: 赛博空间
+    count: 8
   - name: 外置记忆
     count: 8
-  - name: 赛博空间
+  - name: 好行小慧
     count: 7
   - name: 撷叶拾英
     count: 7
-  - name: 好行小慧
-    count: 6
   - name: EN
-    count: 5
+    count: 6
   - name: 说文解字
     count: 4
   - name: 民间科学
@@ -28,6 +28,21 @@ labels:
   - name: 网上冲浪
     count: 1
 posts:
+  - title: ChatGPT talking like Marvin the Paranoid Android
+    number: 199
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/199
+    createdAt: 2023-03-07T20:46:08Z
+    lastEditedAt: null
+    updatedAt: 2023-03-07T20:46:09Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 好行小慧
+      - 赛博空间
+      - EN
+    countZH: 0
+    countEN: 700
+    filename: 2303-ChatGPT-talking-like-Marvin-the-Paranoid-Android
   - title: 人 生 几何
     number: 198
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/198
