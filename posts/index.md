@@ -1,7 +1,7 @@
 ---
 categories:
   - name: 博文
-    count: 46
+    count: 47
 labels:
   - name: 浅词拙句
     count: 13
@@ -28,6 +28,18 @@ labels:
   - name: 网上冲浪
     count: 1
 posts:
+  - title: 夏日五律习作
+    number: 200
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/200
+    createdAt: 2023-04-19T20:53:07Z
+    lastEditedAt: null
+    updatedAt: 2023-04-19T20:53:08Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels: []
+    countZH: 70
+    countEN: 0
+    filename: 2304-夏日五律习作
   - title: ChatGPT talking like Marvin the Paranoid Android
     number: 199
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/199
