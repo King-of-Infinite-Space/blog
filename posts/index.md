@@ -4,7 +4,7 @@ categories:
     count: 47
 labels:
   - name: 浅词拙句
-    count: 13
+    count: 14
   - name: 数理小径
     count: 9
   - name: 绿茵故事
@@ -36,7 +36,8 @@ posts:
     updatedAt: 2023-04-19T20:53:08Z
     author: King-of-Infinite-Space
     category: 博文
-    labels: []
+    labels:
+      - 浅词拙句
     countZH: 70
     countEN: 0
     filename: 2304-夏日五律习作
@@ -115,14 +116,14 @@ posts:
     number: 194
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/194
     createdAt: 2022-02-27T03:37:43Z
-    lastEditedAt: 2023-02-27T22:16:34Z
-    updatedAt: 2023-02-27T22:16:34Z
+    lastEditedAt: 2023-05-03T16:10:20Z
+    updatedAt: 2023-05-03T16:10:20Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
       - 说文解字
       - 好行小慧
-    countZH: 2170
+    countZH: 2180
     countEN: 0
     filename: 2202-给原神璃月人物起名
   - title: 初中生的绝句
@@ -187,7 +188,7 @@ posts:
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/189
     createdAt: 2021-11-27T02:03:26Z
     lastEditedAt: 2022-01-01T18:06:03Z
-    updatedAt: 2022-09-23T22:18:11Z
+    updatedAt: 2023-04-23T16:22:46Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
@@ -388,7 +389,7 @@ posts:
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/173
     createdAt: 2020-12-10T01:52:35Z
     lastEditedAt: 2022-10-30T04:43:23Z
-    updatedAt: 2022-10-30T04:43:23Z
+    updatedAt: 2023-04-21T20:45:42Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
