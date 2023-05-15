@@ -1,13 +1,18 @@
+// @ts-ignore
 import mdKatex from "markdown-it-katex"
+// @ts-ignore
 import mdFootnote from "markdown-it-footnote"
 
 export default {
   title: "the Universe in a Nutshell",
   lang: "zh-CN",
-  outDir: "../dist",
-  cleanUrls: "without-subfolders",
+  cleanUrls: true,
+  srcDir: "posts",
+  outDir: "dist",
+  cacheDir: ".vitepress-cache",
 
   markdown: {
+    // @ts-ignore
     config: (md) => {
       md.set({ breaks: true }).use(mdKatex).use(mdFootnote)
     },

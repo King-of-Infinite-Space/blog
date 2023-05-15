@@ -26,8 +26,8 @@ jobs:
       - name: fetch posts and commit changes
         run: |
           cd blogRepo
-          cp -f src/toolConfig.js ../toolRepo/scripts/config.js
+          cp -f .github/workflows/toolConfig.js ../toolRepo/scripts/config.js
           deno run --allow-net --allow-env --allow-read --allow-write ../toolRepo/scripts/fetchPosts.js
           mv -f output/*.md posts/
-          mv -f output/feed.* static/
+          mv -f output/feed.* posts/public/
           ../toolRepo/scripts/commit.bash
