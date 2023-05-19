@@ -1,16 +1,16 @@
 ---
 categories:
   - name: 博文
-    count: 47
+    count: 48
 labels:
   - name: 浅词拙句
     count: 14
+  - name: 赛博空间
+    count: 9
   - name: 数理小径
     count: 9
   - name: 绿茵故事
     count: 9
-  - name: 赛博空间
-    count: 8
   - name: 外置记忆
     count: 8
   - name: 好行小慧
@@ -20,14 +20,29 @@ labels:
   - name: EN
     count: 6
   - name: 说文解字
-    count: 4
+    count: 5
+  - name: 网上冲浪
+    count: 2
   - name: 民间科学
     count: 2
   - name: 民间哲学
     count: 1
-  - name: 网上冲浪
-    count: 1
 posts:
+  - title: 开源古文BERT模型比较
+    number: 201
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/201
+    createdAt: 2023-05-19T04:30:38Z
+    lastEditedAt: null
+    updatedAt: 2023-05-19T04:30:39Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 说文解字
+      - 赛博空间
+      - 网上冲浪
+    countZH: 320
+    countEN: 100
+    filename: 2305-开源古文BERT模型比较
   - title: 夏日五律习作
     number: 200
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/200
