@@ -1,6 +1,22 @@
 // workflow config for king-of-infinite-space/gh-discussions-export
 import { makeExcerpt, makeFilename, countWordsRounded } from "./utils.js"
 
+function parseHiddenFrontmatter(body) {
+  const bodyLines = body.split("\n")
+  const frontmatter = {}
+  for (const line of bodyLines) {
+    if (line.startsWith("<!--") && line.includes(":")) {
+      const kv = line.trim().slice(4, -3).split(":")
+      let k = kv[0].trim()
+      if (!k[0] == "_") k = "_" + k
+      frontmatter[k] = kv[1].trim()
+    } else {
+      break
+    }
+  }
+  return frontmatter
+}
+
 export default {
   sourceRepo: "king-of-infinite-space/thoughts",
   // in format of 'owner/repo'
@@ -25,27 +41,30 @@ export default {
   postsInFeed: 10,
   // number of posts to include in the feed
 
-  formatFilename: (post) => {
-    return makeFilename(post)
+  formatFilename: post => {
+    return post.filename
   },
 
-  formatPostBody: (post) => {
+  formatPostBody: post => {
     // main content to write to md
     return post.body
   },
 
-  extraFrontmatterPost: (post) => {
+  extraFrontmatterPost: post => {
     const wordCounts = countWordsRounded(post.bodyText)
+    const hiddenFm = parseHiddenFrontmatter(post.body)
     return {
       // add entries to post frontmatter
       countZH: wordCounts.zh,
       countEN: wordCounts.en,
-      filename: makeFilename(post),
       // excerpt: makeExcerpt(post.bodyText),
+      filename: hiddenFm._filename || makeFilename(post),
+      // this is used as href !!!
+      ...hiddenFm
     }
   },
 
-  extraFrontmatterIndex: (metadata) => {
+  extraFrontmatterIndex: metadata => {
     return {
       // add entries to index.md frontmatter (e.g. layout)
       layout: "home",
