@@ -1,7 +1,7 @@
 ---
 categories:
   - name: 博文
-    count: 48
+    count: 49
 labels:
   - name: 浅词拙句
     count: 14
@@ -11,16 +11,16 @@ labels:
     count: 9
   - name: 绿茵故事
     count: 9
+  - name: 好行小慧
+    count: 8
   - name: 外置记忆
     count: 8
-  - name: 好行小慧
-    count: 7
   - name: 撷叶拾英
     count: 7
+  - name: 说文解字
+    count: 6
   - name: EN
     count: 6
-  - name: 说文解字
-    count: 5
   - name: 网上冲浪
     count: 2
   - name: 民间科学
@@ -28,6 +28,21 @@ labels:
   - name: 民间哲学
     count: 1
 posts:
+  - title: 与历史人物同名的人数
+    number: 202
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/202
+    createdAt: 2023-07-29T23:52:40Z
+    lastEditedAt: null
+    updatedAt: 2023-07-29T23:52:40Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 说文解字
+      - 好行小慧
+    countZH: 910
+    countEN: 0
+    filename: 2307-namesake
+    _filename: 2307-namesake
   - title: 开源古文BERT模型比较
     number: 201
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/201
@@ -76,7 +91,7 @@ posts:
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/198
     createdAt: 2022-08-23T05:24:45Z
     lastEditedAt: 2022-10-30T04:44:28Z
-    updatedAt: 2022-11-10T19:32:18Z
+    updatedAt: 2023-06-18T17:06:58Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
@@ -132,7 +147,7 @@ posts:
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/194
     createdAt: 2022-02-27T03:37:43Z
     lastEditedAt: 2023-05-03T16:10:20Z
-    updatedAt: 2023-05-03T16:10:20Z
+    updatedAt: 2023-06-27T17:36:36Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
