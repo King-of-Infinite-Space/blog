@@ -1,18 +1,18 @@
 ---
 categories:
   - name: 博文
-    count: 49
+    count: 50
 labels:
   - name: 浅词拙句
     count: 14
-  - name: 赛博空间
-    count: 9
   - name: 数理小径
+    count: 10
+  - name: 好行小慧
+    count: 9
+  - name: 赛博空间
     count: 9
   - name: 绿茵故事
     count: 9
-  - name: 好行小慧
-    count: 8
   - name: 外置记忆
     count: 8
   - name: 撷叶拾英
@@ -28,6 +28,22 @@ labels:
   - name: 民间哲学
     count: 1
 posts:
+  - title: 2d20/2
+    number: 203
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/203
+    createdAt: 2023-08-07T02:47:48Z
+    lastEditedAt: null
+    updatedAt: 2023-08-07T02:47:48Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 好行小慧
+      - 数理小径
+    countZH: 0
+    countEN: 1010
+    filename: 2308-d20
+    _filename: 2308-d20
+    _joinLines: "true"
   - title: 与历史人物同名的人数
     number: 202
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/202
