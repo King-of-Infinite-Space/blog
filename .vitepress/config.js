@@ -2,14 +2,19 @@
 import mdKatex from "markdown-it-katex"
 // @ts-ignore
 import mdFootnote from "markdown-it-footnote"
+import { defineConfig } from 'vitepress'
 
-export default {
+export default defineConfig({
   title: "the Universe in a Nutshell",
   lang: "zh-CN",
   cleanUrls: true,
   srcDir: "posts",
   outDir: "dist",
   cacheDir: ".vitepress-cache",
+
+  sitemap: {
+    hostname: 'https://blog.lnfinite.space'
+  },
 
   markdown: {
     // @ts-ignore
@@ -56,4 +61,4 @@ export default {
       },
     ],
   },
-}
+})
