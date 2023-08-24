@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[king-of-infinite-space/thoughts/discussions]]></title><description><![CDATA[king-of-infinite-space/thoughts/discussions]]></description><link>https://github.com/king-of-infinite-space/thoughts/discussions</link><generator>RSS for Node</generator><lastBuildDate>Mon, 07 Aug 2023 02:48:27 GMT</lastBuildDate><atom:link href="https://cdn.jsdelivr.net/gh/king-of-infinite-space/thoughts/output/feed.rss" rel="self" type="application/rss+xml"/><item><title><![CDATA[2d20/2]]></title><description><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[king-of-infinite-space/thoughts/discussions]]></title><description><![CDATA[king-of-infinite-space/thoughts/discussions]]></description><link>https://github.com/king-of-infinite-space/thoughts/discussions</link><generator>RSS for Node</generator><lastBuildDate>Thu, 24 Aug 2023 20:27:22 GMT</lastBuildDate><atom:link href="https://cdn.jsdelivr.net/gh/king-of-infinite-space/thoughts/output/feed.rss" rel="self" type="application/rss+xml"/><item><title><![CDATA[2d20/2]]></title><description><![CDATA[
 
 <p dir="auto"><em>Baldur's Gate 3</em> has been released after 6 years of development (including 3 years of early access). While I prefer RTWP to turn-based combat, being the grandest CRPG ever made is enough reason for me to try it. But I'm in no hurry. The game can only improve over time through patches and mods.</p>
-<p dir="auto">The game system is largely based on Dungeons &amp; Dragons 5th edition rule set (DnD 5e). A prominent feature of DnD games is the use of 20-sided dice (or <code class="notranslate">d20</code> in <a href="https://en.wikipedia.org/wiki/Dice_notation" rel="nofollow">dice notation</a>) to determine the outcome of certain events<sup><a href="#user-content-fn-1-94421310affb1da75127ac97445e6c48" id="user-content-fnref-1-94421310affb1da75127ac97445e6c48" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>.</p>
-<p dir="auto">While there may be something mythical about one's fate being determined by Platonic solids<sup><a href="#user-content-fn-2-94421310affb1da75127ac97445e6c48" id="user-content-fnref-2-94421310affb1da75127ac97445e6c48" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>, the outcome of a dice roll follows discrete uniform distribution which has fairly large variance. I've seen a comment that compared DnD rules with other turn-based strategy games and complained that too much uncertainty makes it impossible to plan multiple steps ahead<sup><a href="#user-content-fn-3-94421310affb1da75127ac97445e6c48" id="user-content-fnref-3-94421310affb1da75127ac97445e6c48" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>. The commenter promised to play the game only with mods.</p>
-<p dir="auto">Granted, uncertainly is part of the game (and part of life too), but how much uncertainty is appropriate? A single roll determining victory or demise may be thrilling for some but frustrating for others<sup><a href="#user-content-fn-4-94421310affb1da75127ac97445e6c48" id="user-content-fnref-4-94421310affb1da75127ac97445e6c48" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>. Discrete uniform distribution is the maximum entropy distribution on N possible outcomes without other constraints, i.e. the most "uncertain". If a modder wants to reduce the uncertainty while keeping the dice mechanics, how may one implement it?</p>
-<p dir="auto">A simple way is to take the average of <code class="notranslate">N</code> independent rolls, which reduces the variance by a factor of <code class="notranslate">1/√N</code>. For example, replacing <code class="notranslate">1d20</code> with <code class="notranslate">2d20/2</code>. However, if we want the support (possible outcomes) to remain the same, we have to round the fractions to nearest integer(s). Note the possible plural, because <code class="notranslate">.5</code> needs special treatment. If <code class="notranslate">.5</code> are rounded in one direction<sup><a href="#user-content-fn-5-94421310affb1da75127ac97445e6c48" id="user-content-fnref-5-94421310affb1da75127ac97445e6c48" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>, the distribution will be skewed. The trick is to split the probability on <code class="notranslate">.5</code> evenly to the integer below and above, keeping the symmetry, e.g.</p>
-<p dir="auto"><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="94421310affb1da75127ac97445e6c48">$$P(2\mathrm{d}20/2=1) = P(2\mathrm{d}20 = 2) + P(2\mathrm{d}20 = 3)/2$$</math-renderer></p>
-<p dir="auto"><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="94421310affb1da75127ac97445e6c48">$$P(2\mathrm{d}20/2 = 2) = P(2\mathrm{d}20 = 4) + P(2\mathrm{d}20 = 3)/2$$</math-renderer></p>
+<p dir="auto">The game system is largely based on Dungeons &amp; Dragons 5th edition rule set (DnD 5e). A prominent feature of DnD games is the use of 20-sided dice (or <code class="notranslate">d20</code> in <a href="https://en.wikipedia.org/wiki/Dice_notation" rel="nofollow">dice notation</a>) to determine the outcome of certain events<sup><a href="#user-content-fn-1-01ab77e955c6a868e1b52f38aa2ed7c3" id="user-content-fnref-1-01ab77e955c6a868e1b52f38aa2ed7c3" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>.</p>
+<p dir="auto">While there may be something mythical about one's fate being determined by Platonic solids<sup><a href="#user-content-fn-2-01ab77e955c6a868e1b52f38aa2ed7c3" id="user-content-fnref-2-01ab77e955c6a868e1b52f38aa2ed7c3" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>, the outcome of a dice roll follows discrete uniform distribution which has fairly large variance. I've seen a comment that compared DnD rules with other turn-based strategy games and complained that too much uncertainty makes it impossible to plan multiple steps ahead<sup><a href="#user-content-fn-3-01ab77e955c6a868e1b52f38aa2ed7c3" id="user-content-fnref-3-01ab77e955c6a868e1b52f38aa2ed7c3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>. The commenter promised to play the game only with mods.</p>
+<p dir="auto">Granted, uncertainly is part of the game (and part of life too), but how much uncertainty is appropriate? A single roll determining victory or demise may be thrilling for some but frustrating for others<sup><a href="#user-content-fn-4-01ab77e955c6a868e1b52f38aa2ed7c3" id="user-content-fnref-4-01ab77e955c6a868e1b52f38aa2ed7c3" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>. Discrete uniform distribution is the maximum entropy distribution on N possible outcomes without other constraints, i.e. the most "uncertain". If a modder wants to reduce the uncertainty while keeping the dice mechanics, how may one implement it?</p>
+<p dir="auto">A simple way is to take the average of <code class="notranslate">N</code> independent rolls, which reduces the variance by a factor of <code class="notranslate">1/√N</code>. For example, replacing <code class="notranslate">1d20</code> with <code class="notranslate">2d20/2</code>. However, if we want the support (possible outcomes) to remain the same, we have to round the fractions to nearest integer(s). Note the possible plural, because <code class="notranslate">.5</code> needs special treatment. If <code class="notranslate">.5</code> are rounded in one direction<sup><a href="#user-content-fn-5-01ab77e955c6a868e1b52f38aa2ed7c3" id="user-content-fnref-5-01ab77e955c6a868e1b52f38aa2ed7c3" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>, the distribution will be skewed. The trick is to split the probability on <code class="notranslate">.5</code> evenly to the integer below and above, keeping the symmetry, e.g.</p>
+<p dir="auto"><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="01ab77e955c6a868e1b52f38aa2ed7c3">$$P(2\mathrm{d}20/2=1) = P(2\mathrm{d}20 = 2) + P(2\mathrm{d}20 = 3)/2$$</math-renderer></p>
+<p dir="auto"><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="01ab77e955c6a868e1b52f38aa2ed7c3">$$P(2\mathrm{d}20/2 = 2) = P(2\mathrm{d}20 = 4) + P(2\mathrm{d}20 = 3)/2$$</math-renderer></p>
 <p dir="auto"><code class="notranslate">1d20</code> has 5% probability for each outcome, with standard deviation 5.8; the distribution of rounded <code class="notranslate">2d20/2</code> is given below, with standard deviation 4.1 and 51% chance that the outcome falls in [8,13].</p>
 <table role="table">
 <thead>
@@ -59,7 +59,7 @@
 </tbody>
 </table>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/03abe4747fbe74bc46ed195d9c21a7fd2a3f4abc1cb9ffc851b1b9c006f60e6b/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f4b696e672d6f662d496e66696e6974652d53706163652f696d6167652d686f73742f323032322f32303233303830363231303033342e706e67"><img src="https://camo.githubusercontent.com/03abe4747fbe74bc46ed195d9c21a7fd2a3f4abc1cb9ffc851b1b9c006f60e6b/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f4b696e672d6f662d496e66696e6974652d53706163652f696d6167652d686f73742f323032322f32303233303830363231303033342e706e67" width="400px" data-canonical-src="https://cdn.jsdelivr.net/gh/King-of-Infinite-Space/image-host/2022/20230806210034.png" style="max-width: 100%;"></a></p>
-<p dir="auto">With 2 dice, the probability increases linearly towards the mean. With more dice, the distribution approaches normal distribution by central limit theorem. <code class="notranslate">2d20/2</code> seems to be easy enough to grasp and have sensible probabilities<sup><a href="#user-content-fn-6-94421310affb1da75127ac97445e6c48" id="user-content-fnref-6-94421310affb1da75127ac97445e6c48" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup>. The linearity should also be familiar to players that have seen 2-dice rolls.</p>
+<p dir="auto">With 2 dice, the probability increases linearly towards the mean. With more dice, the distribution approaches normal distribution by central limit theorem. <code class="notranslate">2d20/2</code> seems to be easy enough to grasp and have sensible probabilities<sup><a href="#user-content-fn-6-01ab77e955c6a868e1b52f38aa2ed7c3" id="user-content-fnref-6-01ab77e955c6a868e1b52f38aa2ed7c3" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup>. The linearity should also be familiar to players that have seen 2-dice rolls.</p>
 <p dir="auto">The flat distribution does have one advantage though -- the cumulative distribution is linear. When <code class="notranslate">1d20</code> is rolled, its outcome is added to an "ability number". If the sum &gt;= "difficulty number", the action succeeds. This means that every +1 in "ability number" results in +5% success chance. With 2 or more dice, this relation is no longer linear. The increase in "ability number" has greatest effect when success chance is around 50%. This is the case in <em>Disco Elysium</em>, where skill checks are performed with <code class="notranslate">2d6</code>. (Remember those drugs?)</p>
 <p dir="auto">In any case, the commenter was not alone in disliking uncertainty. Einstein once said "I, at any rate, am convinced that <em>He</em> does not throw dice". Whether or not uncertainty is a fundamental feature of reality, it is definitely a useful model of world. One has to live with it and deal with it.</p>
 <blockquote>
@@ -72,27 +72,27 @@
 <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/de03724eb40c2ab4323bc4bb30491f4fd001735f260e6ef02b2704d52b9ada09/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f323330382d6432302e7376673f706c75733d31"><img src="https://camo.githubusercontent.com/de03724eb40c2ab4323bc4bb30491f4fd001735f260e6ef02b2704d52b9ada09/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f323330382d6432302e7376673f706c75733d31" width="0" height="0" data-canonical-src="https://count.lnfinite.space/post/2308-d20.svg?plus=1" style="max-width: 100%;"></a></p>
 <section data-footnotes="" class="footnotes"><h2 id="footnote-label" class="sr-only" dir="auto">Footnotes</h2>
 <ol dir="auto">
-<li id="user-content-fn-1-94421310affb1da75127ac97445e6c48">
-<p dir="auto">In DnD 5e, <code class="notranslate">d20</code> is used in 3 cases: (1) ability check, whether a character succeeds in a certain task; (2) attack roll, whether a weapon attack hits the target; (3) saving throw, whether a character avoids harmful effects. (Why do they have to use three different nouns for similar actions?) In addition, weapon damage is determined by damage roll using different kinds of dice depending on the weapon type. See <a href="https://www.youtube.com/watch?v=xtVynxgeUq4">here</a> for a video introduction. <a href="#user-content-fnref-1-94421310affb1da75127ac97445e6c48" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-1-01ab77e955c6a868e1b52f38aa2ed7c3">
+<p dir="auto">In DnD 5e, <code class="notranslate">d20</code> is used in 3 cases: (1) ability check, whether a character succeeds in a certain task; (2) attack roll, whether a weapon attack hits the target; (3) saving throw, whether a character avoids harmful effects. (Why do they have to use three different nouns for similar actions?) In addition, weapon damage is determined by damage roll using different kinds of dice depending on the weapon type. See <a href="https://www.youtube.com/watch?v=xtVynxgeUq4">here</a> for a video introduction. <a href="#user-content-fnref-1-01ab77e955c6a868e1b52f38aa2ed7c3" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-2-94421310affb1da75127ac97445e6c48">
-<p dir="auto">In geometry, a Platonic solid is a convex, regular polyhedron in three-dimensional Euclidean space. Being a regular polyhedron means that the faces are congruent regular polygons, and the same number of faces meet at each vertex. (<a href="https://en.wikipedia.org/wiki/Platonic_solid">Wiki</a>) There are only 5 such polyhedra: tetrahedron (d4), cube (d6), octahedron (d8), dodecahedron (d12), icosahedron (d20). d10 does not have these two properties. <a href="#user-content-fnref-2-94421310affb1da75127ac97445e6c48" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-2-01ab77e955c6a868e1b52f38aa2ed7c3">
+<p dir="auto">In geometry, a Platonic solid is a convex, regular polyhedron in three-dimensional Euclidean space. Being a regular polyhedron means that the faces are congruent regular polygons, and the same number of faces meet at each vertex. (<a href="https://en.wikipedia.org/wiki/Platonic_solid">Wiki</a>) There are only 5 such polyhedra: tetrahedron (d4), cube (d6), octahedron (d8), dodecahedron (d12), icosahedron (d20). d10 does not have these two properties. <a href="#user-content-fnref-2-01ab77e955c6a868e1b52f38aa2ed7c3" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-3-94421310affb1da75127ac97445e6c48">
-<p dir="auto">I can't find the exact review again due to a deluge of new reviews and lack of search feature on Steam. <a href="#user-content-fnref-3-94421310affb1da75127ac97445e6c48" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-3-01ab77e955c6a868e1b52f38aa2ed7c3">
+<p dir="auto">I can't find the exact review again due to a deluge of new reviews and lack of search feature on Steam. <a href="#user-content-fnref-3-01ab77e955c6a868e1b52f38aa2ed7c3" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-4-94421310affb1da75127ac97445e6c48">
-<p dir="auto">Or thrilling when the outcome is in their favor and frustrating when not. Also, failure often means reload, which rather defies the purpose. <a href="#user-content-fnref-4-94421310affb1da75127ac97445e6c48" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-4-01ab77e955c6a868e1b52f38aa2ed7c3">
+<p dir="auto">Or thrilling when the outcome is in their favor and frustrating when not. Also, failure often means reload, which rather defies the purpose. <a href="#user-content-fnref-4-01ab77e955c6a868e1b52f38aa2ed7c3" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-5-94421310affb1da75127ac97445e6c48">
-<p dir="auto">I only learned recently that in Python <code class="notranslate">.5</code> is rounded to the nearest <strong>even</strong> number to avoid accumulation of rounding error, e.g. <code class="notranslate">round(0.5)</code> is 0, <code class="notranslate">round(1.5)</code> is 2. But this doesn't help in our case. <a href="#user-content-fnref-5-94421310affb1da75127ac97445e6c48" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-5-01ab77e955c6a868e1b52f38aa2ed7c3">
+<p dir="auto">I only learned recently that in Python <code class="notranslate">.5</code> is rounded to the nearest <strong>even</strong> number to avoid accumulation of rounding error, e.g. <code class="notranslate">round(0.5)</code> is 0, <code class="notranslate">round(1.5)</code> is 2. But this doesn't help in our case. <a href="#user-content-fnref-5-01ab77e955c6a868e1b52f38aa2ed7c3" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-6-94421310affb1da75127ac97445e6c48">
-<p dir="auto">One may even interpolate between <code class="notranslate">1dX</code> and <code class="notranslate">2dX/2</code> distributions. I propose the name "house distribution" due to its shape, with parameters "base height" and "roof height" (min and max probabilities). <a href="#user-content-fnref-6-94421310affb1da75127ac97445e6c48" data-footnote-backref="" aria-label="Back to reference 6" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-6-01ab77e955c6a868e1b52f38aa2ed7c3">
+<p dir="auto">One may even interpolate between <code class="notranslate">1dX</code> and <code class="notranslate">2dX/2</code> distributions. I propose the name "house distribution" due to its shape, with parameters "base height" and "roof height" (min and max probabilities). <a href="#user-content-fnref-6-01ab77e955c6a868e1b52f38aa2ed7c3" data-footnote-backref="" aria-label="Back to reference 6" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
-</section>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/203</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/203</guid><category><![CDATA[好行小慧]]></category><category><![CDATA[数理小径]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Mon, 07 Aug 2023 02:47:48 GMT</pubDate></item><item><title><![CDATA[与历史人物同名的人数]]></title><description><![CDATA[
-<p dir="auto">近日了解到中国官方的网络服务平台上可以查询特定姓名的人数。〔<a href="https://ywtb.mps.gov.cn/newhome/home" rel="nofollow">公安部“互联网+政务服务”平台</a>〕或〔公安一网通办〕应用可以查询全国的数据，但如果人数小于10则不显示具体数字。一些省份也有类似服务，比如〔山东微警务〕公众号上可以查到更具体的数据。出于好奇查询了山东人有多少与历史人物同名，1亿人口的样本量很可观了<sup><a href="#user-content-fn-popu-bfbdf705db257ee19ae9eeaf93a69b95" id="user-content-fnref-popu-bfbdf705db257ee19ae9eeaf93a69b95" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup><sup><a href="#user-content-fn-distri-bfbdf705db257ee19ae9eeaf93a69b95" id="user-content-fnref-distri-bfbdf705db257ee19ae9eeaf93a69b95" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>。</p>
+</section>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/203</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/203</guid><category><![CDATA[好行小慧]]></category><category><![CDATA[数理小径]]></category><category><![CDATA[EN]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Mon, 07 Aug 2023 02:47:48 GMT</pubDate></item><item><title><![CDATA[与历史人物同名的人数]]></title><description><![CDATA[
+<p dir="auto">近日了解到中国官方的网络服务平台上可以查询特定姓名的人数。〔<a href="https://ywtb.mps.gov.cn/newhome/home" rel="nofollow">公安部“互联网+政务服务”平台</a>〕或〔公安一网通办〕应用可以查询全国的数据，但如果人数小于10则不显示具体数字。一些省份也有类似服务，比如〔山东微警务〕公众号上可以查到更具体的数据。出于好奇查询了山东人有多少与历史人物同名，1亿人口的样本量很可观了<sup><a href="#user-content-fn-popu-793856b158c8543e5914916c99d3b738" id="user-content-fnref-popu-793856b158c8543e5914916c99d3b738" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup><sup><a href="#user-content-fn-distri-793856b158c8543e5914916c99d3b738" id="user-content-fnref-distri-793856b158c8543e5914916c99d3b738" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>。</p>
 <h4 dir="auto">春秋战国</h4>
 <p dir="auto">孔丘 1<br>
 孟轲 54<br>
@@ -106,10 +106,10 @@
 <p dir="auto">刘备 308 / 刘玄德 12<br>
 刘禅 7<br>
 刘谌 1<br>
-诸葛亮 0<sup><a href="#user-content-fn-weiyi-bfbdf705db257ee19ae9eeaf93a69b95" id="user-content-fnref-weiyi-bfbdf705db257ee19ae9eeaf93a69b95" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup> / 诸葛孔明 0 / 孔明 549<br>
+诸葛亮 0<sup><a href="#user-content-fn-weiyi-793856b158c8543e5914916c99d3b738" id="user-content-fnref-weiyi-793856b158c8543e5914916c99d3b738" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup> / 诸葛孔明 0 / 孔明 549<br>
 庞统 14 / 庞士元 4<br>
 关羽 7 / 关云长 0<br>
-张飞 1924 / 张益德<sup><a href="#user-content-fn-yide-bfbdf705db257ee19ae9eeaf93a69b95" id="user-content-fnref-yide-bfbdf705db257ee19ae9eeaf93a69b95" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup> 14<br>
+张飞 1924 / 张益德<sup><a href="#user-content-fn-yide-793856b158c8543e5914916c99d3b738" id="user-content-fnref-yide-793856b158c8543e5914916c99d3b738" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup> 14<br>
 赵云 2272 / 赵子龙 643</p>
 <p dir="auto">孙权 0 / 孙仲谋 3<br>
 孙策 270 / 孙伯符 1<br>
@@ -182,20 +182,20 @@
 <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7eb608856f788375dcbb2f90da5276b5a2f435c003edd2b821c1dafc48c0bde1/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f323330372d6e616d6573616b652e7376673f706c75733d31"><img src="https://camo.githubusercontent.com/7eb608856f788375dcbb2f90da5276b5a2f435c003edd2b821c1dafc48c0bde1/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f323330372d6e616d6573616b652e7376673f706c75733d31" width="0" height="0" data-canonical-src="https://count.lnfinite.space/post/2307-namesake.svg?plus=1" style="max-width: 100%;"></a></p>
 <section data-footnotes="" class="footnotes"><h2 id="footnote-label" class="sr-only" dir="auto">Footnotes</h2>
 <ol dir="auto">
-<li id="user-content-fn-popu-bfbdf705db257ee19ae9eeaf93a69b95">
-<p dir="auto">根据第七次全国人口普查（2020），常住人口前三名的省份为广东1.26亿、山东1.02亿、河南0.99亿。 <a href="#user-content-fnref-popu-bfbdf705db257ee19ae9eeaf93a69b95" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-popu-793856b158c8543e5914916c99d3b738">
+<p dir="auto">根据第七次全国人口普查（2020），常住人口前三名的省份为广东1.26亿、山东1.02亿、河南0.99亿。 <a href="#user-content-fnref-popu-793856b158c8543e5914916c99d3b738" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-distri-bfbdf705db257ee19ae9eeaf93a69b95">
-<p dir="auto">各个姓氏在地区上的分布有显著差异。详情可查阅《中国四百大姓》（2013），Google Books上可以<a href="https://www.google.com/books/edition/%E4%B8%AD%E5%9B%BD%E5%9B%9B%E7%99%BE%E5%A4%A7%E5%A7%93/mGuVyAEACAAJ">试读</a>。另外〈<a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E5%A7%93%E6%B0%8F%E6%8E%92%E5%90%8D#2013%E5%B9%B44%E6%9C%88">中国姓氏排名 - 维基百科</a>〉收录了各姓氏总人口数。 <a href="#user-content-fnref-distri-bfbdf705db257ee19ae9eeaf93a69b95" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-distri-793856b158c8543e5914916c99d3b738">
+<p dir="auto">各个姓氏在地区上的分布有显著差异。详情可查阅《中国四百大姓》（2013），Google Books上可以<a href="https://www.google.com/books/edition/%E4%B8%AD%E5%9B%BD%E5%9B%9B%E7%99%BE%E5%A4%A7%E5%A7%93/mGuVyAEACAAJ">试读</a>。另外〈<a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E5%A7%93%E6%B0%8F%E6%8E%92%E5%90%8D#2013%E5%B9%B44%E6%9C%88">中国姓氏排名 - 维基百科</a>〉收录了各姓氏总人口数。 <a href="#user-content-fnref-distri-793856b158c8543e5914916c99d3b738" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-weiyi-bfbdf705db257ee19ae9eeaf93a69b95">
-<p dir="auto">如果查询不到结果，程序会提示「您的名字在山东省是唯一」。这句话根本不成立。不存在的如何「唯一」？ <a href="#user-content-fnref-weiyi-bfbdf705db257ee19ae9eeaf93a69b95" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-weiyi-793856b158c8543e5914916c99d3b738">
+<p dir="auto">如果查询不到结果，程序会提示「您的名字在山东省是唯一」。这句话根本不成立。不存在的如何「唯一」？ <a href="#user-content-fnref-weiyi-793856b158c8543e5914916c99d3b738" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-yide-bfbdf705db257ee19ae9eeaf93a69b95">
-<p dir="auto">《三国志》作「益德」，某些版本的《三国演义》作「翼德」。 <a href="#user-content-fnref-yide-bfbdf705db257ee19ae9eeaf93a69b95" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-yide-793856b158c8543e5914916c99d3b738">
+<p dir="auto">《三国志》作「益德」，某些版本的《三国演义》作「翼德」。 <a href="#user-content-fnref-yide-793856b158c8543e5914916c99d3b738" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
-</section>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/202</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/202</guid><category><![CDATA[说文解字]]></category><category><![CDATA[好行小慧]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Sat, 29 Jul 2023 23:52:40 GMT</pubDate></item><item><title><![CDATA[开源古文BERT模型比较]]></title><description><![CDATA[<p dir="auto">近来想尝试用BERT (Bidirectional Encoder Representations from Transformers) 分析一下古诗词<sup><a href="#user-content-fn-1-43ab68daa5b3d6339ca961a323e022f4" id="user-content-fnref-1-43ab68daa5b3d6339ca961a323e022f4" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。搜索到一些开源模型，在此略作总结比较（大致按年份排序）。看下来SikuBERT提供的信息较为详细，可以一试。</p>
+</section>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/202</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/202</guid><category><![CDATA[说文解字]]></category><category><![CDATA[好行小慧]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Sat, 29 Jul 2023 23:52:40 GMT</pubDate></item><item><title><![CDATA[开源古文BERT模型比较]]></title><description><![CDATA[<p dir="auto">近来想尝试用BERT (Bidirectional Encoder Representations from Transformers) 分析一下古诗词<sup><a href="#user-content-fn-1-cdabe51287b8d78ad53e1f8967b26208" id="user-content-fnref-1-cdabe51287b8d78ad53e1f8967b26208" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。搜索到一些开源模型，在此略作总结比较（大致按年份排序）。看下来SikuBERT提供的信息较为详细，可以一试。</p>
 <table role="table">
 <thead>
 <tr>
@@ -416,8 +416,8 @@ BERT-large L=24, A=16, H=1024</p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a747fa019159263885b2cd21ea921fe57475eea4846518d1f424a19a72e0f5df/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f626572742d6368632e7376673f706c75733d31"><img src="https://camo.githubusercontent.com/a747fa019159263885b2cd21ea921fe57475eea4846518d1f424a19a72e0f5df/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f626572742d6368632e7376673f706c75733d31" width="0" height="0" data-canonical-src="https://count.lnfinite.space/post/bert-chc.svg?plus=1" style="max-width: 100%;"></a></p>
 <section data-footnotes="" class="footnotes"><h2 id="footnote-label" class="sr-only" dir="auto">Footnotes</h2>
 <ol dir="auto">
-<li id="user-content-fn-1-43ab68daa5b3d6339ca961a323e022f4">
-<p dir="auto">目前更关心理解而非生成，所以暂不考虑GPT系模型。（优质语料都读不完，何必生成更多良莠不齐的作品。） <a href="#user-content-fnref-1-43ab68daa5b3d6339ca961a323e022f4" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-1-cdabe51287b8d78ad53e1f8967b26208">
+<p dir="auto">目前更关心理解而非生成，所以暂不考虑GPT系模型。（优质语料都读不完，何必生成更多良莠不齐的作品。） <a href="#user-content-fnref-1-cdabe51287b8d78ad53e1f8967b26208" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/201</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/201</guid><category><![CDATA[说文解字]]></category><category><![CDATA[赛博空间]]></category><category><![CDATA[网上冲浪]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Fri, 19 May 2023 04:30:38 GMT</pubDate></item><item><title><![CDATA[夏日五律习作]]></title><description><![CDATA[<p dir="auto">疫疠侵天下，离居陋室宅。<br>
@@ -454,10 +454,10 @@ BERT-large L=24, A=16, H=1024</p>
 ——曹操《短歌行》</p>
 </blockquote>
 <p dir="auto">人生几何？去日几多？本文从人类总体的角度考察这个问题：历史上所有的人总共度过了多少人生？</p>
-<p dir="auto">智人(Homo sapiens)<sup><a href="#user-content-fn-sapiens-48efda9a4334b53a53633eeb7888990b" id="user-content-fnref-sapiens-48efda9a4334b53a53633eeb7888990b" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>大约于公元前19万年形成。从那时算起，共有约1170亿人出生<sup><a href="#user-content-fn-births-48efda9a4334b53a53633eeb7888990b" id="user-content-fnref-births-48efda9a4334b53a53633eeb7888990b" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>。2020年的世界人口是78亿，是这一数字的6.7%。以万年的时间尺度来看，当代人口占比非常高。</p>
-<p dir="auto">然而人生不能只看数量。「朝菌不知晦朔，蟪蛄不知春秋」，「小年」和「大年」不可等量齐观。近代以前，由于儿童死亡率居高不下，人类总体预期寿命很低。史前人类的预期寿命可能只有10年<sup><a href="#user-content-fn-births-48efda9a4334b53a53633eeb7888990b" id="user-content-fnref-births-2-48efda9a4334b53a53633eeb7888990b" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>，到了19世纪也只有30年，而现今约为73年<sup><a href="#user-content-fn-expectancy-48efda9a4334b53a53633eeb7888990b" id="user-content-fnref-expectancy-48efda9a4334b53a53633eeb7888990b" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>。因此，如果以寿命加权，现代人的人生占人类总人生的比例就更高了。</p>
-<p dir="auto">给定世界人口关于时间的函数，如果对它取微分，就得到人口增长速率；如果将它从古到今对时间积分，就得到「总人生」。其数值等于以年龄加权的历史总出生数，即历史上所有人的年龄之和。积分运算看似意义不明，其实不然。如果某个量与人数和时间成正比，那么它的历史总量就正比于「总人生」，比如做功/耗能、工时、信息量等等。如果把历史上每个人的生活经历全部录制下来，那么所有录像的总信息量就大致正比于总人生。因此，本文将「总人生」作为人类经历总和的估计<sup><a href="#user-content-fn-sum-48efda9a4334b53a53633eeb7888990b" id="user-content-fnref-sum-48efda9a4334b53a53633eeb7888990b" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>，从而把当代人的生活经历放在历史的尺度下考量。</p>
-<p dir="auto">人口关于时间的积分可以根据历史人口数据<sup><a href="#user-content-fn-population-48efda9a4334b53a53633eeb7888990b" id="user-content-fnref-population-48efda9a4334b53a53633eeb7888990b" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>用梯形公式近似求得。近代以前的人口数据本身就是估计值，所以得出的数字只能看个大概。重要的不是具体数字，而是历史趋势。</p>
+<p dir="auto">智人(Homo sapiens)<sup><a href="#user-content-fn-sapiens-8fe4fc05561db40183f1f7d91a744a5f" id="user-content-fnref-sapiens-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>大约于公元前19万年形成。从那时算起，共有约1170亿人出生<sup><a href="#user-content-fn-births-8fe4fc05561db40183f1f7d91a744a5f" id="user-content-fnref-births-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>。2020年的世界人口是78亿，是这一数字的6.7%。以万年的时间尺度来看，当代人口占比非常高。</p>
+<p dir="auto">然而人生不能只看数量。「朝菌不知晦朔，蟪蛄不知春秋」，「小年」和「大年」不可等量齐观。近代以前，由于儿童死亡率居高不下，人类总体预期寿命很低。史前人类的预期寿命可能只有10年<sup><a href="#user-content-fn-births-8fe4fc05561db40183f1f7d91a744a5f" id="user-content-fnref-births-2-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>，到了19世纪也只有30年，而现今约为73年<sup><a href="#user-content-fn-expectancy-8fe4fc05561db40183f1f7d91a744a5f" id="user-content-fnref-expectancy-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>。因此，如果以寿命加权，现代人的人生占人类总人生的比例就更高了。</p>
+<p dir="auto">给定世界人口关于时间的函数，如果对它取微分，就得到人口增长速率；如果将它从古到今对时间积分，就得到「总人生」。其数值等于以年龄加权的历史总出生数，即历史上所有人的年龄之和。积分运算看似意义不明，其实不然。如果某个量与人数和时间成正比，那么它的历史总量就正比于「总人生」，比如做功/耗能、工时、信息量等等。如果把历史上每个人的生活经历全部录制下来，那么所有录像的总信息量就大致正比于总人生。因此，本文将「总人生」作为人类经历总和的估计<sup><a href="#user-content-fn-sum-8fe4fc05561db40183f1f7d91a744a5f" id="user-content-fnref-sum-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>，从而把当代人的生活经历放在历史的尺度下考量。</p>
+<p dir="auto">人口关于时间的积分可以根据历史人口数据<sup><a href="#user-content-fn-population-8fe4fc05561db40183f1f7d91a744a5f" id="user-content-fnref-population-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>用梯形公式近似求得。近代以前的人口数据本身就是估计值，所以得出的数字只能看个大概。重要的不是具体数字，而是历史趋势。</p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/543e646275517beb9ede98fe77fa027ebc7b72e02cc78ae81132b6b7ccc25a04/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f4b696e672d6f662d496e66696e6974652d53706163652f696d6167652d686f73742f323032322f706f70756c6174696f6e5f696e74656772616c5f322e706e67"><img src="https://camo.githubusercontent.com/543e646275517beb9ede98fe77fa027ebc7b72e02cc78ae81132b6b7ccc25a04/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f4b696e672d6f662d496e66696e6974652d53706163652f696d6167652d686f73742f323032322f706f70756c6174696f6e5f696e74656772616c5f322e706e67" width="400px" data-canonical-src="https://cdn.jsdelivr.net/gh/King-of-Infinite-Space/image-host/2022/population_integral_2.png" style="max-width: 100%;"></a></p>
 <p dir="auto">暂且把人生作为一个单位：1人生 = 1人 ⨉ 80年。从公元前10000年到公元2020年，先后有1100亿人存在，总共度过了200亿人生。为简明起见，此图只显示了公元后的年份。图中标记出了总人生每增加目前总量10% (即20亿人生) 的大致时间点。从公元前10000年新石器时代开始，总人生达到第一个10%用了8000年，第二个用了1500年，第三个用了800年。至此时代已经行进到了公元300年。接下来的「中世纪」恰好处于中间部分，总人生平稳增长。300年前的工业化前夕，总人生达到了当前的60%。然后一路飞升——150年前，70%；60年前，80%；23年前，90%。</p>
 
@@ -466,9 +466,9 @@ BERT-large L=24, A=16, H=1024</p>
 <p dir="auto">12000年来人类的总人生竟有20%来自近60年、10%来自近23年。如此规模的急剧增长令人惊讶，更令人担忧。对个人来说，如果头脑被当今的大量信息充斥，就容易一叶障目不见泰山，难以从不同的时空视角考察生活的本质，进行比较和反思。就总体而言，情况则更加复杂。人类是否对宏观的发展方向有所规划？是否对社会运行的机制有足够的了解和掌控？现代人正头重脚轻地朝着未知的前方狂奔。</p>
 <blockquote>
 <p dir="auto">The real problem of humanity is that we have paleolithic emotions; medieval institutions; and god-like technology. And it is terrifically dangerous, and it is now approaching a point of crisis overall. Until we understand ourselves, until we answer those huge questions of philosophy that the philosophers abandoned a couple of generations ago—Where do we come from? Who are we? Where are we going?—rationally,  we are running a very dangerous course.<br>
--- E. O. Wilson<sup><a href="#user-content-fn-wilson-48efda9a4334b53a53633eeb7888990b" id="user-content-fnref-wilson-48efda9a4334b53a53633eeb7888990b" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup></p>
+-- E. O. Wilson<sup><a href="#user-content-fn-wilson-8fe4fc05561db40183f1f7d91a744a5f" id="user-content-fnref-wilson-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup></p>
 </blockquote>
-<p dir="auto">总人生正以每年1亿人生（80亿人⨉1年）的速率增长。如果把上图向未来延伸，不难预测，未来的总人生会远远大于现今。如果不出现自然或人为的大灾难，现在的人类还处于历史的早期<sup><a href="#user-content-fn-future-48efda9a4334b53a53633eeb7888990b" id="user-content-fnref-future-48efda9a4334b53a53633eeb7888990b" data-footnote-ref="" aria-describedby="footnote-label">7</a></sup>。问题在于，近代以来社会经济的飞速发展建立在大量消耗不可再生的化石燃料的基础上。这一发展方式必然无法持续，人类正处于能源转型的重要历史节点。现代人的作为（或不作为）将对后世产生深远影响。不知五百年或一千年后，人们会如何评价当今的时代。</p>
+<p dir="auto">总人生正以每年1亿人生（80亿人⨉1年）的速率增长。如果把上图向未来延伸，不难预测，未来的总人生会远远大于现今。如果不出现自然或人为的大灾难，现在的人类还处于历史的早期<sup><a href="#user-content-fn-future-8fe4fc05561db40183f1f7d91a744a5f" id="user-content-fnref-future-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-ref="" aria-describedby="footnote-label">7</a></sup>。问题在于，近代以来社会经济的飞速发展建立在大量消耗不可再生的化石燃料的基础上。这一发展方式必然无法持续，人类正处于能源转型的重要历史节点。现代人的作为（或不作为）将对后世产生深远影响。不知五百年或一千年后，人们会如何评价当今的时代。</p>
 <blockquote>
 <p dir="auto">It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way -- in short, the period was so far like the present period that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only."</p>
 <p dir="auto"><em>A Tale of Two Cities</em> (1859)</p>
@@ -479,46 +479,46 @@ BERT-large L=24, A=16, H=1024</p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/67fd6c92ae78d76ae50f3989d4595d4e99b9471909e8a886bdc41477dba0edb8/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f34392e7376673f706c75733d31"><img src="https://camo.githubusercontent.com/67fd6c92ae78d76ae50f3989d4595d4e99b9471909e8a886bdc41477dba0edb8/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f34392e7376673f706c75733d31" width="0" height="0" data-canonical-src="https://count.lnfinite.space/post/49.svg?plus=1" style="max-width: 100%;"></a></p>
 <section data-footnotes="" class="footnotes"><h2 id="footnote-label" class="sr-only" dir="auto">Footnotes</h2>
 <ol dir="auto">
-<li id="user-content-fn-sapiens-48efda9a4334b53a53633eeb7888990b">
-<p dir="auto">把「智人」作为自己的物种名实在是大言不惭。建议改成「愚人」(Homo stultus)。（然后每年4月1日就可以名正言顺地过节了。） <a href="#user-content-fnref-sapiens-48efda9a4334b53a53633eeb7888990b" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-sapiens-8fe4fc05561db40183f1f7d91a744a5f">
+<p dir="auto">把「智人」作为自己的物种名实在是大言不惭。建议改成「愚人」(Homo stultus)。（然后每年4月1日就可以名正言顺地过节了。） <a href="#user-content-fnref-sapiens-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-births-48efda9a4334b53a53633eeb7888990b">
-<p dir="auto"><a href="https://www.prb.org/articles/how-many-people-have-ever-lived-on-earth/">How Many People Have Ever Lived on Earth? - PRB - 2021</a> <a href="#user-content-fnref-births-48efda9a4334b53a53633eeb7888990b" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a> <a href="#user-content-fnref-births-2-48efda9a4334b53a53633eeb7888990b" data-footnote-backref="" aria-label="Back to reference 2-2" class="data-footnote-backref">↩<sup>2</sup></a></p>
+<li id="user-content-fn-births-8fe4fc05561db40183f1f7d91a744a5f">
+<p dir="auto"><a href="https://www.prb.org/articles/how-many-people-have-ever-lived-on-earth/">How Many People Have Ever Lived on Earth? - PRB - 2021</a> <a href="#user-content-fnref-births-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a> <a href="#user-content-fnref-births-2-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-backref="" aria-label="Back to reference 2-2" class="data-footnote-backref">↩<sup>2</sup></a></p>
 </li>
-<li id="user-content-fn-expectancy-48efda9a4334b53a53633eeb7888990b">
-<p dir="auto">这里的预期寿命指的是period life expectancy at birth, the average number of years a newborn would live if the pattern of mortality in the given year were to stay the same throughout its life. 如果未来死亡率更低，这一方法算出的预期寿命会偏低。 <a href="https://ourworldindata.org/life-expectancy#rising-life-expectancy-around-the-world">Life Expectancy - Our World in Data - 2019</a> <a href="#user-content-fnref-expectancy-48efda9a4334b53a53633eeb7888990b" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-expectancy-8fe4fc05561db40183f1f7d91a744a5f">
+<p dir="auto">这里的预期寿命指的是period life expectancy at birth, the average number of years a newborn would live if the pattern of mortality in the given year were to stay the same throughout its life. 如果未来死亡率更低，这一方法算出的预期寿命会偏低。 <a href="https://ourworldindata.org/life-expectancy#rising-life-expectancy-around-the-world">Life Expectancy - Our World in Data - 2019</a> <a href="#user-content-fnref-expectancy-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-sum-48efda9a4334b53a53633eeb7888990b">
-<p dir="auto">把人们的经历直接相加似乎不太合适，因为有很多重叠的部分可以被压缩。但如果像计算信息熵那样考虑经历的分布，近代的占比应该更大，因为人们的经历更为多样。 <a href="#user-content-fnref-sum-48efda9a4334b53a53633eeb7888990b" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-sum-8fe4fc05561db40183f1f7d91a744a5f">
+<p dir="auto">把人们的经历直接相加似乎不太合适，因为有很多重叠的部分可以被压缩。但如果像计算信息熵那样考虑经历的分布，近代的占比应该更大，因为人们的经历更为多样。 <a href="#user-content-fnref-sum-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-population-48efda9a4334b53a53633eeb7888990b">
-<p dir="auto"><a href="https://ourworldindata.org/world-population-growth">World Population Growth - Our World in Data</a> <a href="#user-content-fnref-population-48efda9a4334b53a53633eeb7888990b" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-population-8fe4fc05561db40183f1f7d91a744a5f">
+<p dir="auto"><a href="https://ourworldindata.org/world-population-growth">World Population Growth - Our World in Data</a> <a href="#user-content-fnref-population-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-wilson-48efda9a4334b53a53633eeb7888990b">
-<p dir="auto">见于<a href="https://en.wikiquote.org/wiki/E._O._Wilson">E. O. Wilson - Wikiquote</a>；原采访视频（带时间戳）<a href="https://youtu.be/N8_W2cBAO7s?t=3090">Looking Back Looking Forward: A Conversation with James D Watson and Edward O Wilson - YouTube</a> <a href="#user-content-fnref-wilson-48efda9a4334b53a53633eeb7888990b" data-footnote-backref="" aria-label="Back to reference 6" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-wilson-8fe4fc05561db40183f1f7d91a744a5f">
+<p dir="auto">见于<a href="https://en.wikiquote.org/wiki/E._O._Wilson">E. O. Wilson - Wikiquote</a>；原采访视频（带时间戳）<a href="https://youtu.be/N8_W2cBAO7s?t=3090">Looking Back Looking Forward: A Conversation with James D Watson and Edward O Wilson - YouTube</a> <a href="#user-content-fnref-wilson-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-backref="" aria-label="Back to reference 6" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-future-48efda9a4334b53a53633eeb7888990b">
+<li id="user-content-fn-future-8fe4fc05561db40183f1f7d91a744a5f">
 <p dir="auto">关于长远视角<br>
 <a href="https://ourworldindata.org/longtermism">The Future is Vast: Longtermism's perspective on humanity's past, present, and future - Our World in Data</a><br>
-Appendix D5 in <a href="https://escholarship.org/uc/item/9js5291m">Energy and Human Ambitions on a Finite Planet</a> <a href="#user-content-fnref-future-48efda9a4334b53a53633eeb7888990b" data-footnote-backref="" aria-label="Back to reference 7" class="data-footnote-backref">↩</a></p>
+Appendix D5 in <a href="https://escholarship.org/uc/item/9js5291m">Energy and Human Ambitions on a Finite Planet</a> <a href="#user-content-fnref-future-8fe4fc05561db40183f1f7d91a744a5f" data-footnote-backref="" aria-label="Back to reference 7" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/198</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/198</guid><category><![CDATA[数理小径]]></category><category><![CDATA[民间哲学]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Tue, 23 Aug 2022 05:24:45 GMT</pubDate></item><item><title><![CDATA[TensorFlow on Navi10折腾记]]></title><description><![CDATA[<p dir="auto">TL,DR: <code class="notranslate">export HSA_OVERRIDE_GFX_VERSION=10.3.0</code></p>
 <hr>
 <p dir="auto">17年夏天机缘巧合之下接触了ANN。那时TensorFlow 1.x刚推出不久，而当时电脑上的950M显卡支持CUDA。我靠着入门级编程水平稍微折腾后成功安装。不过只是勉为其难地运行，毕竟性能弱、显存小 (2G)、散热也不理想。</p>
 <p dir="auto">那几年深度学习的浪潮席卷了学界和业界，各类模型层出不穷。然而热闹是他们的，我只是浅尝辄止。19年底组装电脑时计划是玩游戏而非跑计算，于是显卡选择了AMD的5700XT（代号Navi10）而非NVIDIA的2060 / 2060SUPER / 2070。</p>
-<p dir="auto">然而人的命运就不可以预料。在这全民AI的年代，谁能置身事外？虽然不太复杂的模型也可以在CPU上运行，但既然已有不错的GPU，何不利用起来？然而，AMD的GPU计算平台ROCm发展缓慢，官方支持的显卡型号非常有限。5700系列显卡上市已经三年，Github上的这个issue<sup><a href="#user-content-fn-issue1-a8dd56c06dc6d25f3f10a235742f34be" id="user-content-fnref-issue1-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>也挂了三年。</p>
+<p dir="auto">然而人的命运就不可以预料。在这全民AI的年代，谁能置身事外？虽然不太复杂的模型也可以在CPU上运行，但既然已有不错的GPU，何不利用起来？然而，AMD的GPU计算平台ROCm发展缓慢，官方支持的显卡型号非常有限。5700系列显卡上市已经三年，Github上的这个issue<sup><a href="#user-content-fn-issue1-c8f8b8e5320da28797506cf2cda8acd7" id="user-content-fnref-issue1-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>也挂了三年。</p>
 <p dir="auto">22年初推出的ROCm v5支持了6800系列（Navi 21）。其架构比Navi 10更新但接近，所以对后者的支持或许不远了。果然神通广大的开源社群找到了办法。</p>
-<p dir="auto">上个月，有高人自行编译了可在Navi 10上运行的ROCm<sup><a href="#user-content-fn-navi10-a8dd56c06dc6d25f3f10a235742f34be" id="user-content-fnref-navi10-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>，不过过程费时费力。后来得知<sup><a href="#user-content-fn-hsa-a8dd56c06dc6d25f3f10a235742f34be" id="user-content-fnref-hsa-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>，无需自行编译，只需设置环境变量 <code class="notranslate">HSA_OVERRIDE_GFX_VERSION=10.3.0</code> 假装显卡是Navi 21，就可以成功运行。此前有人将这一方法用于6600XT / 6700S (Navi 23)<sup><a href="#user-content-fn-reddit-a8dd56c06dc6d25f3f10a235742f34be" id="user-content-fnref-reddit-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup><sup><a href="#user-content-fn-gh-23-a8dd56c06dc6d25f3f10a235742f34be" id="user-content-fnref-gh-23-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>，但没想到对Navi 10也有效。闻此喜讯，果断开搞。</p>
+<p dir="auto">上个月，有高人自行编译了可在Navi 10上运行的ROCm<sup><a href="#user-content-fn-navi10-c8f8b8e5320da28797506cf2cda8acd7" id="user-content-fnref-navi10-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>，不过过程费时费力。后来得知<sup><a href="#user-content-fn-hsa-c8f8b8e5320da28797506cf2cda8acd7" id="user-content-fnref-hsa-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>，无需自行编译，只需设置环境变量 <code class="notranslate">HSA_OVERRIDE_GFX_VERSION=10.3.0</code> 假装显卡是Navi 21，就可以成功运行。此前有人将这一方法用于6600XT / 6700S (Navi 23)<sup><a href="#user-content-fn-reddit-c8f8b8e5320da28797506cf2cda8acd7" id="user-content-fnref-reddit-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup><sup><a href="#user-content-fn-gh-23-c8f8b8e5320da28797506cf2cda8acd7" id="user-content-fnref-gh-23-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>，但没想到对Navi 10也有效。闻此喜讯，果断开搞。</p>
 <ol dir="auto">
 <li>
 <p dir="auto">安装系统<br>
-ROCm只支持Linux，于是先安装Ubuntu。顺便体验下新的22.04。安装过程跟着教程<sup><a href="#user-content-fn-ubt-a8dd56c06dc6d25f3f10a235742f34be" id="user-content-fnref-ubt-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup>走即可，要先在现有的Win10系统上给磁盘分配空余空间。</p>
+ROCm只支持Linux，于是先安装Ubuntu。顺便体验下新的22.04。安装过程跟着教程<sup><a href="#user-content-fn-ubt-c8f8b8e5320da28797506cf2cda8acd7" id="user-content-fnref-ubt-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup>走即可，要先在现有的Win10系统上给磁盘分配空余空间。</p>
 <p dir="auto">进入系统之后才意识到要给USB无线网卡安装驱动。好在可以先通过手机的USB tethering上网。然而网卡厂商提供的驱动太旧，网上的开源驱动一开始好用后来就连不上了。只好将就用着慢速的USB tethering。另外还遇到了无线键鼠卡顿的问题。</p>
 </li>
 <li>
 <p dir="auto">安装ROCm<br>
-大致参照官方v5.2安装指南<sup><a href="#user-content-fn-install-a8dd56c06dc6d25f3f10a235742f34be" id="user-content-fnref-install-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-ref="" aria-describedby="footnote-label">7</a></sup>。由于Ubuntu 22.04尚未得到官方支持，需自行解决dependency版本问题<sup><a href="#user-content-fn-gh-ubt-a8dd56c06dc6d25f3f10a235742f34be" id="user-content-fnref-gh-ubt-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-ref="" aria-describedby="footnote-label">8</a></sup>。</p>
+大致参照官方v5.2安装指南<sup><a href="#user-content-fn-install-c8f8b8e5320da28797506cf2cda8acd7" id="user-content-fnref-install-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-ref="" aria-describedby="footnote-label">7</a></sup>。由于Ubuntu 22.04尚未得到官方支持，需自行解决dependency版本问题<sup><a href="#user-content-fn-gh-ubt-c8f8b8e5320da28797506cf2cda8acd7" id="user-content-fnref-gh-ubt-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-ref="" aria-describedby="footnote-label">8</a></sup>。</p>
 </li>
 <li>
 <p dir="auto"><code class="notranslate">pip install tensorflow-rocm</code><br>
@@ -538,29 +538,29 @@ pytorch的话似乎要自行编译</p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/03bf44bb1b4460fab4fe8d971937a0306f402bdb7f9cdf266418b47728b2138e/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f34382e7376673f706c75733d31"><img src="https://camo.githubusercontent.com/03bf44bb1b4460fab4fe8d971937a0306f402bdb7f9cdf266418b47728b2138e/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f34382e7376673f706c75733d31" width="0" height="0" data-canonical-src="https://count.lnfinite.space/post/48.svg?plus=1" style="max-width: 100%;"></a></p>
 <section data-footnotes="" class="footnotes"><h2 id="footnote-label" class="sr-only" dir="auto">Footnotes</h2>
 <ol dir="auto">
-<li id="user-content-fn-issue1-a8dd56c06dc6d25f3f10a235742f34be">
-<p dir="auto"><code class="notranslate">[Any update on 5700 Xt support? · Issue #887 · RadeonOpenCompute/ROCm](https://github.com/RadeonOpenCompute/ROCm/issues/887)</code> <a href="#user-content-fnref-issue1-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-issue1-c8f8b8e5320da28797506cf2cda8acd7">
+<p dir="auto"><code class="notranslate">[Any update on 5700 Xt support? · Issue #887 · RadeonOpenCompute/ROCm](https://github.com/RadeonOpenCompute/ROCm/issues/887)</code> <a href="#user-content-fnref-issue1-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-navi10-a8dd56c06dc6d25f3f10a235742f34be">
-<p dir="auto"><a href="https://github.com/xuhuisheng/rocm-build/tree/master/navi10">rocm-build/navi10 at master · xuhuisheng/rocm-build</a> <a href="#user-content-fnref-navi10-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-navi10-c8f8b8e5320da28797506cf2cda8acd7">
+<p dir="auto"><a href="https://github.com/xuhuisheng/rocm-build/tree/master/navi10">rocm-build/navi10 at master · xuhuisheng/rocm-build</a> <a href="#user-content-fnref-navi10-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-hsa-a8dd56c06dc6d25f3f10a235742f34be">
-<p dir="auto"><code class="notranslate">[Releases? · Issue #1 · xuhuisheng/rocm-gfx1010](https://github.com/xuhuisheng/rocm-gfx1010/issues/1)</code> <a href="#user-content-fnref-hsa-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-hsa-c8f8b8e5320da28797506cf2cda8acd7">
+<p dir="auto"><code class="notranslate">[Releases? · Issue #1 · xuhuisheng/rocm-gfx1010](https://github.com/xuhuisheng/rocm-gfx1010/issues/1)</code> <a href="#user-content-fnref-hsa-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-reddit-a8dd56c06dc6d25f3f10a235742f34be">
-<p dir="auto"><a href="https://www.reddit.com/r/Amd/comments/rd7mmi/heres_something_you_dont_see_every_day_pytorch/">Here's something you don't see every day: PyTorch running on top of ROCm on a 6800M (6700XT) laptop! Took a ton of minor config tweaks and a few patches but it actually functionally works. HUGE! : Amd</a> <a href="#user-content-fnref-reddit-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-reddit-c8f8b8e5320da28797506cf2cda8acd7">
+<p dir="auto"><a href="https://www.reddit.com/r/Amd/comments/rd7mmi/heres_something_you_dont_see_every_day_pytorch/">Here's something you don't see every day: PyTorch running on top of ROCm on a 6800M (6700XT) laptop! Took a ton of minor config tweaks and a few patches but it actually functionally works. HUGE! : Amd</a> <a href="#user-content-fnref-reddit-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-gh-23-a8dd56c06dc6d25f3f10a235742f34be">
-<p dir="auto"><code class="notranslate">[Does ROCm support the RX 6700S (laptop GPU) · Issue #1756 · RadeonOpenCompute/ROCm](https://github.com/RadeonOpenCompute/ROCm/issues/1756)</code> <a href="#user-content-fnref-gh-23-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-gh-23-c8f8b8e5320da28797506cf2cda8acd7">
+<p dir="auto"><code class="notranslate">[Does ROCm support the RX 6700S (laptop GPU) · Issue #1756 · RadeonOpenCompute/ROCm](https://github.com/RadeonOpenCompute/ROCm/issues/1756)</code> <a href="#user-content-fnref-gh-23-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-ubt-a8dd56c06dc6d25f3f10a235742f34be">
-<p dir="auto"><a href="https://itsfoss.com/install-ubuntu-1404-dual-boot-mode-windows-8-81-uefi/">Beginners Guide To Install Windows 10 With Ubuntu in Dual Boot</a> <a href="#user-content-fnref-ubt-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-backref="" aria-label="Back to reference 6" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-ubt-c8f8b8e5320da28797506cf2cda8acd7">
+<p dir="auto"><a href="https://itsfoss.com/install-ubuntu-1404-dual-boot-mode-windows-8-81-uefi/">Beginners Guide To Install Windows 10 With Ubuntu in Dual Boot</a> <a href="#user-content-fnref-ubt-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-backref="" aria-label="Back to reference 6" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-install-a8dd56c06dc6d25f3f10a235742f34be">
-<p dir="auto"><a href="https://docs.amd.com/bundle/ROCm-Installation-Guide-v5.2/page/Overview_of_ROCm_Installation_Methods.html">Overview of ROCm Installation Methods</a> <a href="#user-content-fnref-install-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-backref="" aria-label="Back to reference 7" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-install-c8f8b8e5320da28797506cf2cda8acd7">
+<p dir="auto"><a href="https://docs.amd.com/bundle/ROCm-Installation-Guide-v5.2/page/Overview_of_ROCm_Installation_Methods.html">Overview of ROCm Installation Methods</a> <a href="#user-content-fnref-install-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-backref="" aria-label="Back to reference 7" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-gh-ubt-a8dd56c06dc6d25f3f10a235742f34be">
-<p dir="auto"><code class="notranslate">[ROCm fails to install from APT repository in 22.04 · Issue #1713 · RadeonOpenCompute/ROCm](https://github.com/RadeonOpenCompute/ROCm/issues/1713#issuecomment-1193332549)</code> <a href="#user-content-fnref-gh-ubt-a8dd56c06dc6d25f3f10a235742f34be" data-footnote-backref="" aria-label="Back to reference 8" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-gh-ubt-c8f8b8e5320da28797506cf2cda8acd7">
+<p dir="auto"><code class="notranslate">[ROCm fails to install from APT repository in 22.04 · Issue #1713 · RadeonOpenCompute/ROCm](https://github.com/RadeonOpenCompute/ROCm/issues/1713#issuecomment-1193332549)</code> <a href="#user-content-fnref-gh-ubt-c8f8b8e5320da28797506cf2cda8acd7" data-footnote-backref="" aria-label="Back to reference 8" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/197</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/197</guid><category><![CDATA[外置记忆]]></category><category><![CDATA[赛博空间]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Tue, 23 Aug 2022 02:45:26 GMT</pubDate></item><item><title><![CDATA[映像 / Reflections (试译)]]></title><description><![CDATA[<table role="table">
@@ -578,7 +578,7 @@ pytorch的话似乎要自行编译</p>
 </tbody>
 </table>
 <hr>
-<p dir="auto">首次尝试翻译英诗。作者是威尔士诗人R. S. Thomas (1913-2000)<sup><a href="#user-content-fn-poem-0e40a3d58f249a55781e88dd9e0c96d9" id="user-content-fnref-poem-0e40a3d58f249a55781e88dd9e0c96d9" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。选这首诗的原因是游戏《极乐迪斯科》(Disco Elysium)。游戏的第一个画面就是本诗的第一节。而且在开发阶段游戏的名称就是<em>No truce with the furies</em>。关于本诗以及游戏主题的哲学解读可以参考下方资料<sup><a href="#user-content-fn-de-0e40a3d58f249a55781e88dd9e0c96d9" id="user-content-fnref-de-0e40a3d58f249a55781e88dd9e0c96d9" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>。</p>
+<p dir="auto">首次尝试翻译英诗。作者是威尔士诗人R. S. Thomas (1913-2000)<sup><a href="#user-content-fn-poem-0a0a19502ae2240496d073396f26235f" id="user-content-fnref-poem-0a0a19502ae2240496d073396f26235f" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。选这首诗的原因是游戏《极乐迪斯科》(Disco Elysium)。游戏的第一个画面就是本诗的第一节。而且在开发阶段游戏的名称就是<em>No truce with the furies</em>。关于本诗以及游戏主题的哲学解读可以参考下方资料<sup><a href="#user-content-fn-de-0a0a19502ae2240496d073396f26235f" id="user-content-fnref-de-0a0a19502ae2240496d073396f26235f" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>。</p>
 <p dir="auto">顺便记录一下体会。翻译是从文字到理解再到文字的过程。诗的语言精简而意象丰富，而且往往具有特定形式，因此对这两步转换过程的精确度要求极高。理解原文要求译者充分掌握源语言，深刻领会其明义和暗喻；再表达时不仅要兼顾“信、达、雅”，而且要注意节奏和音韵。总之，如果想练习精妙词句的理解和生成，译诗或许是很好的方式。(写自己的诗当然更好，但首先要有想法。) 不过，斟酌字句固有其乐趣，词穷的时候也会有点苦闷。</p>
 <p dir="auto">另外，下面是几个翻译时仔细研读才注意到的细节：</p>
 <ol dir="auto">
@@ -589,44 +589,44 @@ pytorch的话似乎要自行编译</p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fcfacb04556184a03113d03609ae1380357e3451b5899ef96c6bc460033e6995/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f34372e7376673f706c75733d31"><img src="https://camo.githubusercontent.com/fcfacb04556184a03113d03609ae1380357e3451b5899ef96c6bc460033e6995/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f34372e7376673f706c75733d31" width="0" height="0" data-canonical-src="https://count.lnfinite.space/post/47.svg?plus=1" style="max-width: 100%;"></a></p>
 <section data-footnotes="" class="footnotes"><h2 id="footnote-label" class="sr-only" dir="auto">Footnotes</h2>
 <ol dir="auto">
-<li id="user-content-fn-poem-0e40a3d58f249a55781e88dd9e0c96d9">
-<p dir="auto"><a href="https://www.poeticous.com/r-s-thomas/reflections">Reflections, by R. S. Thomas | Poeticous</a> <a href="#user-content-fnref-poem-0e40a3d58f249a55781e88dd9e0c96d9" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-poem-0a0a19502ae2240496d073396f26235f">
+<p dir="auto"><a href="https://www.poeticous.com/r-s-thomas/reflections">Reflections, by R. S. Thomas | Poeticous</a> <a href="#user-content-fnref-poem-0a0a19502ae2240496d073396f26235f" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-de-0e40a3d58f249a55781e88dd9e0c96d9">
-<p dir="auto"><a href="https://www.gcores.com/articles/123596">《极乐迪斯科》与齐泽克（三）：镜子到底在说啥？ | 鱼丝粥 | 机核 GCORES</a> <a href="#user-content-fnref-de-0e40a3d58f249a55781e88dd9e0c96d9" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-de-0a0a19502ae2240496d073396f26235f">
+<p dir="auto"><a href="https://www.gcores.com/articles/123596">《极乐迪斯科》与齐泽克（三）：镜子到底在说啥？ | 鱼丝粥 | 机核 GCORES</a> <a href="#user-content-fnref-de-0a0a19502ae2240496d073396f26235f" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/196</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/196</guid><category><![CDATA[撷叶拾英]]></category><category><![CDATA[浅词拙句]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Thu, 14 Jul 2022 02:53:12 GMT</pubDate></item><item><title><![CDATA[互为妹夫？汉语里的对称称呼]]></title><description><![CDATA[<p dir="auto">最近看了个给某游戏人物乱点鸳鸯谱的视频，其中两名角色互相成为了对方的妹夫。这带来一个问题：在何种亲属关系下，两人之间称呼相同？</p>
-<p dir="auto">亲属关系的称呼在各语言文化中各有不同，人类学里将其分为六大类型<sup><a href="#user-content-fn-kinship-e5a8615363e202fb73844b03923050dd" id="user-content-fnref-kinship-e5a8615363e202fb73844b03923050dd" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。英语属于较简单的爱斯基摩型，对三代以内旁系血亲的称呼只有uncle/aunt、cousin、nephew/niece。汉语属于区分最细的苏丹型，父方母方亲属的称呼有别（姑/叔伯/姨/舅、表/堂、甥/侄）。除此之外汉语的称呼还有年龄区别。在汉语这种区分极细的系统里，各种不同的亲属关系都有特定的称呼，所以什么情况下称呼相同倒成了个有趣的问题。</p>
-<p dir="auto">对任意A、B两人，如果A是B的大伯，那么B不可能是A的大伯。用数学术语来说，这意味着「是大伯」这个二元关系是<em>非对称</em>的 (asymmetric)<sup><a href="#user-content-fn-baba-e5a8615363e202fb73844b03923050dd" id="user-content-fnref-baba-e5a8615363e202fb73844b03923050dd" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>。「大于」、「小于」都是<em>非对称</em>关系。血亲 (拥有共同祖先的人) 之间的称呼由辈分高低、年龄大小决定，所以必然是<em>非对称</em>的。那么相同的称呼只可能出现在姻亲之间，而且要求其亲属关系存在对称性。</p>
+<p dir="auto">亲属关系的称呼在各语言文化中各有不同，人类学里将其分为六大类型<sup><a href="#user-content-fn-kinship-96f2a61d9c4ddbdc852b86ba2a230dfc" id="user-content-fnref-kinship-96f2a61d9c4ddbdc852b86ba2a230dfc" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。英语属于较简单的爱斯基摩型，对三代以内旁系血亲的称呼只有uncle/aunt、cousin、nephew/niece。汉语属于区分最细的苏丹型，父方母方亲属的称呼有别（姑/叔伯/姨/舅、表/堂、甥/侄）。除此之外汉语的称呼还有年龄区别。在汉语这种区分极细的系统里，各种不同的亲属关系都有特定的称呼，所以什么情况下称呼相同倒成了个有趣的问题。</p>
+<p dir="auto">对任意A、B两人，如果A是B的大伯，那么B不可能是A的大伯。用数学术语来说，这意味着「是大伯」这个二元关系是<em>非对称</em>的 (asymmetric)<sup><a href="#user-content-fn-baba-96f2a61d9c4ddbdc852b86ba2a230dfc" id="user-content-fnref-baba-96f2a61d9c4ddbdc852b86ba2a230dfc" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>。「大于」、「小于」都是<em>非对称</em>关系。血亲 (拥有共同祖先的人) 之间的称呼由辈分高低、年龄大小决定，所以必然是<em>非对称</em>的。那么相同的称呼只可能出现在姻亲之间，而且要求其亲属关系存在对称性。</p>
 <p dir="auto">先考虑同辈的两位血亲与各自配偶间的称呼，有以下四种情况：</p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a5c9f5a2497f54be7177d2422e9b30b62b564f75ca41ac7146deec3f93a36251/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f4b696e672d6f662d496e66696e6974652d53706163652f696d6167652d686f73742f323032322f32303232303430393139343331342e706e67"><img src="https://camo.githubusercontent.com/a5c9f5a2497f54be7177d2422e9b30b62b564f75ca41ac7146deec3f93a36251/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f4b696e672d6f662d496e66696e6974652d53706163652f696d6167652d686f73742f323032322f32303232303430393139343331342e706e67" data-canonical-src="https://cdn.jsdelivr.net/gh/King-of-Infinite-Space/image-host/2022/20220409194314.png" style="max-width: 100%;"></a></p>
 <p dir="auto">「妯娌」和「连襟」是<em>对称</em>的二元关系。如果A是B的妯娌，B必然是A的妯娌。「兄弟」「姐妹」也是如此。但这几个词一般不用于亲属间的直接称呼，而是用来向第三人描述关系或作为合称（“他们是兄弟”）。另外，没有与「妯娌」「连襟」类似的指代兄妹或姐弟配偶间关系的词汇。</p>
-<p dir="auto">上图中的斜箭头代表姻亲间的称呼<sup><a href="#user-content-fn-yinqin-e5a8615363e202fb73844b03923050dd" id="user-content-fnref-yinqin-e5a8615363e202fb73844b03923050dd" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>。在一般家庭里，这些称呼是<em>非对称</em>的。但这不是理论上的必然，对称性可以被构造出来。如果将上图右边的两组关系加以组合，可以得到下图右边三种双重称呼的情况：</p>
+<p dir="auto">上图中的斜箭头代表姻亲间的称呼<sup><a href="#user-content-fn-yinqin-96f2a61d9c4ddbdc852b86ba2a230dfc" id="user-content-fnref-yinqin-96f2a61d9c4ddbdc852b86ba2a230dfc" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>。在一般家庭里，这些称呼是<em>非对称</em>的。但这不是理论上的必然，对称性可以被构造出来。如果将上图右边的两组关系加以组合，可以得到下图右边三种双重称呼的情况：</p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3d1fdb434c29647bf0b7a345637ad30a068b6646444030b27ccafe442e00cd6b/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f4b696e672d6f662d496e66696e6974652d53706163652f696d6167652d686f73742f323032322f32303232303430393139343532372e706e67"><img src="https://camo.githubusercontent.com/3d1fdb434c29647bf0b7a345637ad30a068b6646444030b27ccafe442e00cd6b/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f4b696e672d6f662d496e66696e6974652d53706163652f696d6167652d686f73742f323032322f32303232303430393139343532372e706e67" data-canonical-src="https://cdn.jsdelivr.net/gh/King-of-Infinite-Space/image-host/2022/20220409194527.png" style="max-width: 100%;"></a></p>
-<p dir="auto">框出的两组关系沿对角线对称，所以称呼必然对称。这就出现了互为妹夫 (兼舅哥) 的情况。至于两个称呼用哪个的问题，似乎前者听起来更亲切。<sup><a href="#user-content-fn-qinqie-e5a8615363e202fb73844b03923050dd" id="user-content-fnref-qinqie-e5a8615363e202fb73844b03923050dd" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup></p>
+<p dir="auto">框出的两组关系沿对角线对称，所以称呼必然对称。这就出现了互为妹夫 (兼舅哥) 的情况。至于两个称呼用哪个的问题，似乎前者听起来更亲切。<sup><a href="#user-content-fn-qinqie-96f2a61d9c4ddbdc852b86ba2a230dfc" id="user-content-fnref-qinqie-96f2a61d9c4ddbdc852b86ba2a230dfc" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup></p>
 <p dir="auto">理论上，这两组关系里的血亲不必同辈，也可以是父女、母子。 (两个单亲家庭这样组合则不存在近亲结婚的问题。) 那么可以出现两人互为婆婆兼儿媳的情况。 (这要是闹起“婆媳矛盾”，岂不是要精神分裂？) 虽然法律没有禁止，但这也太奇葩了。</p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b95a2724b49920eafbc1f7c18576fd751e2ecbc3c046d0e62311c60234ba3f21/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f34362e7376673f706c75733d31"><img src="https://camo.githubusercontent.com/b95a2724b49920eafbc1f7c18576fd751e2ecbc3c046d0e62311c60234ba3f21/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f34362e7376673f706c75733d31" width="0" height="0" data-canonical-src="https://count.lnfinite.space/post/46.svg?plus=1" style="max-width: 100%;"></a></p>
 <section data-footnotes="" class="footnotes"><h2 id="footnote-label" class="sr-only" dir="auto">Footnotes</h2>
 <ol dir="auto">
-<li id="user-content-fn-kinship-e5a8615363e202fb73844b03923050dd">
-<p dir="auto"><a href="https://en.wikipedia.org/wiki/Kinship_terminology">Kinship terminology - Wikipedia</a> <a href="#user-content-fnref-kinship-e5a8615363e202fb73844b03923050dd" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-kinship-96f2a61d9c4ddbdc852b86ba2a230dfc">
+<p dir="auto"><a href="https://en.wikipedia.org/wiki/Kinship_terminology">Kinship terminology - Wikipedia</a> <a href="#user-content-fnref-kinship-96f2a61d9c4ddbdc852b86ba2a230dfc" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-baba-e5a8615363e202fb73844b03923050dd">
-<p dir="auto">网络上人们可以互称“爸爸”，这个用法显然不是<em>非对称</em>的。 <a href="#user-content-fnref-baba-e5a8615363e202fb73844b03923050dd" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-baba-96f2a61d9c4ddbdc852b86ba2a230dfc">
+<p dir="auto">网络上人们可以互称“爸爸”，这个用法显然不是<em>非对称</em>的。 <a href="#user-content-fnref-baba-96f2a61d9c4ddbdc852b86ba2a230dfc" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-yinqin-e5a8615363e202fb73844b03923050dd">
-<p dir="auto">一个观察：右下或右上箭头代表的关系是先血亲再姻亲，其称呼的第一个字来自血亲的称呼；反之则是先姻亲后血亲，其称呼的第一个字借用了子女对对方的称呼。（为了形式整齐，这里使用的具体称呼可能与生活中略有不同。） <a href="#user-content-fnref-yinqin-e5a8615363e202fb73844b03923050dd" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-yinqin-96f2a61d9c4ddbdc852b86ba2a230dfc">
+<p dir="auto">一个观察：右下或右上箭头代表的关系是先血亲再姻亲，其称呼的第一个字来自血亲的称呼；反之则是先姻亲后血亲，其称呼的第一个字借用了子女对对方的称呼。（为了形式整齐，这里使用的具体称呼可能与生活中略有不同。） <a href="#user-content-fnref-yinqin-96f2a61d9c4ddbdc852b86ba2a230dfc" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-qinqie-e5a8615363e202fb73844b03923050dd">
-<p dir="auto">大概因为不必借用子女的称呼。称呼里有「妹夫」而没有「夫妹」，或许反映出兄弟姐妹比配偶更亲一点。(从基因相似度来看，兄弟姐妹平均来说和子女一样亲。) <a href="#user-content-fnref-qinqie-e5a8615363e202fb73844b03923050dd" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-qinqie-96f2a61d9c4ddbdc852b86ba2a230dfc">
+<p dir="auto">大概因为不必借用子女的称呼。称呼里有「妹夫」而没有「夫妹」，或许反映出兄弟姐妹比配偶更亲一点。(从基因相似度来看，兄弟姐妹平均来说和子女一样亲。) <a href="#user-content-fnref-qinqie-96f2a61d9c4ddbdc852b86ba2a230dfc" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
-</section>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/195</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/195</guid><category><![CDATA[说文解字]]></category><category><![CDATA[好行小慧]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Sun, 10 Apr 2022 04:03:01 GMT</pubDate></item><item><title><![CDATA[给原神璃月人物起名]]></title><description><![CDATA[<p dir="auto">游戏《原神》里的璃月地区以古代中国为原型。其中主要人物名字的用词很有讲究，比如凝光、重云、行秋，皆出自古诗词<sup><a href="#user-content-fn-diangu-1fff1f9064f5d97bb336bd6511a95b5e" id="user-content-fnref-diangu-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。然而有人疑问：她们<sup><a href="#user-content-fn-ta-1fff1f9064f5d97bb336bd6511a95b5e" id="user-content-fnref-ta-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>姓什么？璃月十几个可控人物里，只有{胡}{桃}、{云}{堇}明确地有名有姓<sup><a href="#user-content-fn-baizhu-1fff1f9064f5d97bb336bd6511a95b5e" id="user-content-fnref-baizhu-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>，其余人两个字的「名字」性质不明。</p>
-<p dir="auto">本文无意深究游戏的具体设定，只是借此进行起名练习。姑且假设这些人物的名字遵循中国古代的习惯，包含<strong>姓</strong>、<strong>名</strong>、<strong>字</strong>三部分。进一步假设<strong>名</strong>皆为单字，而<strong>字</strong>为二字。例如：姓刘名备字玄德<sup><a href="#user-content-fn-danming-1fff1f9064f5d97bb336bd6511a95b5e" id="user-content-fnref-danming-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>。基于这个假设，前面提到的几个名字应视为<strong>字</strong>。在古代，<strong>字</strong>用于平辈间的称呼。所以游戏里的称呼大体符合假设。但这样一来她们<strong>姓名</strong>未详。本文正是要给她们起<strong>名</strong>。历史上，<strong>字</strong>由<strong>名</strong>派生而来，二者的词义密切相关<sup><a href="#user-content-fn-book-1fff1f9064f5d97bb336bd6511a95b5e" id="user-content-fnref-book-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>。本文在起名时最重要的依据就是现有的<strong>字</strong>，同时也参考人物的性格和背景<sup><a href="#user-content-fn-xingge-1fff1f9064f5d97bb336bd6511a95b5e" id="user-content-fnref-xingge-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup>。由于人物数量较多，这里选取几个意象比较明确的。<del>想不出来的时候，就把字典检字表里特定偏旁的字浏览一遍。</del></p>
+</section>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/195</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/195</guid><category><![CDATA[说文解字]]></category><category><![CDATA[好行小慧]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Sun, 10 Apr 2022 04:03:01 GMT</pubDate></item><item><title><![CDATA[给原神璃月人物起名]]></title><description><![CDATA[<p dir="auto">游戏《原神》里的璃月地区以古代中国为原型。其中主要人物名字的用词很有讲究，比如凝光、重云、行秋，皆出自古诗词<sup><a href="#user-content-fn-diangu-e13e20f7bc7d850b0be28500e7677342" id="user-content-fnref-diangu-e13e20f7bc7d850b0be28500e7677342" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。然而有人疑问：她们<sup><a href="#user-content-fn-ta-e13e20f7bc7d850b0be28500e7677342" id="user-content-fnref-ta-e13e20f7bc7d850b0be28500e7677342" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>姓什么？璃月十几个可控人物里，只有{胡}{桃}、{云}{堇}明确地有名有姓<sup><a href="#user-content-fn-baizhu-e13e20f7bc7d850b0be28500e7677342" id="user-content-fnref-baizhu-e13e20f7bc7d850b0be28500e7677342" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>，其余人两个字的「名字」性质不明。</p>
+<p dir="auto">本文无意深究游戏的具体设定，只是借此进行起名练习。姑且假设这些人物的名字遵循中国古代的习惯，包含<strong>姓</strong>、<strong>名</strong>、<strong>字</strong>三部分。进一步假设<strong>名</strong>皆为单字，而<strong>字</strong>为二字。例如：姓刘名备字玄德<sup><a href="#user-content-fn-danming-e13e20f7bc7d850b0be28500e7677342" id="user-content-fnref-danming-e13e20f7bc7d850b0be28500e7677342" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>。基于这个假设，前面提到的几个名字应视为<strong>字</strong>。在古代，<strong>字</strong>用于平辈间的称呼。所以游戏里的称呼大体符合假设。但这样一来她们<strong>姓名</strong>未详。本文正是要给她们起<strong>名</strong>。历史上，<strong>字</strong>由<strong>名</strong>派生而来，二者的词义密切相关<sup><a href="#user-content-fn-book-e13e20f7bc7d850b0be28500e7677342" id="user-content-fnref-book-e13e20f7bc7d850b0be28500e7677342" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>。本文在起名时最重要的依据就是现有的<strong>字</strong>，同时也参考人物的性格和背景<sup><a href="#user-content-fn-xingge-e13e20f7bc7d850b0be28500e7677342" id="user-content-fnref-xingge-e13e20f7bc7d850b0be28500e7677342" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup>。由于人物数量较多，这里选取几个意象比较明确的。<del>想不出来的时候，就把字典检字表里特定偏旁的字浏览一遍。</del></p>
 <hr>
 <h4 dir="auto">刻晴</h4>
-<p dir="auto">其称号「霆霓快雨」出自清人俞樾《春在堂随笔》里提到的一句诗「急开君诗扫烦暑，爽若快雨驱霆霓」。 霆霓意为疾雷<sup><a href="#user-content-fn-cidian-1fff1f9064f5d97bb336bd6511a95b5e" id="user-content-fnref-cidian-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-ref="" aria-describedby="footnote-label">7</a></sup>。这一称号对应雷属性，也反映了她果决的行事风格。因此起名时的主要目标是雨字头的字。</p>
+<p dir="auto">其称号「霆霓快雨」出自清人俞樾《春在堂随笔》里提到的一句诗「急开君诗扫烦暑，爽若快雨驱霆霓」。 霆霓意为疾雷<sup><a href="#user-content-fn-cidian-e13e20f7bc7d850b0be28500e7677342" id="user-content-fnref-cidian-e13e20f7bc7d850b0be28500e7677342" data-footnote-ref="" aria-describedby="footnote-label">7</a></sup>。这一称号对应雷属性，也反映了她果决的行事风格。因此起名时的主要目标是雨字头的字。</p>
 <blockquote>
 <p dir="auto"><strong>霁</strong> jì<br>
 雨后或雪后转晴。</p>
@@ -684,11 +684,11 @@ pytorch的话似乎要自行编译</p>
 卯蓉 香菱<br>
 胡桃 映春<br>
 (　)安珀</p>
-<p dir="auto">(香菱的姓来自其父卯师傅<sup><a href="#user-content-fn-mao-1fff1f9064f5d97bb336bd6511a95b5e" id="user-content-fnref-mao-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-ref="" aria-describedby="footnote-label">8</a></sup>。) 本文的目的在于起名而非冠姓。名和姓的组合不完全是任意的。二者放在一起不仅关乎声调和谐，还可能因词义相关或谐音而产生特别的效果 (比如胡桃) 。但这可遇而不可求，若能想到合适的就加上去。还有云堇的字和辛焱的名没想好，有机会再补充吧。 (感觉“辛焱”更适合作为姓名，作为字不太协调。) 其余人物背景比较特殊 (仙人钟离和魈、半仙甘雨和烟绯、孤儿北斗和申鹤、僵尸七七) ，大概不必遵循传统的姓、名、字格式。</p>
+<p dir="auto">(香菱的姓来自其父卯师傅<sup><a href="#user-content-fn-mao-e13e20f7bc7d850b0be28500e7677342" id="user-content-fnref-mao-e13e20f7bc7d850b0be28500e7677342" data-footnote-ref="" aria-describedby="footnote-label">8</a></sup>。) 本文的目的在于起名而非冠姓。名和姓的组合不完全是任意的。二者放在一起不仅关乎声调和谐，还可能因词义相关或谐音而产生特别的效果 (比如胡桃) 。但这可遇而不可求，若能想到合适的就加上去。还有云堇的字和辛焱的名没想好，有机会再补充吧。 (感觉“辛焱”更适合作为姓名，作为字不太协调。) 其余人物背景比较特殊 (仙人钟离和魈、半仙甘雨和烟绯、孤儿北斗和申鹤、僵尸七七) ，大概不必遵循传统的姓、名、字格式。</p>
 <p dir="auto">2022-2</p>
 <hr>
 <p dir="auto">2023-2补充：</p>
-<p dir="auto">虽说「夜兰」听起来像花名<sup><a href="#user-content-fn-huaming-1fff1f9064f5d97bb336bd6511a95b5e" id="user-content-fnref-huaming-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-ref="" aria-describedby="footnote-label">9</a></sup>而非<strong>字</strong>，还是姑且拟一<strong>名</strong>吧。不如就选「蕙」字。蕙兰是兰花的一种。古诗文里两字经常并列，比如《离骚》里有「余既滋兰之九畹兮，又树蕙之百亩」。有成语「蕙质兰心」<sup><a href="#user-content-fn-huizhi-1fff1f9064f5d97bb336bd6511a95b5e" id="user-content-fnref-huizhi-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-ref="" aria-describedby="footnote-label">10</a></sup>，比喻女子芳洁的心地、高雅的品德。</p>
+<p dir="auto">虽说「夜兰」听起来像花名<sup><a href="#user-content-fn-huaming-e13e20f7bc7d850b0be28500e7677342" id="user-content-fnref-huaming-e13e20f7bc7d850b0be28500e7677342" data-footnote-ref="" aria-describedby="footnote-label">9</a></sup>而非<strong>字</strong>，还是姑且拟一<strong>名</strong>吧。不如就选「蕙」字。蕙兰是兰花的一种。古诗文里两字经常并列，比如《离骚》里有「余既滋兰之九畹兮，又树蕙之百亩」。有成语「蕙质兰心」<sup><a href="#user-content-fn-huizhi-e13e20f7bc7d850b0be28500e7677342" id="user-content-fnref-huizhi-e13e20f7bc7d850b0be28500e7677342" data-footnote-ref="" aria-describedby="footnote-label">10</a></sup>，比喻女子芳洁的心地、高雅的品德。</p>
 <p dir="auto">如果牵强附会一下，「蕙」谐音「晦」，就和「夜」字以及情报工作者的身份对上了。而若是冤家遇到她，那自然是晦气了。</p>
 <blockquote>
 <p dir="auto">晦 huì<br>
@@ -700,35 +700,35 @@ pytorch的话似乎要自行编译</p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/90b0e7950c0d57256dfd2e1a97ae5665622a65db6e93ad3ac39a10e98fcae3fb/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f34352e7376673f706c75733d31"><img src="https://camo.githubusercontent.com/90b0e7950c0d57256dfd2e1a97ae5665622a65db6e93ad3ac39a10e98fcae3fb/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f34352e7376673f706c75733d31" width="0" height="0" data-canonical-src="https://count.lnfinite.space/post/45.svg?plus=1" style="max-width: 100%;"></a></p>
 <section data-footnotes="" class="footnotes"><h2 id="footnote-label" class="sr-only" dir="auto">Footnotes</h2>
 <ol dir="auto">
-<li id="user-content-fn-diangu-1fff1f9064f5d97bb336bd6511a95b5e">
-<p dir="auto">本文提到的人名典故引用自：<a href="https://www.sohu.com/a/520538327_100105828">原神：「老外看不懂系列」！15位璃月角色姓名典故出炉，钟离压轴 | 涛咪电竞  | 搜狐</a> <a href="#user-content-fnref-diangu-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-diangu-e13e20f7bc7d850b0be28500e7677342">
+<p dir="auto">本文提到的人名典故引用自：<a href="https://www.sohu.com/a/520538327_100105828">原神：「老外看不懂系列」！15位璃月角色姓名典故出炉，钟离压轴 | 涛咪电竞  | 搜狐</a> <a href="#user-content-fnref-diangu-e13e20f7bc7d850b0be28500e7677342" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-ta-1fff1f9064f5d97bb336bd6511a95b5e">
-<p dir="auto">考虑到人物总体性别比例，特意使用了这个代词。毕竟是个贩卖二次元美少女的游戏。 <a href="#user-content-fnref-ta-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-ta-e13e20f7bc7d850b0be28500e7677342">
+<p dir="auto">考虑到人物总体性别比例，特意使用了这个代词。毕竟是个贩卖二次元美少女的游戏。 <a href="#user-content-fnref-ta-e13e20f7bc7d850b0be28500e7677342" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-baizhu-1fff1f9064f5d97bb336bd6511a95b5e">
-<p dir="auto">二者人物语音里有直接说明。从游戏里的称呼也能推测出。而且英文版里二人的姓和名分写。(顺便一提，俄文版里所有璃月人名都是每个字分写的。) 另外，尽管白术常被称为「白先生」，角色介绍提到他本不姓白。英文版的写法是Dr. Baizhu而非Dr. Bai。 <a href="#user-content-fnref-baizhu-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-baizhu-e13e20f7bc7d850b0be28500e7677342">
+<p dir="auto">二者人物语音里有直接说明。从游戏里的称呼也能推测出。而且英文版里二人的姓和名分写。(顺便一提，俄文版里所有璃月人名都是每个字分写的。) 另外，尽管白术常被称为「白先生」，角色介绍提到他本不姓白。英文版的写法是Dr. Baizhu而非Dr. Bai。 <a href="#user-content-fnref-baizhu-e13e20f7bc7d850b0be28500e7677342" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-danming-1fff1f9064f5d97bb336bd6511a95b5e">
-<p dir="auto">事实上，这一格式在古代非常常见。南北朝以前绝大多数人的名只有一个字。 <a href="#user-content-fnref-danming-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-danming-e13e20f7bc7d850b0be28500e7677342">
+<p dir="auto">事实上，这一格式在古代非常常见。南北朝以前绝大多数人的名只有一个字。 <a href="#user-content-fnref-danming-e13e20f7bc7d850b0be28500e7677342" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-book-1fff1f9064f5d97bb336bd6511a95b5e">
-<p dir="auto">详见<a href="https://book.douban.com/subject/1058545/">《中国人的名字别号》 | 豆瓣读书</a> <a href="#user-content-fnref-book-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-book-e13e20f7bc7d850b0be28500e7677342">
+<p dir="auto">详见<a href="https://book.douban.com/subject/1058545/">《中国人的名字别号》 | 豆瓣读书</a> <a href="#user-content-fnref-book-e13e20f7bc7d850b0be28500e7677342" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-xingge-1fff1f9064f5d97bb336bd6511a95b5e">
-<p dir="auto">作者可以让虚构人物的名字反映其性格，而现实中的名字或许对一个人的性格或职业有所影响，参见 <a href="https://en.wikipedia.org/wiki/Nominative_determinism">Nominative determinism - Wikipedia</a>。在此不得不提一个美妙的巧合：科学家屠呦呦的名字出自《诗经・小雅・鹿鸣》，其中有“呦呦鹿鸣，食野之蒿。” <a href="#user-content-fnref-xingge-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-backref="" aria-label="Back to reference 6" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-xingge-e13e20f7bc7d850b0be28500e7677342">
+<p dir="auto">作者可以让虚构人物的名字反映其性格，而现实中的名字或许对一个人的性格或职业有所影响，参见 <a href="https://en.wikipedia.org/wiki/Nominative_determinism">Nominative determinism - Wikipedia</a>。在此不得不提一个美妙的巧合：科学家屠呦呦的名字出自《诗经・小雅・鹿鸣》，其中有“呦呦鹿鸣，食野之蒿。” <a href="#user-content-fnref-xingge-e13e20f7bc7d850b0be28500e7677342" data-footnote-backref="" aria-label="Back to reference 6" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-cidian-1fff1f9064f5d97bb336bd6511a95b5e">
-<p dir="auto">出自《汉典》。下文引用块中的字义均来自《现代汉语辞典》 (第七版) 。 <a href="#user-content-fnref-cidian-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-backref="" aria-label="Back to reference 7" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-cidian-e13e20f7bc7d850b0be28500e7677342">
+<p dir="auto">出自《汉典》。下文引用块中的字义均来自《现代汉语辞典》 (第七版) 。 <a href="#user-content-fnref-cidian-e13e20f7bc7d850b0be28500e7677342" data-footnote-backref="" aria-label="Back to reference 7" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-mao-1fff1f9064f5d97bb336bd6511a95b5e">
-<p dir="auto"><a href="https://bbs.mihoyo.com/ys/obc/content/680/detail?bbs_presentation_style=no_header">某帖</a>评论区：璃月茶博士刘苏的评书里讲到「万民堂的卯师傅，姓卯」。 <a href="#user-content-fnref-mao-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-backref="" aria-label="Back to reference 8" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-mao-e13e20f7bc7d850b0be28500e7677342">
+<p dir="auto"><a href="https://bbs.mihoyo.com/ys/obc/content/680/detail?bbs_presentation_style=no_header">某帖</a>评论区：璃月茶博士刘苏的评书里讲到「万民堂的卯师傅，姓卯」。 <a href="#user-content-fnref-mao-e13e20f7bc7d850b0be28500e7677342" data-footnote-backref="" aria-label="Back to reference 8" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-huaming-1fff1f9064f5d97bb336bd6511a95b5e">
-<p dir="auto">指绰号，并非花的名字 <a href="#user-content-fnref-huaming-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-backref="" aria-label="Back to reference 9" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-huaming-e13e20f7bc7d850b0be28500e7677342">
+<p dir="auto">指绰号，并非花的名字 <a href="#user-content-fnref-huaming-e13e20f7bc7d850b0be28500e7677342" data-footnote-backref="" aria-label="Back to reference 9" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-huizhi-1fff1f9064f5d97bb336bd6511a95b5e">
-<p dir="auto">此成语有不同写法，一三字和二四字皆可互换 <a href="#user-content-fnref-huizhi-1fff1f9064f5d97bb336bd6511a95b5e" data-footnote-backref="" aria-label="Back to reference 10" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-huizhi-e13e20f7bc7d850b0be28500e7677342">
+<p dir="auto">此成语有不同写法，一三字和二四字皆可互换 <a href="#user-content-fnref-huizhi-e13e20f7bc7d850b0be28500e7677342" data-footnote-backref="" aria-label="Back to reference 10" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/194</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/194</guid><category><![CDATA[说文解字]]></category><category><![CDATA[好行小慧]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Sun, 27 Feb 2022 03:37:43 GMT</pubDate></item><item><title><![CDATA[初中生的绝句]]></title><description><![CDATA[<p dir="auto">书本如山题似海，七时半到尚嫌迟。<br>
@@ -999,15 +999,15 @@ Stuck <strong>in reverse</strong><br>
 <p dir="auto">不符合条件的荣誉提名</p>
 <ul dir="auto">
 <li>Surface Pro 8<br>
-形态✓ 价格✗ 处理器✗ 宽高比✓ <g-emoji class="g-emoji" alias="money_mouth_face" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f911.png">🤑</g-emoji><br>
+形态✓ 价格✗ 处理器✗ 宽高比✓ 🤑<br>
 屏幕13寸3:2，接口2C+Power<br>
 十月刚发布的新款。形态精巧，就是太贵。而且+8G内存要+$200，离谱。（注：大约$50就能买到一条16G的笔记本内存。）</li>
 <li>HP Spectre x360 14<br>
-形态✓ 价格~ 处理器✗ 宽高比✓ <g-emoji class="g-emoji" alias="thinking" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f914.png">🤔</g-emoji><br>
+形态✓ 价格~ 处理器✗ 宽高比✓ 🤔<br>
 屏幕13.5寸3:2，接口2C1A+Power<br>
 Spectre是高端产品线，稍贵。</li>
 <li>Macbook Air<br>
-形态✗ 价格~ 处理器✓ 宽高比✓ <g-emoji class="g-emoji" alias="roll_eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f644.png">🙄</g-emoji><br>
+形态✗ 价格~ 处理器✓ 宽高比✓ 🙄<br>
 屏幕13.3寸16:10，接口2C<br>
 继续使用某果产品的话，迁移会方便很多。M1处理器当然强，能运行iOS应用也不错，不过有本事就安上触屏呀？（有了触屏谁还买iPad。。别忘了，现在的Windows也不只是Windows，而是Windows + Linux + Android。）而且+8G内存也要+$200，离谱。</li>
 </ul>
@@ -1015,14 +1015,14 @@ Spectre是高端产品线，稍贵。</li>
 <li>
 <p dir="auto">差一点符合条件<br>
 HP ENVY x360 13<br>
-形态✓ 价格✓ 处理器✓ 宽高比✗ <g-emoji class="g-emoji" alias="monocle_face" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f9d0.png">🧐</g-emoji><br>
+形态✓ 价格✓ 处理器✓ 宽高比✗ 🧐<br>
 屏幕13.3寸16:9，接口1C2A+Power<br>
 AMD版本不久前才在官网出现并接受预订。应该是非常靠谱的产品，可惜屏幕是16:9。</p>
 </li>
 <li>
 <p dir="auto">完全符合条件<br>
 Acer Spin 5 AMD<br>
-✓✓✓✓ <g-emoji class="g-emoji" alias="star_struck" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f929.png">🤩</g-emoji><br>
+✓✓✓✓ 🤩<br>
 屏幕13.5寸3:2，接口2C2A+Power+HDMI<br>
 屏幕、接口和内部硬件都很合适，一本满足。触控笔为内置。油管上有去年Intel款的测评，模具应该是相同的，看起来没有硬伤。然而，尽管美国官网上的介绍页面已经挂了几个月，并没有实际上市……</p>
 </li>
@@ -1031,14 +1031,14 @@ Acer Spin 5 AMD<br>
 <p dir="auto">我倒是不着急，旧机尚能维持（或者说我尚能忍受），本打算再等等。能等到Acer那款最好，等不到就买HP那个好了。</p>
 <hr>
 <p dir="auto">于是隔三差五查一下Acer那款是否上市了，一直没有动静。某天突然想起瞅一眼有没有在中国上市。一看某东的宏碁自营店里真有。关键是可以通过某东全球售寄到海外！而且双十一期间5600U这款怒减1000。又根据网上的信息领了运费券。<em>5990原价 - 1000优惠 + 280运费 - 200运费券 = 5070 RMB ≈ 790 USD</em>。性价比很高。（和美国HP官网上ENVY x360 13的优惠价差不多。5800U贵大约$100。感觉6核够用了没必要上8核。）大概是因为刚上市再加上优惠活动，需要先预约，几天后开售。</p>
-<p dir="auto">海淘时需要考虑的一个重要因素是进口关税。美卡指南上<a href="https://www.uscreditcardguide.com/maimaimaishengshengshengderichang-qiantancongmeiguojingwaiwanggoudeguanshuiwenti/" rel="nofollow">一个帖子</a>提到：2016年美国国会通过法案，将个人进口物品免税额由$200提高到$800 <sup><a href="#user-content-fn-1-0e95c3a9a6f857c64ec7e8adeba036b2" id="user-content-fnref-1-0e95c3a9a6f857c64ec7e8adeba036b2" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。美国海关官网上关于网购的概述页面也提到了这个数字 <sup><a href="#user-content-fn-2-0e95c3a9a6f857c64ec7e8adeba036b2" id="user-content-fnref-2-0e95c3a9a6f857c64ec7e8adeba036b2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>。咨询某东全球售的客服得知报关价为实付总价（包括运费，即所谓CIF价格）。预估的价格刚好小于$800，但保险起见，最好进一步确认税率。</p>
+<p dir="auto">海淘时需要考虑的一个重要因素是进口关税。美卡指南上<a href="https://www.uscreditcardguide.com/maimaimaishengshengshengderichang-qiantancongmeiguojingwaiwanggoudeguanshuiwenti/" rel="nofollow">一个帖子</a>提到：2016年美国国会通过法案，将个人进口物品免税额由$200提高到$800 <sup><a href="#user-content-fn-1-36df4e8d6083beb31a62220580f13cb3" id="user-content-fnref-1-36df4e8d6083beb31a62220580f13cb3" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。美国海关官网上关于网购的概述页面也提到了这个数字 <sup><a href="#user-content-fn-2-36df4e8d6083beb31a62220580f13cb3" id="user-content-fnref-2-36df4e8d6083beb31a62220580f13cb3" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>。咨询某东全球售的客服得知报关价为实付总价（包括运费，即所谓CIF价格）。预估的价格刚好小于$800，但保险起见，最好进一步确认税率。</p>
 <p dir="auto">直接搜索并没有查到相关案例。（上述帖子里被税的例子都是买衣服和包。富贵人家的烦恼真让人搞不懂。）Reddit上倒是有不少帖子询问如何从美国网购电脑寄到别国。看来资本主义消费主义大本营里无所不有，无需进口电脑。显然，那里的货品再怎么丰富也比不上位于源头的世界工厂。</p>
-<p dir="auto">于是特地去美国海关关税数据库根据货物代码查询 <sup><a href="#user-content-fn-3-0e95c3a9a6f857c64ec7e8adeba036b2" id="user-content-fnref-3-0e95c3a9a6f857c64ec7e8adeba036b2" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>，发现笔记本电脑汇率是0。（中美贸易战期间曾加征15%关税 <sup><a href="#user-content-fn-4-0e95c3a9a6f857c64ec7e8adeba036b2" id="user-content-fnref-4-0e95c3a9a6f857c64ec7e8adeba036b2" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>，但这条裁定已被废止。）（另，手机也是0关税。）</p>
+<p dir="auto">于是特地去美国海关关税数据库根据货物代码查询 <sup><a href="#user-content-fn-3-36df4e8d6083beb31a62220580f13cb3" id="user-content-fnref-3-36df4e8d6083beb31a62220580f13cb3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>，发现笔记本电脑汇率是0。（中美贸易战期间曾加征15%关税 <sup><a href="#user-content-fn-4-36df4e8d6083beb31a62220580f13cb3" id="user-content-fnref-4-36df4e8d6083beb31a62220580f13cb3" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>，但这条裁定已被废止。）（另，手机也是0关税。）</p>
 <p dir="auto">这样就可以放心下手了。开售时间一到果断下单。（其实没有那么抢手，不必着急。）我不介意物流速度，两三个星期都没问题。没想到如此之快，8天就到了。根据追踪信息推测，应该是先从广东仓库转到香港然后走的FedEx。物流公司标签上显示的价格的确是总价（和我的实付价只有微小的出入，大概因为汇率）。</p>
 <hr>
 <p dir="auto">当然，不能高兴得太早。买到只是开始，还不知道使用体验如何。其实这年头新电脑已经很难带来什么新奇感了，能看到的配置已经知道了，只希望其他看不到的方面别出什么岔子。毕竟海淘电子产品的一大风险在于售后服务等同于没有（除非全球联保）。</p>
 <p dir="auto">简单体验后评价如下。微小缺点：键盘和触控板手感一般。电源适配器比较老式。一般缺点：有出风口正对着屏幕下沿，长期吹热风不知道是否影响屏幕寿命。（这个问题某东上有评论提到过。有趣的是新款MacBook Pro也有类似设计。）外接键鼠使用的话可以把屏幕翻转过来规避这个问题。然而又遇到了噪音问题——</p>
-<p dir="auto">风扇转速高时会发出高频噪音。电脑平放时基本没有，但抬起或翻转后就很明显。测试以后觉得难以忍受，于是打开后盖检查，发现高频噪音是风扇的气流通过底部通风口时的哨声。大概是设计略有缺陷，又运气不好遇上了零件误差。搜索发现Dell XPS 也出现过这个问题 <sup><a href="#user-content-fn-5-0e95c3a9a6f857c64ec7e8adeba036b2" id="user-content-fnref-5-0e95c3a9a6f857c64ec7e8adeba036b2" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>，看来高端产品也无法幸免。帖子提到在通风口边缘贴块胶带就会有所改善。试了一下果真有效。尽管噪音没有完全消失，但已很难被觉察到，不会影响日常使用。（另，用phyphox测得频率约为3000Hz。）没想到刚到手的新机就要自己动手调整。初来乍到就想和我产生羁绊？</p>
+<p dir="auto">风扇转速高时会发出高频噪音。电脑平放时基本没有，但抬起或翻转后就很明显。测试以后觉得难以忍受，于是打开后盖检查，发现高频噪音是风扇的气流通过底部通风口时的哨声。大概是设计略有缺陷，又运气不好遇上了零件误差。搜索发现Dell XPS 也出现过这个问题 <sup><a href="#user-content-fn-5-36df4e8d6083beb31a62220580f13cb3" id="user-content-fnref-5-36df4e8d6083beb31a62220580f13cb3" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>，看来高端产品也无法幸免。帖子提到在通风口边缘贴块胶带就会有所改善。试了一下果真有效。尽管噪音没有完全消失，但已很难被觉察到，不会影响日常使用。（另，用phyphox测得频率约为3000Hz。）没想到刚到手的新机就要自己动手调整。初来乍到就想和我产生羁绊？</p>
 <p dir="auto">软件方面，直接把预装的Win10升级成了Win11。（单语言版，有点不爽。）Win11引入的新特性和新尿性就不在此详述了。（我遇到了一个<a href="https://aka.ms/AAeyadn" rel="nofollow">奇葩的任务栏缩放问题</a>。）总地来说Win11完成度堪忧——作为市值全球第一的公司之一，一些非常基本的细节都没做好，实在令人费解。配置各种环境倒没有想象中麻烦，毕竟很多文件和设置都是通过云端同步的。把编程环境安装在了WSL里，因为不太熟悉，稍微折腾了一下。至此前期的设置基本完成。希望深度使用起来不会遇到什么麻烦，也期待Win11的弊端早日得到修正。</p>
 <hr>
 <p dir="auto">想起初中时第一次海淘，从英国一网站给自己和同学买了两双足球鞋。当时写了篇记叙文，结尾道——“有鞋自远方来，不亦乐乎？”许多年过去好像也没有太多长进。购物自然是司空见惯之事，但并不简单的是精确地知道自己想要什么以及可以从什么途径获得。本来陷入僵局要做出妥协，机缘巧合之下发现曲径通幽，稍经波折后达成了目标。正所谓：涉水跋山，山重水复；寻花觅柳，柳暗花明。</p>
@@ -1053,20 +1053,20 @@ Acer Spin 5 AMD<br>
 <a href="https://www.notebookcheck.net/Mobile-Processors-Benchmark-List.2436.0.html?" rel="nofollow">Mobile Processors - Benchmark List - NotebookCheck.net</a></p>
 <section data-footnotes="" class="footnotes"><h2 id="footnote-label" class="sr-only" dir="auto">Footnotes</h2>
 <ol dir="auto">
-<li id="user-content-fn-1-0e95c3a9a6f857c64ec7e8adeba036b2">
-<p dir="auto"><a href="https://www.congress.gov/bill/114th-congress/house-bill/644">H.R.644 - 114th Congress (2015-2016): Trade Facilitation and Trade Enforcement Act of 2015 | Congress.gov | Library of Congress</a> <a href="#user-content-fnref-1-0e95c3a9a6f857c64ec7e8adeba036b2" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-1-36df4e8d6083beb31a62220580f13cb3">
+<p dir="auto"><a href="https://www.congress.gov/bill/114th-congress/house-bill/644">H.R.644 - 114th Congress (2015-2016): Trade Facilitation and Trade Enforcement Act of 2015 | Congress.gov | Library of Congress</a> <a href="#user-content-fnref-1-36df4e8d6083beb31a62220580f13cb3" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-2-0e95c3a9a6f857c64ec7e8adeba036b2">
-<p dir="auto"><a href="https://www.cbp.gov/trade/basic-import-export/internet-purchases">Internet Purchases | U.S. Customs and Border Protection</a> <a href="#user-content-fnref-2-0e95c3a9a6f857c64ec7e8adeba036b2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-2-36df4e8d6083beb31a62220580f13cb3">
+<p dir="auto"><a href="https://www.cbp.gov/trade/basic-import-export/internet-purchases">Internet Purchases | U.S. Customs and Border Protection</a> <a href="#user-content-fnref-2-36df4e8d6083beb31a62220580f13cb3" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-3-0e95c3a9a6f857c64ec7e8adeba036b2">
-<p dir="auto"><a href="https://hts.usitc.gov/?query=847130">Harmonized Tariff Schedule Search 847130</a> <a href="#user-content-fnref-3-0e95c3a9a6f857c64ec7e8adeba036b2" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-3-36df4e8d6083beb31a62220580f13cb3">
+<p dir="auto"><a href="https://hts.usitc.gov/?query=847130">Harmonized Tariff Schedule Search 847130</a> <a href="#user-content-fnref-3-36df4e8d6083beb31a62220580f13cb3" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-4-0e95c3a9a6f857c64ec7e8adeba036b2">
-<p dir="auto"><a href="https://hts.usitc.gov/?query=99038816">Harmonized Tariff Schedule Search 99038816</a> <a href="#user-content-fnref-4-0e95c3a9a6f857c64ec7e8adeba036b2" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-4-36df4e8d6083beb31a62220580f13cb3">
+<p dir="auto"><a href="https://hts.usitc.gov/?query=99038816">Harmonized Tariff Schedule Search 99038816</a> <a href="#user-content-fnref-4-36df4e8d6083beb31a62220580f13cb3" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-5-0e95c3a9a6f857c64ec7e8adeba036b2">
-<p dir="auto"><a href="https://www.dell.com/community/XPS/High-pitched-noise-coming-from-new-9500-fans/td-p/7647153">High pitched noise coming from new 9500 fans - Dell Community</a> <a href="#user-content-fnref-5-0e95c3a9a6f857c64ec7e8adeba036b2" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref"><g-emoji class="g-emoji" alias="leftwards_arrow_with_hook" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/21a9.png">↩</g-emoji></a></p>
+<li id="user-content-fn-5-36df4e8d6083beb31a62220580f13cb3">
+<p dir="auto"><a href="https://www.dell.com/community/XPS/High-pitched-noise-coming-from-new-9500-fans/td-p/7647153">High pitched noise coming from new 9500 fans - Dell Community</a> <a href="#user-content-fnref-5-36df4e8d6083beb31a62220580f13cb3" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/189</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/189</guid><category><![CDATA[外置记忆]]></category><category><![CDATA[赛博空间]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Sat, 27 Nov 2021 02:03:26 GMT</pubDate></item><item><title><![CDATA[三国杀囤牌组合]]></title><description><![CDATA[<p dir="auto">三国杀推出已十年有余。以前线下线上都玩了不少，但近几年这游戏不思进取，已沦为垃圾骗氪网游。最近想起曾经看过B站播主<a href="https://space.bilibili.com/60232652" rel="nofollow">混沌大仙</a>的花式玩法视频，他展示过一些能囤完牌堆的组合（“牌堆守护者”）。加上网友提到的和自己想到的，在此汇总一下。</p>
@@ -1132,14 +1132,14 @@ Acer Spin 5 AMD<br>
 <p dir="auto">十二平均律定义了半音音阶 (chromatic scale)，12个音等距。而人们更习惯使用的自然音阶 (diatonic scale) 是其中的7个。显然，通行的记谱方式遵循了自然音阶，并用升降号表示其他5个音。这样的缺陷在于无法<strong>直观地计算音程</strong>，而音程往往是应用中以及听感上更重要的概念。比如1和3（C和E）之间是4个半音（大三度），但3和5（E和G）之间是3个半音（小三度）。这对于老手不是问题，但会给初学者造成麻烦。一套合理的符号系统能方便人们理解概念，而不是增加学习的障碍。12音音阶是更全面更通用的系统，而7音音阶只是嵌在里面的一个子集。所以，基于12音音阶记谱是更合理的方案。</p>
 <p dir="auto">如果能<strong>用数字表示等距的12个音，那么计算音程（以半音为单位）和移调就是简单的加减法</strong>。（升降号去死吧！）理想的计数方式是12进制。但数字只有10个，超过10的进制只得使用其他符号，比如16进制用字母A~F表示10进制的10~15。记谱的话，0用起来可能不太习惯（可以像简谱那样用作休止符），那么还需要10、11、12的符号。考虑到西方音乐已经用了前7个字母A~G，最好使用后面的字母，比如勉强形似的P、H、R？X、Y、Z？罗马数字ⅹ、ⅺ、ⅻ？但用字母的话没法直观计算。</p>
 <p dir="auto">突发奇想，带分数 (mixed number) 相当于自带取模运算 (mod 12)。比如：</p>
-<p dir="auto">C4 = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$4\frac{1}{12}$</math-renderer></p>
-<p dir="auto">A4 = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$4\frac{10}{12}$</math-renderer></p>
-<p dir="auto">B0 = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$\frac{12}{12}$</math-renderer></p>
-<p dir="auto">音程的计算无比直观：C4 - G3 <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$= 4\frac{1}{12} - 3\frac{8}{12} = \frac{5}{12}$</math-renderer>，即5个半音（纯四度）。</p>
-<p dir="auto">顺便，由于A4的音高被定为440Hz，一个音对应的带分数 <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$n$</math-renderer> 和它的频率 <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$f$</math-renderer> 有如下关系： <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$f(n) = 440 \times 2^{n - 4\frac{10}{12}}$</math-renderer> 。</p>
+<p dir="auto">C4 = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$4\frac{1}{12}$</math-renderer></p>
+<p dir="auto">A4 = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$4\frac{10}{12}$</math-renderer></p>
+<p dir="auto">B0 = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$\frac{12}{12}$</math-renderer></p>
+<p dir="auto">音程的计算无比直观：C4 - G3 <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$= 4\frac{1}{12} - 3\frac{8}{12} = \frac{5}{12}$</math-renderer>，即5个半音（纯四度）。</p>
+<p dir="auto">顺便，由于A4的音高被定为440Hz，一个音对应的带分数 <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$n$</math-renderer> 和它的频率 <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$f$</math-renderer> 有如下关系： <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$f(n) = 440 \times 2^{n - 4\frac{10}{12}}$</math-renderer> 。</p>
 <p dir="auto">此记法方便计算，但不方便书写和阅读。既然人们关心的主要是带分数的分子，不妨将此写法简化一下：将带分数的分子作为主体，整数部分作为上标，省略分母12。这样看起来就简洁多了。</p>
-<p dir="auto">C4 = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$4\frac{1}{12}$</math-renderer> = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$1^4$</math-renderer></p>
-<p dir="auto">B3 = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$3\frac{12}{12}$</math-renderer> = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$12^3$</math-renderer></p>
+<p dir="auto">C4 = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$4\frac{1}{12}$</math-renderer> = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$1^4$</math-renderer></p>
+<p dir="auto">B3 = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$3\frac{12}{12}$</math-renderer> = <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$12^3$</math-renderer></p>
 <p dir="auto">在特定情况下（比如在乐谱开头作好规定），还可以省略上标。然后发现绕了一圈又回到了1=C的简谱，只不过把7个音的自然音阶换成了12个音的半音音阶。相应音名和音程名的对照如下。</p>
 <table role="table">
 <thead>
@@ -1238,14 +1238,14 @@ Acer Spin 5 AMD<br>
 </tr>
 <tr>
 <td align="center">C1</td>
-<td align="center"><math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$\dot{1}$</math-renderer></td>
+<td align="center"><math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$\dot{1}$</math-renderer></td>
 <td align="center">O</td>
 <td align="center">12</td>
-<td align="center"><math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$1^1$</math-renderer></td>
+<td align="center"><math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$1^1$</math-renderer></td>
 </tr>
 </tbody>
 </table>
-<p dir="auto">新记法下对应C大调CDEFGAB的是1、3、5、6、8、10、12。（这个数列有点耳熟？“一三五七八十腊，三十一天永不差。”只是7变成了6。）C小调就是1、3、4、6、8、9、11。这样<strong>每个调式就只是7个数字，数字之差就是以半音为单位的音程。</strong> 总之，新的记谱方式用这微小的一次性的记忆负担，换来了明显更优的数学性质，免去了很多换算的麻烦。（甚至不妨再自由一点，像简谱那样在开头定调，比如A4调 <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="a828273533697fff4c1f5d6e6da2fa59">$1=4\frac{10}{12}$</math-renderer> 。）</p>
+<p dir="auto">新记法下对应C大调CDEFGAB的是1、3、5、6、8、10、12。（这个数列有点耳熟？“一三五七八十腊，三十一天永不差。”只是7变成了6。）C小调就是1、3、4、6、8、9、11。这样<strong>每个调式就只是7个数字，数字之差就是以半音为单位的音程。</strong> 总之，新的记谱方式用这微小的一次性的记忆负担，换来了明显更优的数学性质，免去了很多换算的麻烦。（甚至不妨再自由一点，像简谱那样在开头定调，比如A4调 <math-renderer class="js-inline-math" style="display: inline" data-static-url="https://github.githubassets.com/static" data-run-id="f99ebc6ff11b06739480ed7b6a26246a">$1=4\frac{10}{12}$</math-renderer> 。）</p>
 <p dir="auto">当然，基于十二平均律的记谱方式不是什么新鲜事物。乐理研究里的确有用12进制整数表示音符的<a href="https://en.wikipedia.org/wiki/Pitch_class#Integer_notation" rel="nofollow">integer notation</a>（C=0，10和11可以用t,e或A,B代替）。改进五线谱的方案也有不少，比如<a href="https://www.dodekamusic.com/" rel="nofollow">Dodeka Music</a>就在推广等距的四线谱（以及等距的键盘）。新的记谱方式相当于一种语法更简单的语言。若要普及，需要有人用它编写课程和资料，并配合新乐器进行教学。在数码时代，这些在技术上不是难事。在日新月异的计算机领域，新的编程语言可以很快推广。但音乐界传统的力量可能太大，因循守旧才是真正的障碍。</p>
 <p dir="auto">记谱法不只是一种书写格式，还涉及一个更深刻的问题：记录音乐的方式在多大程度上塑造了人们对音乐的感知？不清楚学界对此有多少研究，个人猜测影响不小。那么，习惯了旧语言的人或许难以切换到新语言，而从新语言从头学起的人或许能对音乐产生更全面的认识。</p>
 <blockquote>
@@ -1526,7 +1526,7 @@ Pray for Paris.</p>
 <p dir="auto">在前面的探索过程中，发现MacOS的蓝牙设置里有一个选项——允许蓝牙键鼠唤醒电脑。一些应用可以将手机模拟为蓝牙键鼠。于是我试了这个在Google Play Store上排名前列的<a href="https://play.google.com/store/apps/details?id=io.appground.blek" rel="nofollow">Serverless Bluetooth Keyboard &amp; Mouse for PC/Phone</a>。连接成功。最重要的是，蓝牙连接在电脑睡眠后不会中断，可以将电脑唤醒！</p>
 <p dir="auto">最重要的步骤已经实现了。远程控制手机不是什么难事。在作为中介的手机上用自动化应用Tasker设置以下任务：当插件AutoRemote接收到特定指令时，切换到模拟蓝牙键鼠应用，并用插件TouchTask模拟点击屏幕 (相当于点击蓝牙鼠标以唤醒电脑)。这样，只要保证手机模拟的蓝牙键鼠与电脑保持连接且上述应用在后台运行，用任意设备访问AutoRemote提供的网址即可向其发送指令来触发此任务唤醒电脑。</p>
 <p dir="auto">测试效果不错。至于稳定性如何？呃，自从升级到MacOS 11之后，电脑动不动就在睡眠中重启。。<del>So, on that terrible disappointment, it's time to end...</del> 总之，还是找到了一个通过手机间接远程唤醒电脑的办法。不管以后是否用到，总算不枉这番工夫。<br>
-<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/bcead06323d711dace828103c41d1c1227412a621c4984713844937f514a1407/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f33302e7376673f706c75733d31"><img src="https://camo.githubusercontent.com/bcead06323d711dace828103c41d1c1227412a621c4984713844937f514a1407/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f33302e7376673f706c75733d31" width="0" height="0" data-canonical-src="https://count.lnfinite.space/post/30.svg?plus=1" style="max-width: 100%;"></a></p>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/179</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/179</guid><category><![CDATA[赛博空间]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Sat, 03 Jul 2021 20:52:32 GMT</pubDate></item><item><title><![CDATA[你的下一台电脑，或许是手机]]></title><description><![CDATA[<p dir="auto"><em>本文在某种意义上是〖<a href="https://king-of-infinite-space.github.io/posts/2021-01-%E4%BB%BF%E7%94%9F%E4%BA%BA%E4%BC%9A%E6%91%8A%E7%94%B5%E5%AD%90%E9%A5%BC%E5%90%97.html" rel="nofollow">仿生人会摊电子饼吗？<g-emoji class="g-emoji" alias="iphone" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4f1.png">📱</g-emoji></a>〗的后续。在那之后碰巧读到一些东西、了解到一些新玩法，意识到手机尺寸的变大可能是更大问题的一个侧面。于是在此整理一下想法，从形态与功能关系的角度探讨手机作为主力计算机的可能性。本人对相关技术并不精通，如有错漏烦请指出。</em><br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/bcead06323d711dace828103c41d1c1227412a621c4984713844937f514a1407/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f33302e7376673f706c75733d31"><img src="https://camo.githubusercontent.com/bcead06323d711dace828103c41d1c1227412a621c4984713844937f514a1407/68747470733a2f2f636f756e742e6c6e66696e6974652e73706163652f706f73742f33302e7376673f706c75733d31" width="0" height="0" data-canonical-src="https://count.lnfinite.space/post/30.svg?plus=1" style="max-width: 100%;"></a></p>]]></description><link>https://github.com/King-of-Infinite-Space/thoughts/discussions/179</link><guid isPermaLink="true">https://github.com/King-of-Infinite-Space/thoughts/discussions/179</guid><category><![CDATA[赛博空间]]></category><dc:creator><![CDATA[King-of-Infinite-Space]]></dc:creator><pubDate>Sat, 03 Jul 2021 20:52:32 GMT</pubDate></item><item><title><![CDATA[你的下一台电脑，或许是手机]]></title><description><![CDATA[<p dir="auto"><em>本文在某种意义上是〖<a href="https://king-of-infinite-space.github.io/posts/2021-01-%E4%BB%BF%E7%94%9F%E4%BA%BA%E4%BC%9A%E6%91%8A%E7%94%B5%E5%AD%90%E9%A5%BC%E5%90%97.html" rel="nofollow">仿生人会摊电子饼吗？📱</a>〗的后续。在那之后碰巧读到一些东西、了解到一些新玩法，意识到手机尺寸的变大可能是更大问题的一个侧面。于是在此整理一下想法，从形态与功能关系的角度探讨手机作为主力计算机的可能性。本人对相关技术并不精通，如有错漏烦请指出。</em><br>
 <br></p>
 <p dir="auto">若要选一种产品作为「信息时代」的标志，这个选择毫无疑问是「计算机」。几十年前这个名字意味着占据一间屋子的庞然大物，而如今它已发展出了多种形态并获得了不同的名字。为强调其本质功能，本文将各种「计算机」统称为「通用计算设备」。（「通用」大致意思是可以运行各种自定义的程序。）下表根据<strong>形态</strong>的不同将常见的通用计算设备大致分类。</p>
 <table role="table">
@@ -1559,7 +1559,7 @@ Pray for Paris.</p>
 </tr>
 <tr>
 <td align="center">一体机</td>
-<td align="center"><g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">✔️</g-emoji></td>
+<td align="center">✔️</td>
 <td align="center">-</td>
 <td align="center">Windows, MacOS, Linux</td>
 </tr>
@@ -1571,13 +1571,13 @@ Pray for Paris.</p>
 </tr>
 <tr>
 <td align="center">平板电脑</td>
-<td align="center"><g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">✔️</g-emoji></td>
+<td align="center">✔️</td>
 <td align="center">触摸屏</td>
 <td align="center">Android, iOS / iPadOS, Windows, ChromeOS, Linux</td>
 </tr>
 <tr>
 <td align="center">手机</td>
-<td align="center"><g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">✔️</g-emoji></td>
+<td align="center">✔️</td>
 <td align="center">触摸屏</td>
 <td align="center">Android, iOS</td>
 </tr>
@@ -1973,9 +1973,9 @@ Pray for Paris.</p>
 </thead>
 <tbody>
 <tr>
-<td align="center">阿圭罗 40' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">阿圭罗 40' ⚽️</td>
 <td align="center"></td>
-<td align="center">菲尔米诺 64' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">菲尔米诺 64' ⚽️</td>
 <td align="center"></td>
 </tr>
 <tr>
@@ -2004,15 +2004,15 @@ Pray for Paris.</p>
 </thead>
 <tbody>
 <tr>
-<td align="center">Sterling 6' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">Sterling 6' ⚽️</td>
 <td align="center"></td>
 <td align="center">Silva 57' ⚽️</td>
 <td align="center"></td>
 </tr>
 <tr>
-<td align="center">Škrtel 26' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">Škrtel 26' ⚽️</td>
 <td align="center"></td>
-<td align="center">Johnson 62' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji> (o.g.)</td>
+<td align="center">Johnson 62' ⚽️ (o.g.)</td>
 <td align="center"></td>
 </tr>
 <tr>
@@ -2056,21 +2056,21 @@ How helpless.</p>
 </thead>
 <tbody>
 <tr>
-<td align="center">Zabaleta 39' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">Zabaleta 39' ⚽️</td>
 <td align="center"></td>
-<td align="center">Cissé 48' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Džeko 90+2' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
-<td align="center"></td>
-<td align="center">Barton 55' <g-emoji class="g-emoji" alias="red_square" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f7e5.png">🟥</g-emoji></td>
+<td align="center">Cissé 48' ⚽️</td>
 <td align="center"></td>
 </tr>
 <tr>
-<td align="center">Agüero 90+4' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">Džeko 90+2' ⚽️</td>
 <td align="center"></td>
-<td align="center">Mackie 66' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">Barton 55' 🟥</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Agüero 90+4' ⚽️</td>
+<td align="center"></td>
+<td align="center">Mackie 66' ⚽️</td>
 <td align="center"></td>
 </tr>
 </tbody>
@@ -2096,15 +2096,15 @@ How helpless.</p>
 </thead>
 <tbody>
 <tr>
-<td align="center">Evans 47' <g-emoji class="g-emoji" alias="red_square" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f7e5.png">🟥</g-emoji></td>
+<td align="center">Evans 47' 🟥</td>
 <td align="center"></td>
-<td align="center">Balotelli 22', 60' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji><g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">Balotelli 22', 60' ⚽️⚽️</td>
 <td align="center"></td>
 </tr>
 <tr>
-<td align="center">Fletcher 81' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">Fletcher 81' ⚽️</td>
 <td align="center"></td>
-<td align="center">Agüero 69' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">Agüero 69' ⚽️</td>
 <td align="center"></td>
 </tr>
 <tr>
@@ -2116,7 +2116,7 @@ How helpless.</p>
 <tr>
 <td align="center"></td>
 <td align="center"></td>
-<td align="center">Silva 90+1' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">Silva 90+1' ⚽️</td>
 <td align="center"></td>
 </tr>
 </tbody>
@@ -2141,13 +2141,13 @@ How helpless.</p>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
-<td align="center">A Smith 52' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">A Smith 52' ⚽️</td>
 </tr>
 <tr>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
-<td align="center">M Thomas 90+1' <g-emoji class="g-emoji" alias="soccer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26bd.png">⚽️</g-emoji></td>
+<td align="center">M Thomas 90+1' ⚽️</td>
 </tr>
 </tbody>
 </table>

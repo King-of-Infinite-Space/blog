@@ -15,11 +15,11 @@ labels:
     count: 9
   - name: 外置记忆
     count: 8
+  - name: EN
+    count: 7
   - name: 撷叶拾英
     count: 7
   - name: 说文解字
-    count: 6
-  - name: EN
     count: 6
   - name: 网上冲浪
     count: 2
@@ -33,12 +33,13 @@ posts:
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/203
     createdAt: 2023-08-07T02:47:48Z
     lastEditedAt: null
-    updatedAt: 2023-08-07T02:47:48Z
+    updatedAt: 2023-08-16T20:50:04Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
       - 好行小慧
       - 数理小径
+      - EN
     countZH: 0
     countEN: 1010
     filename: 2308-d20
