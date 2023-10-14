@@ -1,18 +1,18 @@
 ---
 categories:
   - name: 博文
-    count: 50
+    count: 49
 labels:
   - name: 浅词拙句
     count: 14
   - name: 数理小径
-    count: 10
-  - name: 好行小慧
     count: 9
   - name: 赛博空间
     count: 9
   - name: 绿茵故事
     count: 9
+  - name: 好行小慧
+    count: 8
   - name: 外置记忆
     count: 8
   - name: EN
@@ -28,12 +28,12 @@ labels:
   - name: 民间哲学
     count: 1
 posts:
-  - title: 2d20/2
+  - title: 2d20/2 (how to average dice rolls)
     number: 203
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/203
     createdAt: 2023-08-07T02:47:48Z
     lastEditedAt: null
-    updatedAt: 2023-08-16T20:50:04Z
+    updatedAt: 2023-10-14T19:45:31Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
@@ -284,20 +284,6 @@ posts:
     countZH: 210
     countEN: 0
     filename: 2111-秋日绝句
-  - title: 好脾气的琴键
-    number: 185
-    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/185
-    createdAt: 2021-10-24T15:56:06Z
-    lastEditedAt: 2022-11-11T03:06:46Z
-    updatedAt: 2022-11-11T03:06:46Z
-    author: King-of-Infinite-Space
-    category: 博文
-    labels:
-      - 好行小慧
-      - 数理小径
-    countZH: 1660
-    countEN: 250
-    filename: 2110-好脾气的琴键
   - title: 清明上河图
     number: 184
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/184
