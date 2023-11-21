@@ -1,22 +1,22 @@
 ---
 categories:
   - name: 博文
-    count: 49
+    count: 50
 labels:
   - name: 浅词拙句
     count: 14
-  - name: 数理小径
-    count: 9
   - name: 赛博空间
-    count: 9
+    count: 10
+  - name: 数理小径
+    count: 10
   - name: 绿茵故事
     count: 9
+  - name: EN
+    count: 8
   - name: 好行小慧
     count: 8
   - name: 外置记忆
     count: 8
-  - name: EN
-    count: 7
   - name: 撷叶拾英
     count: 7
   - name: 说文解字
@@ -28,6 +28,24 @@ labels:
   - name: 民间哲学
     count: 1
 posts:
+  - title: Show numbers in musical notes in Lilypond
+    number: 204
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/204
+    createdAt: 2023-11-21T01:45:53Z
+    lastEditedAt: null
+    updatedAt: 2023-11-21T01:45:54Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 赛博空间
+      - 数理小径
+      - EN
+    countZH: 0
+    countEN: 490
+    filename: 2311-Show-numbers-in-musical-notes-in-Lilypond
+    _title: Adding note number to staff notation in Lilypond
+    _alias: note-head
+    _joinLines: "true"
   - title: 2d20/2 (how to average dice rolls)
     number: 203
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/203
@@ -422,7 +440,7 @@ posts:
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/173
     createdAt: 2020-12-10T01:52:35Z
     lastEditedAt: 2022-10-30T04:43:23Z
-    updatedAt: 2023-04-21T20:45:42Z
+    updatedAt: 2023-11-03T20:22:33Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
