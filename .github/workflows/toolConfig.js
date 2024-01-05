@@ -35,11 +35,9 @@ export default {
   homeUseJson: false,
   // if true, use json frontmatter instead of yaml for posts / homepage
 
-  generateJsonFeed: true,
-  generateRssFeed: true,
+  generateJsonFeed: false,
+  generateRssFeed: false,
   // whether to generate feed
-  postsInFeed: 10,
-  // number of posts to include in the feed
 
   formatFilename: post => {
     return post.filename

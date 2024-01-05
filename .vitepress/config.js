@@ -47,7 +47,7 @@ export default defineConfig({
       },
       {
         icon: "feed",
-        link: "/feed.rss",
+        link: "/feed",
       },
     ],
     friendLinks: [
