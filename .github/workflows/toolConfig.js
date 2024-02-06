@@ -66,7 +66,6 @@ export default {
     return {
       // add entries to index.md frontmatter (e.g. layout)
       layout: "home",
-      title: "Blog - the Universe in a Nutshell",
       titleTemplate: false,
     }
   },

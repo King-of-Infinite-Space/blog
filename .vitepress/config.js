@@ -5,7 +5,8 @@ import mdFootnote from "markdown-it-footnote"
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: "the Universe in a Nutshell",
+  title: "Cosmos Compressed",
+  description: "gathering stardust",
   lang: "zh-CN",
   cleanUrls: true,
   srcDir: "posts",
