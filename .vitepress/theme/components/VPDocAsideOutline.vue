@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useData } from 'vitepress'
+import { useData, onContentUpdated } from 'vitepress'
 import type { DefaultTheme } from 'vitepress/theme'
 import { computed, inject, ref, type Ref } from 'vue'
 import {
@@ -15,10 +15,9 @@ const pageOutline = computed<DefaultTheme.Config['outline']>(
   () => frontmatter.value.outline ?? theme.value.outline
 )
 
-const onContentUpdated = inject('onContentUpdated') as Ref<() => void>
-onContentUpdated.value = () => {
+onContentUpdated(() => {
   headers.value = getHeaders(pageOutline.value)
-}
+})
 
 const headers = ref<MenuItem[]>([])
 const hasOutline = computed(() => headers.value.length > 0)

@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { useRoute, useData } from "vitepress"
+import { useRoute, useData, onContentUpdated } from "vitepress"
 import { computed, provide, ref } from "vue"
 import { useSidebar } from "../composables/sidebar.js"
 import VPDocAside from "./VPDocAside.vue"
 import VPDocFooter from "./VPDocFooter.vue"
 import Giscus from "@giscus/vue"
+import { useFloating, offset, flip } from "@floating-ui/vue"
+import { createLogicalAnd } from "typescript"
 
 const route = useRoute()
 const { hasSidebar, hasAside } = useSidebar()
@@ -18,8 +20,61 @@ const discussionNumber = computed(
   () => frontmatter.value.number ?? frontmatter.value.url.split("/").pop()
 )
 const { repo, repoId } = theme.value.giscusOptions
-const onContentUpdated = ref()
-provide("onContentUpdated", onContentUpdated)
+
+const floatingHTML = ref()
+const floatingReference = ref()
+const floating = ref()
+const { floatingStyles } = useFloating(floatingReference, floating, {
+  middleware: [offset(8), flip()],
+})
+
+function enablePopUp() {
+  document.body.addEventListener("click", () => {
+    floatingHTML.value = null
+  })
+  // https://github.com/markdown-it/markdown-it-footnote
+
+  document.querySelectorAll("sup.footnote-ref > a").forEach((el) => {
+    el.setAttribute("href", "#_")
+    // somehow preventDefault doesn't work, use this hack
+
+    el.addEventListener("click", (ev) => {
+      ev.preventDefault()
+      ev.stopPropagation()
+
+      const id = el.id.replace(/^fnref/, "fn")
+      const footnote = document.getElementById(id).cloneNode(true)
+      // remove return links
+      footnote.querySelectorAll("a.footnote-backref").forEach((el) => {
+        el.remove()
+      })
+      floatingHTML.value = footnote?.innerHTML
+
+      const content = document.querySelector(".container > .content")
+      floatingReference.value = {
+        getBoundingClientRect() {
+          const contentRect = content.getBoundingClientRect()
+          const aRect = el.getBoundingClientRect()
+          return {
+            width: contentRect.width,
+            height: aRect.height,
+            x: contentRect.x,
+            y: aRect.y,
+            top: aRect.top,
+            left: contentRect.left,
+            right: contentRect.right,
+            bottom: aRect.bottom,
+          }
+        },
+      }
+    })
+  })
+}
+
+onContentUpdated(() => {
+  console.log('content updated')
+  enablePopUp()
+})
 </script>
 
 <template>
@@ -27,6 +82,15 @@ provide("onContentUpdated", onContentUpdated)
     class="VPDoc"
     :class="{ 'has-sidebar': hasSidebar, 'has-aside': hasAside }"
   >
+    <div
+      ref="floating"
+      v-if="floatingHTML"
+      v-html="floatingHTML"
+      :style="floatingStyles"
+      id="floating"
+      class="vp-doc"
+      onclick="event.stopPropagation()"
+    ></div>
     <div v-if="hasAside" class="aside">
       <div class="aside-curtain" />
       <div class="aside-container">
@@ -64,7 +128,6 @@ provide("onContentUpdated", onContentUpdated)
           <Content
             class="vp-doc"
             :class="pageName"
-            :onContentUpdated="onContentUpdated"
           />
         </main>
         <slot name="doc-footer-before" />
@@ -181,5 +244,30 @@ provide("onContentUpdated", onContentUpdated)
       (var(--vp-nav-height-desktop) + var(--vp-layout-top-height, 0px) + 32px)
   );
   padding-bottom: 32px;
+}
+
+#floating {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 90%;
+  max-width: 650px;
+  padding: 0.5em;
+  box-sizing: border-box;
+  z-index: 100;
+  font-size: 90%;
+  background-color: var(--vp-c-bg-soft);
+  border: 1.5px solid var(--my-border-color);
+  border-radius: 5px;
+}
+</style>
+<style>
+/* global styles */
+#floating > p {
+  margin: 0;
+  line-height: 1.6em;
+}
+.vp-doc section.footnotes {
+  font-size: 90%;
 }
 </style>
