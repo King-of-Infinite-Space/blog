@@ -14,7 +14,7 @@
 		"@floating-ui/vue": "^1.0.6",
 		"@giscus/vue": "^2.3.0",
 		"markdown-it-footnote": "^3.0.3",
-		"markdown-it-katex": "^2.0.3",
+		"markdown-it-mathjax3": "^4.3.2",
 		"stylus": "^0.59.0",
 		"vite": "^3.2.7",
 		"vitepress": "1.0.0-rc.42",

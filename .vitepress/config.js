@@ -1,6 +1,4 @@
 // @ts-ignore
-import mdKatex from "markdown-it-katex"
-// @ts-ignore
 import mdFootnote from "markdown-it-footnote"
 import { defineConfig } from 'vitepress'
 
@@ -18,9 +16,9 @@ export default defineConfig({
   },
 
   markdown: {
-    // @ts-ignore
+    math: true,
     config: (md) => {
-      md.set({ breaks: true }).use(mdKatex).use(mdFootnote)
+      md.set({ breaks: true }).use(mdFootnote)
     },
   },
 
