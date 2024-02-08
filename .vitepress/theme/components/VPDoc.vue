@@ -72,7 +72,7 @@ function enablePopUp() {
 }
 
 onContentUpdated(() => {
-  console.log('content updated')
+  console.log("content updated")
   enablePopUp()
 })
 </script>
@@ -125,10 +125,7 @@ onContentUpdated(() => {
           <div class="title vp-doc">
             <h1>{{ frontmatter.title }}</h1>
           </div>
-          <Content
-            class="vp-doc"
-            :class="pageName"
-          />
+          <Content class="vp-doc" :class="pageName" />
         </main>
         <slot name="doc-footer-before" />
         <VPDocFooter />
@@ -162,18 +159,21 @@ onContentUpdated(() => {
   width: 100%;
 }
 
-.VPDoc .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.container {
   margin: 0 auto;
   width: 100%;
 }
 
-.VPDoc .content,
-.VPDoc #giscus {
-  max-width: 752px;
+.content {
   padding-bottom: 64px;
+  margin: 0 auto;
+  max-width: 784px;
+}
+
+#giscus {
+  display: block;
+  margin: 0 auto;
+  max-width: 784px;
 }
 
 .aside {
