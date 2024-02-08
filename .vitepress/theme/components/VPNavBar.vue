@@ -38,7 +38,7 @@ const { frontmatter } = useData()
   position: relative;
   border-bottom: 1px solid var(--vp-c-divider-light);
   padding: 0 24px;
-  height: var(--vp-nav-height-mobile);
+  height: var(--vp-nav-height);
   transition: border-color 0.5s, background-color 0.5s;
   pointer-events: none;
 }
@@ -59,7 +59,6 @@ const { frontmatter } = useData()
 
 @media (min-width: 960px) {
   .VPNavBar {
-    height: var(--vp-nav-height-desktop);
     border-bottom: 0;
   }
   .VPNavBar.isHome {

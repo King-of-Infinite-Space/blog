@@ -33,24 +33,10 @@ const { page } = useData()
   display: flex;
   align-items: center;
   padding: 0 12px;
-  line-height: var(--vp-nav-height-mobile);
+  line-height: var(--vp-nav-height);
   font-size: 14px;
   font-weight: 500;
   color: var(--vp-c-text-1);
   transition: color 0.25s;
-}
-/* 
-.VPNavBarMenuLink.active {
-  color: var(--vp-c-brand);
-}
-
-.VPNavBarMenuLink:hover {
-  color: var(--vp-c-brand);
-} */
-
-@media (min-width: 1280px) {
-  .VPNavBarMenuLink {
-    line-height: var(--vp-nav-height-desktop);
-  }
 }
 </style>

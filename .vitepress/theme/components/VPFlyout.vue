@@ -89,32 +89,22 @@ const isHome = computed(() => frontmatter.value.layout === "home")
   display: flex;
   align-items: center;
   padding: 0 12px;
-  height: var(--vp-nav-height-mobile);
+  height: var(--vp-nav-height);
   color: var(--vp-c-text-1);
   transition: color 0.5s;
 }
 
-@media (min-width: 960px) {
-  .button {
-    height: var(--vp-nav-height-desktop);
-  }
-}
 
 .text {
   display: flex;
   align-items: center;
-  line-height: var(--vp-nav-height-mobile);
+  line-height: var(--vp-nav-height);
   font-size: 14px;
   font-weight: 500;
   color: var(--vp-c-text-1);
   transition: color 0.25s;
 }
 
-@media (min-width: 960px) {
-  .text {
-    line-height: var(--vp-nav-height-desktop);
-  }
-}
 
 .isHome .text,
 .isHome .button {
@@ -152,7 +142,7 @@ const isHome = computed(() => frontmatter.value.layout === "home")
 
 .menu {
   position: absolute;
-  top: calc(var(--vp-nav-height-mobile) / 2 + 20px);
+  top: calc(var(--vp-nav-height) / 2 + 20px);
   right: 0;
   opacity: 0;
   visibility: hidden;
@@ -161,16 +151,7 @@ const isHome = computed(() => frontmatter.value.layout === "home")
 
 .isHome .menu {
   top: unset;
-  bottom: calc(var(--vp-nav-height-mobile) / 2 + 20px);
+  bottom: calc(var(--vp-nav-height) / 2 + 20px);
 }
 
-@media (min-width: 960px) {
-  .menu {
-    top: calc(var(--vp-nav-height-desktop) / 2 + 20px);
-  }
-  .isHome .menu {
-    top: unset;
-    bottom: calc(var(--vp-nav-height-desktop) / 2 + 20px);
-  }
-}
 </style>

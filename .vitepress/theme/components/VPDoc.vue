@@ -209,11 +209,11 @@ onContentUpdated(() => {
   position: sticky;
   top: 0;
   margin-top: calc(
-    (var(--vp-nav-height-desktop) + var(--vp-layout-top-height, 0px)) * -1 -
+    (var(--vp-nav-height) + var(--vp-layout-top-height, 0px)) * -1 -
       32px
   );
   padding-top: calc(
-    var(--vp-nav-height-desktop) + var(--vp-layout-top-height, 0px) + 32px
+    var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 32px
   );
   height: 100vh;
   overflow-x: hidden;
@@ -239,7 +239,7 @@ onContentUpdated(() => {
   flex-direction: column;
   min-height: calc(
     100vh -
-      (var(--vp-nav-height-desktop) + var(--vp-layout-top-height, 0px) + 32px)
+      (var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 32px)
   );
   padding-bottom: 32px;
 }
