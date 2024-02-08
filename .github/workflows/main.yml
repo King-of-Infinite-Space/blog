@@ -29,5 +29,5 @@ jobs:
           cp -f .github/workflows/toolConfig.js ../toolRepo/scripts/config.js
           deno run --allow-net --allow-env --allow-read --allow-write ../toolRepo/scripts/fetchPosts.js
           mv -f output/*.md posts/
-          mv -f output/feed.* posts/public/
+          # mv -f output/feed.* posts/public/
           ../toolRepo/scripts/commit.bash
