@@ -32,8 +32,8 @@ posts:
     number: 205
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/205
     createdAt: 2024-02-08T06:22:08Z
-    lastEditedAt: null
-    updatedAt: 2024-02-08T06:22:09Z
+    lastEditedAt: 2024-02-08T06:33:01Z
+    updatedAt: 2024-02-08T06:33:01Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
@@ -41,7 +41,7 @@ posts:
       - 民间哲学
     countZH: 740
     countEN: 200
-    filename: 2402-Cosmos-Compressed
+    filename: 2402-cosmos-compressed
   - title: Show numbers in musical notes in Lilypond
     number: 204
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/204
