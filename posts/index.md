@@ -1,7 +1,7 @@
 ---
 categories:
   - name: 博文
-    count: 50
+    count: 51
 labels:
   - name: 浅词拙句
     count: 14
@@ -17,17 +17,31 @@ labels:
     count: 8
   - name: 外置记忆
     count: 8
+  - name: 说文解字
+    count: 7
   - name: 撷叶拾英
     count: 7
-  - name: 说文解字
-    count: 6
+  - name: 民间哲学
+    count: 2
   - name: 网上冲浪
     count: 2
   - name: 民间科学
     count: 2
-  - name: 民间哲学
-    count: 1
 posts:
+  - title: '"Cosmos Compressed"'
+    number: 205
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/205
+    createdAt: 2024-02-08T06:22:08Z
+    lastEditedAt: null
+    updatedAt: 2024-02-08T06:22:09Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 说文解字
+      - 民间哲学
+    countZH: 740
+    countEN: 200
+    filename: 2402-Cosmos-Compressed
   - title: Show numbers in musical notes in Lilypond
     number: 204
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/204
