@@ -1,5 +1,7 @@
 @import url("https://use.typekit.net/obb3blh.css");
 /* satisfy font from adobe */
+@import "./vars-new.css";
+
 /**
  * Colors Base
  *
@@ -116,18 +118,10 @@
   --vp-c-divider: var(--vp-c-divider-light-1);
   --vp-c-divider-light: var(--vp-c-divider-light-2);
 
-  --vp-c-divider-inverse: var(--vp-c-divider-dark-1);
-  --vp-c-divider-inverse-light: var(--vp-c-divider-dark-2);
-
   --vp-c-text-1: var(--vp-c-text-light-1);
   --vp-c-text-2: var(--vp-c-text-light-2);
   --vp-c-text-3: var(--vp-c-text-light-3);
   --vp-c-text-4: var(--vp-c-text-light-4);
-
-  --vp-c-text-inverse-1: var(--vp-c-text-dark-1);
-  --vp-c-text-inverse-2: var(--vp-c-text-dark-2);
-  --vp-c-text-inverse-3: var(--vp-c-text-dark-3);
-  --vp-c-text-inverse-4: var(--vp-c-text-dark-4);
 
   --vp-c-text-code: var(--vp-c-indigo-soft);
 
@@ -149,18 +143,10 @@
   --vp-c-divider: var(--vp-c-divider-dark-1);
   --vp-c-divider-light: var(--vp-c-divider-dark-2);
 
-  --vp-c-divider-inverse: var(--vp-c-divider-light-1);
-  --vp-c-divider-inverse-light: var(--vp-c-divider-light-2);
-
   --vp-c-text-1: var(--vp-c-text-dark-1);
   --vp-c-text-2: var(--vp-c-text-dark-2);
   --vp-c-text-3: var(--vp-c-text-dark-3);
   --vp-c-text-4: var(--vp-c-text-dark-4);
-
-  --vp-c-text-inverse-1: var(--vp-c-text-light-1);
-  --vp-c-text-inverse-2: var(--vp-c-text-light-2);
-  --vp-c-text-inverse-3: var(--vp-c-text-light-3);
-  --vp-c-text-inverse-4: var(--vp-c-text-light-4);
 
   --vp-c-text-code: var(--vp-c-indigo-lighter);
 }
@@ -250,28 +236,32 @@
   --vp-code-line-height: 1.7;
   --vp-code-font-size: 0.875em;
 
-  --vp-code-block-color: var(--vp-c-text-dark-1);
-  --vp-code-block-bg: #292d3e;
-
-  --vp-code-line-highlight-color: rgba(0, 0, 0, 0.5);
-  --vp-code-line-number-color: var(--vp-c-text-dark-3);
-
-  --vp-code-line-diff-add-color: rgba(125, 191, 123, 0.1);
-  --vp-code-line-diff-add-symbol-color: rgba(125, 191, 123, 0.5);
-
-  --vp-code-line-diff-remove-color: rgba(255, 128, 128, 0.05);
-  --vp-code-line-diff-remove-symbol-color: rgba(255, 128, 128, 0.5);
-
-  --vp-code-line-error-color: var(--vp-c-red-dimm-2);
-  --vp-code-line-warning-color: var(--vp-c-yellow-dimm-2);
-
-  --vp-code-copy-code-hover-bg: rgba(255, 255, 255, 0.05);
-  --vp-code-copy-code-active-text: var(--vp-c-text-dark-2);
-}
-
-.dark {
+  --vp-code-block-color: var(--vp-c-text-2);
   --vp-code-block-bg: var(--vp-c-bg-alt);
+  --vp-code-block-divider-color: var(--vp-c-gutter);
+
+  --vp-code-lang-color: var(--vp-c-text-3);
+
+  --vp-code-line-highlight-color: var(--vp-c-default-soft);
+  --vp-code-line-number-color: var(--vp-c-text-3);
+
+  --vp-code-line-diff-add-color: var(--vp-c-success-soft);
+  --vp-code-line-diff-add-symbol-color: var(--vp-c-success-1);
+
+  --vp-code-line-diff-remove-color: var(--vp-c-danger-soft);
+  --vp-code-line-diff-remove-symbol-color: var(--vp-c-danger-1);
+
+  --vp-code-line-warning-color: var(--vp-c-warning-soft);
+  --vp-code-line-error-color: var(--vp-c-danger-soft);
+
+  --vp-code-copy-code-border-color: var(--vp-c-divider);
+  --vp-code-copy-code-bg: var(--vp-c-bg-soft);
+  --vp-code-copy-code-hover-border-color: var(--vp-c-divider);
+  --vp-code-copy-code-hover-bg: var(--vp-c-bg);
+  --vp-code-copy-code-active-text: var(--vp-c-text-2);
+  --vp-code-copy-copied-text-content: 'Copied';
 }
+
 
 /**
  * Component: Button
@@ -332,54 +322,6 @@
 
   --vp-button-sponsor-border: var(--vp-c-gray-dark-1);
   --vp-button-sponsor-text: var(--vp-c-text-dark-2);
-}
-
-/**
- * Component: Custom Block
- * -------------------------------------------------------------------------- */
-
-:root {
-  --vp-custom-block-code-font-size: 13px;
-
-  --vp-custom-block-info-border: var(--vp-c-divider-light);
-  --vp-custom-block-info-text: var(--vp-c-text-2);
-  --vp-custom-block-info-bg: var(--vp-c-white-soft);
-  --vp-custom-block-info-code-bg: var(--vp-c-gray-light-4);
-
-  --vp-custom-block-tip-border: var(--vp-c-green-dimm-1);
-  --vp-custom-block-tip-text: var(--vp-c-green-darker);
-  --vp-custom-block-tip-bg: var(--vp-c-green-dimm-3);
-  --vp-custom-block-tip-code-bg: var(--vp-custom-block-tip-bg);
-
-  --vp-custom-block-warning-border: var(--vp-c-yellow-dimm-1);
-  --vp-custom-block-warning-text: var(--vp-c-yellow-darker);
-  --vp-custom-block-warning-bg: var(--vp-c-yellow-dimm-3);
-  --vp-custom-block-warning-code-bg: var(--vp-custom-block-warning-bg);
-
-  --vp-custom-block-danger-border: var(--vp-c-red-dimm-1);
-  --vp-custom-block-danger-text: var(--vp-c-red-darker);
-  --vp-custom-block-danger-bg: var(--vp-c-red-dimm-3);
-  --vp-custom-block-danger-code-bg: var(--vp-custom-block-danger-bg);
-
-  --vp-custom-block-details-border: var(--vp-custom-block-info-border);
-  --vp-custom-block-details-text: var(--vp-custom-block-info-text);
-  --vp-custom-block-details-bg: var(--vp-custom-block-info-bg);
-  --vp-custom-block-details-code-bg: var(--vp-custom-block-details-bg);
-}
-
-.dark {
-  --vp-custom-block-info-border: var(--vp-c-divider-light);
-  --vp-custom-block-info-bg: var(--vp-c-black-mute);
-  --vp-custom-block-info-code-bg: var(--vp-c-gray-dark-4);
-
-  --vp-custom-block-tip-border: var(--vp-c-green-dimm-2);
-  --vp-custom-block-tip-text: var(--vp-c-green-light);
-
-  --vp-custom-block-warning-border: var(--vp-c-yellow-dimm-2);
-  --vp-custom-block-warning-text: var(--vp-c-yellow-light);
-
-  --vp-custom-block-danger-border: var(--vp-c-red-dimm-2);
-  --vp-custom-block-danger-text: var(--vp-c-red-light);
 }
 
 /**
