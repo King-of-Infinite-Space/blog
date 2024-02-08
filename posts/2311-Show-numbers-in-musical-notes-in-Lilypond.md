@@ -3,8 +3,8 @@ title: Show numbers in musical notes in Lilypond
 number: 204
 url: https://github.com/King-of-Infinite-Space/thoughts/discussions/204
 createdAt: 2023-11-21T01:45:53Z
-lastEditedAt: null
-updatedAt: 2023-11-21T01:45:54Z
+lastEditedAt: 2024-02-07T23:07:23Z
+updatedAt: 2024-02-07T23:07:23Z
 author: King-of-Infinite-Space
 category: 博文
 labels:
@@ -14,12 +14,12 @@ labels:
 countZH: 0
 countEN: 490
 filename: 2311-Show-numbers-in-musical-notes-in-Lilypond
-_title: Adding note number to staff notation in Lilypond
+_title: Show numbers in musical notes in Lilypond
 _alias: note-head
 _joinLines: "true"
 ---
 
-<!-- _title: Adding note number to staff notation in Lilypond -->
+<!-- _title: Show numbers in musical notes in Lilypond -->
 <!-- _alias: note-head -->
 <!-- _joinLines: true -->
 
@@ -43,64 +43,66 @@ The difference between "absolute" and "relative" is equivalent to the difference
 
 Copy-paste the following code to [Hacklily](https://hacklily.org/) for demo.
 
-    % absolute: 0=C, relative: 0=tonic
-    % change to ##f for absolute numbers
-    relative-number = ##t
+``` lisp
+% absolute: 0=C, relative: 0=tonic
+% change to ##f for absolute numbers
+relative-number = ##t
 
-    #(define Ez_numbers_engraver
-       (make-engraver
-        (acknowledgers
-         ((note-head-interface engraver grob source-engraver)
-          (let* ((context (ly:translator-context engraver))
-             (tonic-pitch (ly:context-property context 'tonic))
-             (tonic-number (ly:pitch-semitones tonic-pitch))
-             (grob-pitch
-              (ly:event-property (event-cause grob) 'pitch))
-             (grob-number (ly:pitch-semitones grob-pitch))
-         (delta (modulo (- grob-number (if relative-number tonic-number 0)) 12))
-             (note-names
-              (make-vector 12 (number->string delta))))
-        (ly:grob-set-property! grob 'note-names note-names))))))
+#(define Ez_numbers_engraver
+   (make-engraver
+    (acknowledgers
+     ((note-head-interface engraver grob source-engraver)
+      (let* ((context (ly:translator-context engraver))
+         (tonic-pitch (ly:context-property context 'tonic))
+         (tonic-number (ly:pitch-semitones tonic-pitch))
+         (grob-pitch
+          (ly:event-property (event-cause grob) 'pitch))
+         (grob-number (ly:pitch-semitones grob-pitch))
+     (delta (modulo (- grob-number (if relative-number tonic-number 0)) 12))
+         (note-names
+          (make-vector 12 (number->string delta))))
+    (ly:grob-set-property! grob 'note-names note-names))))))
 
-    #(set-global-staff-size 36)
+#(set-global-staff-size 36)
 
-    \layout {
-      ragged-right = ##t
-      \context {
-        \Voice
-        \consists \Ez_numbers_engraver
-      }
-    }
-    \markup {
-      \bold Relative (0=tonic)
-    }
-    \markup \vspace #1
-    \markup {
-      C Major
-    }
-    \relative c' {
-      \easyHeadsOn
-      c4 d e f
-      g4 a b c
-    }
-    \markup {
-      A Major
-    }
-    \relative c' {
-      \easyHeadsOn
-      \key a \major
-      a4 b cis d
-      e4 fis gis a
-    }
-    \markup {
-      D Dorian
-    }
-    \relative c' {
-      \easyHeadsOn
-      \key d \dorian
-      d4 e f g
-      a4 b c d
-    }
+\layout {
+  ragged-right = ##t
+  \context {
+    \Voice
+    \consists \Ez_numbers_engraver
+  }
+}
+\markup {
+  \bold Relative (0=tonic)
+}
+\markup \vspace #1
+\markup {
+  C Major
+}
+\relative c' {
+  \easyHeadsOn
+  c4 d e f
+  g4 a b c
+}
+\markup {
+  A Major
+}
+\relative c' {
+  \easyHeadsOn
+  \key a \major
+  a4 b cis d
+  e4 fis gis a
+}
+\markup {
+  D Dorian
+}
+\relative c' {
+  \easyHeadsOn
+  \key d \dorian
+  d4 e f g
+  a4 b c d
+}
+```
 
 [^1]: Such as Carrillo notation mentioned in [this video](https://youtu.be/Eq3bUFgEcb4?si=7Q0ehUXbKAlvp6X9&t=4012), or Jianpu using 12 numbers instead of 7.
 

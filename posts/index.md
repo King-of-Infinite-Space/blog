@@ -32,8 +32,8 @@ posts:
     number: 204
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/204
     createdAt: 2023-11-21T01:45:53Z
-    lastEditedAt: null
-    updatedAt: 2023-11-21T01:45:54Z
+    lastEditedAt: 2024-02-07T23:07:23Z
+    updatedAt: 2024-02-07T23:07:23Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
@@ -43,7 +43,7 @@ posts:
     countZH: 0
     countEN: 490
     filename: 2311-Show-numbers-in-musical-notes-in-Lilypond
-    _title: Adding note number to staff notation in Lilypond
+    _title: Show numbers in musical notes in Lilypond
     _alias: note-head
     _joinLines: "true"
   - title: 2d20/2 (how to average dice rolls)
@@ -253,7 +253,7 @@ posts:
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/189
     createdAt: 2021-11-27T02:03:26Z
     lastEditedAt: 2022-01-01T18:06:03Z
-    updatedAt: 2023-04-23T16:22:46Z
+    updatedAt: 2024-01-22T03:26:41Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
@@ -720,6 +720,5 @@ posts:
     countEN: 280
     filename: 1808-一件深色球衣，二十年的回忆
 layout: home
-title: Blog - the Universe in a Nutshell
 titleTemplate: false
 ---
