@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { useRoute, useData, onContentUpdated } from "vitepress"
-import { computed, provide, ref } from "vue"
-import { useSidebar } from "../composables/sidebar.js"
-import VPDocAside from "./VPDocAside.vue"
-import VPDocFooter from "./VPDocFooter.vue"
-import Giscus from "@giscus/vue"
-import { useFloating, offset, flip } from "@floating-ui/vue"
-import { createLogicalAnd } from "typescript"
+import { useRoute, useData, onContentUpdated } from 'vitepress'
+import { computed, provide, ref, onMounted } from 'vue'
+import { useSidebar } from '../composables/sidebar.js'
+import VPDocAside from './VPDocAside.vue'
+import VPDocFooter from './VPDocFooter.vue'
+import Giscus from '@giscus/vue'
+import { useFloating, offset, flip } from '@floating-ui/vue'
+import { createLogicalAnd } from 'typescript'
 
 const route = useRoute()
 const { hasSidebar, hasAside } = useSidebar()
 
 const pageName = computed(() =>
-  route.path.replace(/[./]+/g, "_").replace(/_html$/, "")
+  route.path.replace(/[./]+/g, '_').replace(/_html$/, '')
 )
 
 const { theme, frontmatter, isDark } = useData()
 const discussionNumber = computed(
-  () => frontmatter.value.number ?? frontmatter.value.url.split("/").pop()
+  () => frontmatter.value.number ?? frontmatter.value.url.split('/').pop()
 )
 const { repo, repoId } = theme.value.giscusOptions
 
@@ -28,52 +28,74 @@ const { floatingStyles } = useFloating(floatingReference, floating, {
   middleware: [offset(8), flip()],
 })
 
+function showPopup(sourceEl) {
+  const footnoteId = sourceEl.id.replace(/^fnref/, 'fn')
+  const footnote = document.getElementById(footnoteId).cloneNode(true)
+  // remove return links
+  footnote.querySelectorAll('a.footnote-backref').forEach((el) => {
+    el.remove()
+  })
+  floatingHTML.value = footnote?.innerHTML
+
+  const content = document.querySelector('.container > .content')
+  floatingReference.value = {
+    getBoundingClientRect() {
+      const contentRect = content.getBoundingClientRect()
+      const aRect = sourceEl.getBoundingClientRect()
+      return {
+        width: contentRect.width,
+        height: aRect.height,
+        x: contentRect.x,
+        y: aRect.y,
+        top: aRect.top,
+        left: contentRect.left,
+        right: contentRect.right,
+        bottom: aRect.bottom,
+      }
+    },
+  }
+}
+
 function enablePopUp() {
-  document.body.addEventListener("click", () => {
+  // click outside to close
+  document.body.addEventListener('click', () => {
     floatingHTML.value = null
   })
   // https://github.com/markdown-it/markdown-it-footnote
 
-  document.querySelectorAll("sup.footnote-ref > a").forEach((el) => {
-    el.setAttribute("href", "#_")
-    // somehow preventDefault doesn't work, use this hack
+  document.querySelectorAll('sup.footnote-ref > a').forEach((el) => {
+    el.setAttribute('href', 'javascript:;')
+    // preventDefault doesn't prevent jumping (probably due to router)
+    // use this hack
 
-    el.addEventListener("click", (ev) => {
+    el.addEventListener('click', (ev) => {
+      console.log('click')
       ev.preventDefault()
       ev.stopPropagation()
-
-      const id = el.id.replace(/^fnref/, "fn")
-      const footnote = document.getElementById(id).cloneNode(true)
-      // remove return links
-      footnote.querySelectorAll("a.footnote-backref").forEach((el) => {
-        el.remove()
-      })
-      floatingHTML.value = footnote?.innerHTML
-
-      const content = document.querySelector(".container > .content")
-      floatingReference.value = {
-        getBoundingClientRect() {
-          const contentRect = content.getBoundingClientRect()
-          const aRect = el.getBoundingClientRect()
-          return {
-            width: contentRect.width,
-            height: aRect.height,
-            x: contentRect.x,
-            y: aRect.y,
-            top: aRect.top,
-            left: contentRect.left,
-            right: contentRect.right,
-            bottom: aRect.bottom,
-          }
-        },
+      // second click to close
+      if (floatingHTML.value) {
+        floatingHTML.value = null
+        return
       }
+      showPopup(el)
     })
+  })
+  window.addEventListener('hashchange', (ev) => {
+    if (ev.newURL.match(/#fnref\d+$/)) {
+      console.log('history replace')
+      window.history.replaceState(null, '', ev.newURL.replace('#fnref', '#fn'))
+      window.history.pushState(null, '', ev.newURL)
+      // make back button jump back to the footnote
+    }
   })
 }
 
-onContentUpdated(() => {
-  console.log("content updated")
+
+onMounted(() => {
+  console.log('mounted')
   enablePopUp()
+  // sometimes back button makes it disabled, but cant reliably reproduce
+  // maybe only in dev mode?
 })
 </script>
 
@@ -209,8 +231,7 @@ onContentUpdated(() => {
   position: sticky;
   top: 0;
   margin-top: calc(
-    (var(--vp-nav-height) + var(--vp-layout-top-height, 0px)) * -1 -
-      32px
+    (var(--vp-nav-height) + var(--vp-layout-top-height, 0px)) * -1 - 32px
   );
   padding-top: calc(
     var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 32px
@@ -238,8 +259,7 @@ onContentUpdated(() => {
   display: flex;
   flex-direction: column;
   min-height: calc(
-    100vh -
-      (var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 32px)
+    100vh - (var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 32px)
   );
   padding-bottom: 32px;
 }
@@ -257,6 +277,7 @@ onContentUpdated(() => {
   background-color: var(--vp-c-bg-soft);
   border: 1.5px solid var(--my-border-color);
   border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 </style>
 <style>
