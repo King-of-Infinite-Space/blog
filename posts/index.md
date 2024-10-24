@@ -1,16 +1,16 @@
 ---
 categories:
   - name: 博文
-    count: 51
+    count: 52
 labels:
   - name: 浅词拙句
-    count: 14
+    count: 15
+  - name: 绿茵故事
+    count: 10
   - name: 赛博空间
     count: 10
   - name: 数理小径
     count: 10
-  - name: 绿茵故事
-    count: 9
   - name: EN
     count: 8
   - name: 好行小慧
@@ -28,6 +28,22 @@ labels:
   - name: 民间科学
     count: 2
 posts:
+  - title: 七绝 for Andrés
+    number: 206
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/206
+    createdAt: 2024-10-24T01:00:28Z
+    lastEditedAt: null
+    updatedAt: 2024-10-24T01:00:28Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 绿茵故事
+      - 浅词拙句
+    countZH: 100
+    countEN: 0
+    filename: 2410-quatrain-for-andres
+    _filename: 2410-quatrain-for-andres
+    _title: 七绝 for Andrés
   - title: '"Cosmos Compressed"'
     number: 205
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/205
