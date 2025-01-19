@@ -1,33 +1,36 @@
 // workflow config for king-of-infinite-space/gh-discussions-export
-import { makeExcerpt, makeFilename, countWordsRounded } from "./utils.js"
+import { makeExcerpt, makeFilename, countWordsRounded } from './utils.js'
 
 function parseHiddenFrontmatter(body) {
-  const bodyLines = body.split("\n")
+  const bodyLines = body.split('\n')
   const frontmatter = {}
   for (const line of bodyLines) {
-    if (line.startsWith("<!--") && line.includes(":")) {
-      const kv = line.trim().slice(4, -3).split(":")
-      let k = kv[0].trim()
-      if (!k[0] == "_") k = "_" + k
-      frontmatter[k] = kv[1].trim()
-    } else {
+    // <!-- key: value --> at the beginning of the file
+    if (!(line.startsWith('<!--') && line.includes(':'))) {
       break
     }
+    const kv = line.trim().slice(4, -3).split(':')
+    let v = kv[1].trim()
+    let k = kv[0].trim()
+    if (!k.startsWith('_')) {
+      k = '_' + k
+    }
+    frontmatter[k] = v
   }
   return frontmatter
 }
 
 export default {
-  sourceRepo: "king-of-infinite-space/thoughts",
+  sourceRepo: 'king-of-infinite-space/thoughts',
   // in format of 'owner/repo'
   // if empty, will try to use env var GITHUB_REPOSITORY (e.g. provided by GitHub Actions)
-  categoriesWhitelist: ["博文"],
+  categoriesWhitelist: ['博文'],
   authorsWhitelist: [],
   // if empty, all are allowed
 
-  outputDir: "output",
+  outputDir: 'output',
   // relative to current working directory
-  postSubDir: "",
+  postSubDir: '',
   // relative to outputDir
   generateIndex: true,
   // whether to generate index.md (a list of posts and labels)
@@ -39,34 +42,42 @@ export default {
   generateRssFeed: false,
   // whether to generate feed
 
-  formatFilename: post => {
-    return post.filename
+  formatFilename: (post) => {
+    const hiddenFm = parseHiddenFrontmatter(post.body)
+    return hiddenFm._filename || makeFilename(post)
   },
 
-  formatPostBody: post => {
+  formatPostBody: (post) => {
     // main content to write to md
     return post.body
   },
 
-  extraFrontmatterPost: post => {
+  extraFrontmatterPost: (post) => {
+    // add entries to post frontmatter
     const wordCounts = countWordsRounded(post.bodyText)
     const hiddenFm = parseHiddenFrontmatter(post.body)
-    return {
-      // add entries to post frontmatter
+    // hidden frontmatter keys start with _
+    const extraFrontmatter = {
+      // excerpt: makeExcerpt(post.bodyText),
       countZH: wordCounts.zh,
       countEN: wordCounts.en,
-      // excerpt: makeExcerpt(post.bodyText),
       filename: hiddenFm._filename || makeFilename(post),
-      // this is used as href !!!
-      ...hiddenFm
+      // filename is used as href !!!
+      // ...hiddenFm
     }
+    if (post.labels.some((label) => label.includes('浅词拙句'))) {
+      extraFrontmatter.fontFamily = 'serif'
+    }
+
+    return extraFrontmatter
   },
 
-  extraFrontmatterIndex: metadata => {
+  extraFrontmatterIndex: (metadata) => {
     return {
       // add entries to index.md frontmatter (e.g. layout)
-      layout: "home",
+      layout: 'home',
       titleTemplate: false,
+      fontFamily: 'serif',
     }
   },
 }
