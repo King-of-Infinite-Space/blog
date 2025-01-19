@@ -46,7 +46,7 @@ const { hasSidebar } = useSidebar()
   font-weight: 600;
   color: var(--my-gray-50);
   transition: opacity 0.25s;
-  font-family: var(--font-banner);
+  font-family: var(--font-cursive);
 }
 
 .title:hover {

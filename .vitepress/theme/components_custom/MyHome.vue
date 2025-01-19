@@ -183,10 +183,9 @@ margin-percent = 10%
   width 100%
   padding-left margin-percent*1.5
   padding-right margin-percent
-  font-family var(--font-song)
 
 .banner
-  font-family var(--font-banner)
+  font-family var(--font-cursive)
   margin 54px 0 48px
   color var(--my-gray-60)
   font-size 36px

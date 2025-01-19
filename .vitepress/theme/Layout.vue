@@ -26,7 +26,7 @@ const { frontmatter } = useData()
   <div
     v-if="frontmatter.layout !== false"
     class="Layout"
-    :class="{ isHome: frontmatter.layout === 'home' }"
+    :class="{ isHome: frontmatter.layout === 'home', 'font-serif': frontmatter.fontFamily === 'serif' }"
   >
     <slot name="layout-top" />
     <VPNav>
