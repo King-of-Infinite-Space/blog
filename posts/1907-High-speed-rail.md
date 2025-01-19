@@ -13,6 +13,7 @@ labels:
 countZH: 0
 countEN: 50
 filename: 1907-High-speed-rail
+fontFamily: serif
 ---
 
 "Speed up, speed up!

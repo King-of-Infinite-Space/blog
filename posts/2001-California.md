@@ -13,6 +13,7 @@ labels:
 countZH: 690
 countEN: 110
 filename: 2001-California
+fontFamily: serif
 ---
 
 云出于岫谷，泉水滴自石隙

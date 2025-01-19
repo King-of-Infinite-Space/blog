@@ -13,7 +13,6 @@ labels:
 countZH: 910
 countEN: 0
 filename: 2307-namesake
-_filename: 2307-namesake
 ---
 
 <!-- _filename: 2307-namesake -->

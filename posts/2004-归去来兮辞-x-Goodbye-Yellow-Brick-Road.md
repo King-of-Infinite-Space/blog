@@ -13,6 +13,7 @@ labels:
 countZH: 270
 countEN: 250
 filename: 2004-归去来兮辞-x-Goodbye-Yellow-Brick-Road
+fontFamily: serif
 ---
 
 注：*Goodbye Yellow Brick Road*是Elton John的一首歌（Keane的翻唱也不错），听到的时候感觉其歌词和陶渊明的《归去来兮辞》异曲同工，于是强行把歌词换成了归去来兮辞来唱。当然，个别地方字数对不太上，希望无伤大雅。

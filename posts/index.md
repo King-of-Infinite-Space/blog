@@ -42,8 +42,7 @@ posts:
     countZH: 100
     countEN: 0
     filename: 2410-quatrain-for-andres
-    _filename: 2410-quatrain-for-andres
-    _title: 七绝 for Andrés
+    fontFamily: serif
   - title: '"Cosmos Compressed"'
     number: 205
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/205
@@ -73,9 +72,6 @@ posts:
     countZH: 0
     countEN: 490
     filename: 2311-Show-numbers-in-musical-notes-in-Lilypond
-    _title: Show numbers in musical notes in Lilypond
-    _alias: note-head
-    _joinLines: "true"
   - title: 2d20/2 (how to average dice rolls)
     number: 203
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/203
@@ -91,8 +87,6 @@ posts:
     countZH: 0
     countEN: 1010
     filename: 2308-d20
-    _filename: 2308-d20
-    _joinLines: "true"
   - title: 与历史人物同名的人数
     number: 202
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/202
@@ -107,7 +101,6 @@ posts:
     countZH: 910
     countEN: 0
     filename: 2307-namesake
-    _filename: 2307-namesake
   - title: 开源古文BERT模型比较
     number: 201
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/201
@@ -136,6 +129,7 @@ posts:
     countZH: 70
     countEN: 0
     filename: 2304-夏日五律习作
+    fontFamily: serif
   - title: ChatGPT talking like Marvin the Paranoid Android
     number: 199
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/199
@@ -193,6 +187,7 @@ posts:
     countZH: 470
     countEN: 110
     filename: 2207-映像-Reflections-(试译)
+    fontFamily: serif
   - title: 互为妹夫？汉语里的对称称呼
     number: 195
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/195
@@ -235,6 +230,7 @@ posts:
     countZH: 120
     countEN: 0
     filename: 2201-初中生的绝句
+    fontFamily: serif
   - title: 倒行
     number: 192
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/192
@@ -250,6 +246,7 @@ posts:
     countZH: 1990
     countEN: 0
     filename: 2112-倒行
+    fontFamily: serif
   - title: Calculating the proportions of mixed nuts
     number: 191
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/191
@@ -332,6 +329,7 @@ posts:
     countZH: 210
     countEN: 0
     filename: 2111-秋日绝句
+    fontFamily: serif
   - title: 清明上河图
     number: 184
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/184
@@ -345,6 +343,7 @@ posts:
     countZH: 300
     countEN: 0
     filename: 2110-清明上河图
+    fontFamily: serif
   - title: 或许应该去公园
     number: 183
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/183
@@ -358,6 +357,7 @@ posts:
     countZH: 170
     countEN: 0
     filename: 2109-或许应该去公园
+    fontFamily: serif
   - title: 拍手游戏“枪版money”规则
     number: 182
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/182
@@ -452,6 +452,7 @@ posts:
     countZH: 90
     countEN: 0
     filename: 2103-广场上的鸽子
+    fontFamily: serif
   - title: 仿生人会摊电子饼吗？📱
     number: 174
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/174
@@ -478,6 +479,7 @@ posts:
     countZH: 120
     countEN: 0
     filename: 2012-无题
+    fontFamily: serif
   - title: 《是但求其爱》歌词断句的理解
     number: 172
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/172
@@ -531,6 +533,7 @@ posts:
     countZH: 540
     countEN: 0
     filename: 2009-永遇乐-怀巴萨
+    fontFamily: serif
   - title: 从吊射到无尾猫
     number: 168
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/168
@@ -586,6 +589,7 @@ posts:
     countZH: 270
     countEN: 250
     filename: 2004-归去来兮辞-x-Goodbye-Yellow-Brick-Road
+    fontFamily: serif
   - title: 闲散颂 罗素/ In Praise of Idleness (by Bertrand Russel)
     number: 164
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/164
@@ -627,6 +631,7 @@ posts:
     countZH: 690
     countEN: 110
     filename: 2001-California
+    fontFamily: serif
   - title: 利物浦奇遇记
     number: 161
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/161
@@ -654,6 +659,7 @@ posts:
     countZH: 0
     countEN: 40
     filename: 2001-For-Stephen
+    fontFamily: serif
   - title: 欧冠淘汰赛抽签模拟
     number: 159
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/159
@@ -709,6 +715,7 @@ posts:
     countZH: 0
     countEN: 50
     filename: 1907-High-speed-rail
+    fontFamily: serif
   - title: 生活中各种矩形的长宽比
     number: 154
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/154
@@ -751,4 +758,5 @@ posts:
     filename: 1808-一件深色球衣，二十年的回忆
 layout: home
 titleTemplate: false
+fontFamily: serif
 ---

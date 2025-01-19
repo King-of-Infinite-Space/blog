@@ -13,8 +13,7 @@ labels:
 countZH: 100
 countEN: 0
 filename: 2410-quatrain-for-andres
-_filename: 2410-quatrain-for-andres
-_title: 七绝 for Andrés
+fontFamily: serif
 ---
 
 <!-- _filename: 2410-quatrain-for-andres -->

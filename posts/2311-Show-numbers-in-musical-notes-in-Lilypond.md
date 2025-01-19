@@ -14,9 +14,6 @@ labels:
 countZH: 0
 countEN: 490
 filename: 2311-Show-numbers-in-musical-notes-in-Lilypond
-_title: Show numbers in musical notes in Lilypond
-_alias: note-head
-_joinLines: "true"
 ---
 
 <!-- _title: Show numbers in musical notes in Lilypond -->
