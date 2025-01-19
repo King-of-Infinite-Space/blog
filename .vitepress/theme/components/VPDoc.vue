@@ -29,9 +29,10 @@ const { floatingStyles } = useFloating(floatingReference, floating, {
 })
 
 function showPopup(sourceEl) {
-  const footnoteId = sourceEl.id.replace(/^fnref/, 'fn')
+  // fnref2, fnref2:1
+  const footnoteId = sourceEl.id.replace('fnref', 'fn').split(':')[0]
   const footnote = document.getElementById(footnoteId).cloneNode(true)
-  // remove return links
+  // remove return links in the clone
   footnote.querySelectorAll('a.footnote-backref').forEach((el) => {
     el.remove()
   })
@@ -56,6 +57,12 @@ function showPopup(sourceEl) {
   }
 }
 
+function changeRefText() {
+  document.querySelectorAll('sup.footnote-ref > a').forEach((el) => {
+      el.textContent = el.textContent.replace(/:\d+/, '')
+  })
+} 
+
 function enablePopUp() {
   // click outside to close
   document.body.addEventListener('click', () => {
@@ -69,7 +76,7 @@ function enablePopUp() {
     // use this hack
 
     el.addEventListener('click', (ev) => {
-      console.log('click')
+      // console.log('click')
       ev.preventDefault()
       ev.stopPropagation()
       // second click to close
@@ -92,7 +99,8 @@ function enablePopUp() {
 
 
 onMounted(() => {
-  console.log('mounted')
+  // console.log('mounted')
+  changeRefText()
   enablePopUp()
   // sometimes back button makes it disabled, but cant reliably reproduce
   // maybe only in dev mode?
