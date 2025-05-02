@@ -1,7 +1,7 @@
 ---
 categories:
   - name: 博文
-    count: 52
+    count: 53
 labels:
   - name: 浅词拙句
     count: 15
@@ -21,13 +21,27 @@ labels:
     count: 7
   - name: 撷叶拾英
     count: 7
+  - name: 民间科学
+    count: 3
   - name: 民间哲学
-    count: 2
+    count: 3
   - name: 网上冲浪
     count: 2
-  - name: 民间科学
-    count: 2
 posts:
+  - title: 语言速率
+    number: 207
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/207
+    createdAt: 2025-05-02T22:30:53Z
+    lastEditedAt: null
+    updatedAt: 2025-05-02T22:30:54Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 民间科学
+      - 民间哲学
+    countZH: 1710
+    countEN: 210
+    filename: 2505-language-rate
   - title: 七绝 for Andrés
     number: 206
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/206
@@ -48,7 +62,7 @@ posts:
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/205
     createdAt: 2024-02-08T06:22:08Z
     lastEditedAt: 2024-02-08T06:33:01Z
-    updatedAt: 2024-02-08T06:33:01Z
+    updatedAt: 2025-03-15T04:30:49Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
