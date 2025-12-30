@@ -57,11 +57,6 @@ function showPopup(sourceEl) {
   }
 }
 
-function changeRefText() {
-  document.querySelectorAll('sup.footnote-ref > a').forEach((el) => {
-      el.textContent = el.textContent.replace(/:\d+/, '')
-  })
-} 
 
 function enablePopUp() {
   // click outside to close
@@ -100,7 +95,6 @@ function enablePopUp() {
 
 onMounted(() => {
   // console.log('mounted')
-  changeRefText()
   enablePopUp()
   // sometimes back button makes it disabled, but cant reliably reproduce
   // maybe only in dev mode?
