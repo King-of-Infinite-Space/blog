@@ -3,8 +3,8 @@ title: 猫头鹰头猫
 number: 208
 url: https://github.com/King-of-Infinite-Space/thoughts/discussions/208
 createdAt: 2025-12-30T16:40:03Z
-lastEditedAt: null
-updatedAt: 2025-12-30T16:40:03Z
+lastEditedAt: 2025-12-30T16:48:04Z
+updatedAt: 2025-12-30T16:48:04Z
 author: King-of-Infinite-Space
 category: 博文
 labels:
@@ -29,7 +29,7 @@ filename: 2512-owlcat
 
 
 
-这可不就是「猫头鹰头猫」吗。Owlcat之名应该也借鉴了DnD里的物种Owlbear[^^bear]。如何翻译？猫头鹰头熊？其实它有维基百科词条——[鸮熊](https://zh.wikipedia.org/wiki/%E9%B4%9E%E7%86%8A)。
+这可不就是「猫头鹰头猫」吗。Owlcat之名应该也借鉴了DnD里的物种Owlbear[^(bear)]。如何翻译？猫头鹰头熊？其实它有维基百科词条——[鸮熊](https://zh.wikipedia.org/wiki/%E9%B4%9E%E7%86%8A)。
 
 Baldur's Gate 3里的鸮熊幼崽：
 <img src="https://cdn.jsdelivr.net/gh/King-of-Infinite-Space/image-host/2025/20251231002954.png" width="200px">
@@ -40,6 +40,6 @@ Baldur's Gate 3里的鸮熊幼崽：
 鸮猫和鸮熊之后，下边这个鬼东西又该如何称名？
 <img src="https://cdn.jsdelivr.net/gh/King-of-Infinite-Space/image-host/2025/Screenshot_20251230_194824_Duolingo_crop.jpg" width="200px">
 
-[^^bear]: 碰巧对应了另一个动物buff法术Bear's Endurance (+Constitution)。其余三个是Bull's Strength (+Strength), Fox's Cunning (+Intelligence), Eagle's Splendor (+Charisma)。
+[^(bear)]: 碰巧对应了另一个动物buff法术Bear's Endurance (+Constitution)。其余三个是Bull's Strength (+Strength), Fox's Cunning (+Intelligence), Eagle's Splendor (+Charisma)。
 
 <img src="https://count.lnfinite.space/post/2512-owlcat.svg?plus=1" width="0" height="0"/>

@@ -32,8 +32,8 @@ posts:
     number: 208
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/208
     createdAt: 2025-12-30T16:40:03Z
-    lastEditedAt: null
-    updatedAt: 2025-12-30T16:40:03Z
+    lastEditedAt: 2025-12-30T16:48:04Z
+    updatedAt: 2025-12-30T16:48:04Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
