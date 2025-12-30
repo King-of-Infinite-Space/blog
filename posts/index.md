@@ -1,7 +1,7 @@
 ---
 categories:
   - name: 博文
-    count: 53
+    count: 54
 labels:
   - name: 浅词拙句
     count: 15
@@ -11,14 +11,14 @@ labels:
     count: 10
   - name: 数理小径
     count: 10
-  - name: EN
-    count: 8
   - name: 好行小慧
+    count: 9
+  - name: 说文解字
+    count: 8
+  - name: EN
     count: 8
   - name: 外置记忆
     count: 8
-  - name: 说文解字
-    count: 7
   - name: 撷叶拾英
     count: 7
   - name: 民间科学
@@ -28,6 +28,20 @@ labels:
   - name: 网上冲浪
     count: 2
 posts:
+  - title: 猫头鹰头猫
+    number: 208
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/208
+    createdAt: 2025-12-30T16:40:03Z
+    lastEditedAt: null
+    updatedAt: 2025-12-30T16:40:03Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 说文解字
+      - 好行小慧
+    countZH: 220
+    countEN: 40
+    filename: 2512-owlcat
   - title: 语言速率
     number: 207
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/207
