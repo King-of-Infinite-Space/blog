@@ -9,8 +9,8 @@ function render_footnote_caption(tokens, idx, options, env, slf) {
   let n = Number(tokens[idx].meta.id + 1).toString()
   //   if (tokens[idx].meta.subId > 0) n += `:${tokens[idx].meta.subId}`
 
-  if (tokens[idx].meta.label.charCodeAt(0) === 0x5e /* ^ */) {
-    n = tokens[idx].meta.label.slice(1)
+  if (tokens[idx].meta.label.at(0) === '(' && tokens[idx].meta.label.at(-1) === ')') {
+    n = tokens[idx].meta.label.slice(1, -1)
   }
 
   return `[${n}]`
