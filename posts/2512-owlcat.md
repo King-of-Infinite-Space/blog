@@ -3,8 +3,8 @@ title: 猫头鹰头猫
 number: 208
 url: https://github.com/King-of-Infinite-Space/thoughts/discussions/208
 createdAt: 2025-12-30T16:40:03Z
-lastEditedAt: 2026-01-09T14:08:49Z
-updatedAt: 2026-01-09T14:08:49Z
+lastEditedAt: 2026-01-09T14:10:08Z
+updatedAt: 2026-01-09T14:10:08Z
 author: King-of-Infinite-Space
 category: 博文
 labels:
@@ -42,7 +42,7 @@ Baldur's Gate 3里的鸮熊幼崽：
 鸮猫和鸮熊之后，下边这个鬼东西又该如何称名？
 <img src="https://cdn.jsdelivr.net/gh/King-of-Infinite-Space/image-host/2025/Screenshot_20251230_194824_Duolingo_crop.jpg" width="200px">
 
-[^1]: 希腊的雅典娜，罗马的密涅瓦。某种小型猫头鹰的学名就是Athene noctua ([Little owl - Wikipedia](https://en.wikipedia.org/wiki/Little_owl))。另有奥地利电脑配件厂商名为Noctua，主营静音风扇，在这些象征之外还有像猫头鹰般安静飞行的含义 ([source](https://www.noctua.at/en/did-you-know))。
+[^1]: 希腊的雅典娜，罗马的密涅瓦。某种小型猫头鹰的学名就是Athene noctua ([Little owl - Wikipedia](https://en.wikipedia.org/wiki/Little_owl))。另有奥地利电脑配件厂商名为Noctua，主营静音风扇，在文化象征之外还有像猫头鹰般安静飞行的含义 ([source](https://www.noctua.at/en/did-you-know))。
 
 [^(bear)]: 碰巧对应了另一个动物buff法术Bear's Endurance (+Constitution)。其余三个是Bull's Strength (+Strength), Fox's Cunning (+Intelligence), Eagle's Splendor (+Charisma)。
 
