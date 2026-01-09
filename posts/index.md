@@ -32,15 +32,15 @@ posts:
     number: 208
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/208
     createdAt: 2025-12-30T16:40:03Z
-    lastEditedAt: 2025-12-30T16:48:04Z
-    updatedAt: 2025-12-30T16:48:04Z
+    lastEditedAt: 2026-01-09T14:08:49Z
+    updatedAt: 2026-01-09T14:08:49Z
     author: King-of-Infinite-Space
     category: 博文
     labels:
       - 说文解字
       - 好行小慧
-    countZH: 220
-    countEN: 40
+    countZH: 300
+    countEN: 50
     filename: 2512-owlcat
   - title: 语言速率
     number: 207
