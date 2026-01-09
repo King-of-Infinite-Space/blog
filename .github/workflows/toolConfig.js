@@ -10,8 +10,8 @@ function parseHiddenFrontmatter(body) {
       break
     }
     const kv = line.trim().slice(4, -3).split(':')
-    let v = kv[1].trim()
     let k = kv[0].trim()
+    let v = kv[1].trim()
     if (!k.startsWith('_')) {
       k = '_' + k
     }
@@ -67,6 +67,8 @@ export default {
     }
     if (post.labels.some((label) => label.includes('浅词拙句'))) {
       extraFrontmatter.fontFamily = 'serif'
+    } else if (hiddenFm._fontFamily) {
+      extraFrontmatter.fontFamily = hiddenFm._fontFamily
     }
 
     return extraFrontmatter
