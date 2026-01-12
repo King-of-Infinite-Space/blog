@@ -1,10 +1,10 @@
 ---
 categories:
   - name: 博文
-    count: 54
+    count: 55
 labels:
   - name: 浅词拙句
-    count: 15
+    count: 16
   - name: 绿茵故事
     count: 10
   - name: 赛博空间
@@ -13,14 +13,14 @@ labels:
     count: 10
   - name: 好行小慧
     count: 9
+  - name: 撷叶拾英
+    count: 8
   - name: 说文解字
     count: 8
   - name: EN
     count: 8
   - name: 外置记忆
     count: 8
-  - name: 撷叶拾英
-    count: 7
   - name: 民间科学
     count: 3
   - name: 民间哲学
@@ -28,6 +28,21 @@ labels:
   - name: 网上冲浪
     count: 2
 posts:
+  - title: 再见康桥
+    number: 209
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/209
+    createdAt: 2026-01-12T09:43:50Z
+    lastEditedAt: null
+    updatedAt: 2026-01-12T09:43:50Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 撷叶拾英
+      - 浅词拙句
+    countZH: 1340
+    countEN: 0
+    filename: 2601-bye-bye-cambridge
+    fontFamily: serif
   - title: 猫头鹰头猫
     number: 208
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/208
