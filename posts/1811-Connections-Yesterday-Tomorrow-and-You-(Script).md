@@ -3,22 +3,22 @@ title: "Connections: Yesterday, Tomorrow and You (Script)"
 number: 153
 url: https://github.com/King-of-Infinite-Space/thoughts/discussions/153
 createdAt: 2018-11-05T13:43:09Z
-lastEditedAt: 2022-10-30T04:42:44Z
-updatedAt: 2022-12-29T02:16:17Z
+lastEditedAt: 2026-04-12T04:43:24Z
+updatedAt: 2026-04-12T04:43:24Z
 author: King-of-Infinite-Space
 category: 博文
 labels:
   - 撷叶拾英
   - EN
 countZH: 0
-countEN: 7380
+countEN: 7390
 filename: 1811-Connections-Yesterday-Tomorrow-and-You-(Script)
 ---
 
-_This is the script of the final episode "Yesterday, Tomorrow and You" of the 10-episode documentary series "Connections" by James Burke in 1978. This episode gives a thought-provoking discussion on the profound consequences of progress which is led by advances in science and technology, and our attitudes towards it._ 
+_This is the script of the final episode "Yesterday, Tomorrow and You" of the 10-episode documentary series "Connections" written and presented by science historian James Burke and produced by BBC in 1978. This episode gave a thought-provoking discussion on the profound consequences of progress led by advances in science and technology, and our attitudes towards it._ 
 
 _More info about the series: [Wikipedia](https://en.wikipedia.org/wiki/Connections_(TV_series)) / [Douban](https://movie.douban.com/subject/1855736/) / [IMDb](https://www.imdb.com/title/tt0818344/)_
-_To watch: [Bilibili](https://www.bilibili.com/video/av30192067/?p=10) / [Archive](https://archive.org/details/james-burke-connections_s01e10)_
+_To watch: [Archive](https://archive.org/details/james-burke-connections_s01e10)_
 _Script adapted from subtitles downloaded from [opensubtitles](https://www.opensubtitles.org/en/search/sublanguageid-all/imdbid-818344), paragraphed and proofread by me, but may still contain errors._
 _Word count: ~7000_
 
