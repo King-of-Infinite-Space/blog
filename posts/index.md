@@ -1,23 +1,23 @@
 ---
 categories:
   - name: 博文
-    count: 55
+    count: 56
 labels:
   - name: 浅词拙句
     count: 16
-  - name: 绿茵故事
-    count: 10
   - name: 赛博空间
+    count: 11
+  - name: 绿茵故事
     count: 10
   - name: 数理小径
     count: 10
+  - name: EN
+    count: 9
   - name: 好行小慧
     count: 9
   - name: 撷叶拾英
     count: 8
   - name: 说文解字
-    count: 8
-  - name: EN
     count: 8
   - name: 外置记忆
     count: 8
@@ -28,6 +28,20 @@ labels:
   - name: 网上冲浪
     count: 2
 posts:
+  - title: Fluidware
+    number: 210
+    url: https://github.com/King-of-Infinite-Space/thoughts/discussions/210
+    createdAt: 2026-05-18T00:13:24Z
+    lastEditedAt: null
+    updatedAt: 2026-05-18T00:13:24Z
+    author: King-of-Infinite-Space
+    category: 博文
+    labels:
+      - 赛博空间
+      - EN
+    countZH: 0
+    countEN: 380
+    filename: 2605-fluidware
   - title: 再见康桥
     number: 209
     url: https://github.com/King-of-Infinite-Space/thoughts/discussions/209
